@@ -1,0 +1,29 @@
+{
+    "name": "rankflow-ui",
+    "version": "0.1.11",
+    "description": "A CLI to add beautiful, animated components to your React project.",
+    "bin": {
+        "rankflow-ui": "index.js"
+    },
+    "type": "module",
+    "files": [
+        "index.js",
+        "README.md"
+    ],
+    "keywords": [
+        "react",
+        "tailwind",
+        "components",
+        "ui",
+        "cli"
+    ],
+    "author": "Aditya S",
+    "license": "MIT",
+    "dependencies": {
+        "@clack/prompts": "^0.7.0",
+        "commander": "^11.1.0",
+        "node-fetch": "^3.3.2",
+        "picocolors": "^1.0.0",
+        "fs-extra": "^11.2.0"
+    }
+}
