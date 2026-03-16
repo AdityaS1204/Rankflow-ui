@@ -25,10 +25,10 @@ export const GlowButton = ({
 
     return (
         <button 
-          className={`hover:opacity-[0.90] rounded-[1.1rem] border font-extralight relative overflow-hidden text-white transition-all after:absolute after:content-[''] after:inset-0 after:[box-shadow:0_0_15px_-1px_#ffffff90_inset] after:rounded-[1rem] before:absolute before:content-[''] before:inset-0 before:rounded-[1rem] flex items-center before:z-20 after:z-10 ${variantStyles[variant] || variantStyles.orange} ${className}`}
+          className={`hover:opacity-[0.90] rounded-2xl border font-extralight relative overflow-hidden text-white transition-all after:absolute after:content-[''] after:inset-0 after:[box-shadow:0_0_15px_-1px_#ffffff90_inset] after:rounded-2xl before:absolute before:content-[''] before:inset-0 before:rounded-2xl flex items-center before:z-20 after:z-10 ${variantStyles[variant] || variantStyles.orange} ${className}`}
           {...props}
         >
-            <div className="flex items-center gap-2 border-r border-[#fff]/40 px-4 py-3 z-0">
+            <div className="flex items-center gap-2 border-r border-white/40 px-4 py-3 z-0">
                 <FileTextIcon className='w-5 h-5' />
                 <p className="text-sm font-medium">{children}</p>
             </div>
