@@ -3,10 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+import { SpotlightCard } from "@/registry/spotlight-card";
+import { GlowButton } from "@/registry/glow-button";
 import { AnimatedBorderButton } from "@/registry/animated-border";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
-// ── Live previews of available components ─────────────────────────────────
+import { Marquee } from "@/registry/marquee";
+
+// Live previews of available components 
 
 function AnimatedBorderPreview() {
   return (
@@ -14,6 +18,94 @@ function AnimatedBorderPreview() {
       <AnimatedBorderButton color="var(--primary)" duration={3}>
         Rankflow UI
       </AnimatedBorderButton>
+    </div>
+  );
+}
+
+function TestimonialCard({ name, role, content, avatar }: { name: string, role: string, content: string, avatar: string }) {
+  return (
+    <div className="flex flex-col gap-3 p-4 w-64 bg-zinc-900/50 border border-zinc-800 rounded-xl">
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
+          {avatar}
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-zinc-200">{name}</p>
+          <p className="text-[10px] text-zinc-500">{role}</p>
+        </div>
+      </div>
+      <p className="text-[11px] text-zinc-400 leading-relaxed line-clamp-2">
+        {content}
+      </p>
+    </div>
+  );
+}
+
+function MarqueePreview() {
+  const testimonials = [
+    { name: "Alex Rivera", role: "Frontend Lead", content: "The best UI library I've used in years. Period.", avatar: "AR" },
+    { name: "Sarah Chen", role: "Product Designer", content: "Animations are buttery smooth. Setup took seconds.", avatar: "SC" },
+    { name: "James Wilson", role: "CTO @ TechFlow", content: "Cleanest codebase I've seen in a registry-style library.", avatar: "JW" },
+    { name: "Leo Zhang", role: "Indie Hacker", content: "RankFlow saved me at least 40 hours of work.", avatar: "LZ" },
+  ];
+
+  return (
+    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950/50 p-6">
+      <Marquee speed={40} className="[--gap:1.5rem]">
+        {testimonials.map((t, i) => (
+          <TestimonialCard key={i} {...t} />
+        ))}
+      </Marquee>
+      <Marquee reverse speed={30} className="[--gap:1.5rem]">
+        {testimonials.map((t, i) => (
+          <TestimonialCard key={i} {...t} />
+        ))}
+      </Marquee>
+      
+      {/* Gradients to fade edges */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-zinc-950/50"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-zinc-950/50"></div>
+    </div>
+  );
+}
+
+function SpotlightPreview() {
+  return (
+    <div className="flex items-center justify-center p-6 bg-zinc-950/50 rounded-lg border border-zinc-800 h-full w-full">
+      <SpotlightCard className="w-64 h-32">
+        <div className="p-6 h-full flex flex-col justify-center">
+          <span className="text-foreground/80 text-sm font-medium">Spotlight Effect</span>
+        </div>
+      </SpotlightCard>
+    </div>
+  );
+}
+
+function GlowButtonPreview() {
+  const [variant, setVariant] = useState<'orange' | 'red' | 'blue' | 'green'>('orange');
+  const colors = [
+    { name: 'orange', class: 'bg-[#DE732C]' },
+    { name: 'red', class: 'bg-[#ff0000]' },
+    { name: 'blue', class: 'bg-[#126fff]' },
+    { name: 'green', class: 'bg-[#176635]' },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-8 h-full w-full p-6 bg-zinc-950/50 rounded-lg border border-zinc-800">
+      <GlowButton variant={variant}>
+        Interactive Glow
+      </GlowButton>
+
+      <div className="flex gap-3 p-2 bg-zinc-900/50 rounded-full border border-zinc-800">
+        {colors.map((c) => (
+          <button
+            key={c.name}
+            onClick={() => setVariant(c.name as any)}
+            className={`w-5 h-5 rounded-full border border-white/10 transition-transform hover:scale-125 ${c.class} ${variant === c.name ? 'ring-2 ring-white ring-offset-2 ring-offset-black scale-110' : ''
+              }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -30,14 +122,10 @@ const components = [
   {
     id: "marquee",
     name: "Marquee",
-    description: "Infinitely scrolling horizontal ticker for logos, text, or any content.",
+    description: "Infinitely scrolling horizontal ticker for professional testimonials or logos.",
     tags: ["Motion", "Display"],
     href: "#",
-    preview: (
-      <div className="flex items-center justify-center p-12 bg-zinc-950/50 rounded-lg border border-zinc-800 text-zinc-500 text-sm">
-        Preview coming soon
-      </div>
-    ),
+    preview: <MarqueePreview />,
   },
   {
     id: "spotlight",
@@ -45,23 +133,15 @@ const components = [
     description: "A card that follows the cursor with a radiant spotlight hover effect.",
     tags: ["Card", "Interactive"],
     href: "#",
-    preview: (
-      <div className="flex items-center justify-center p-12 bg-zinc-950/50 rounded-lg border border-zinc-800 text-zinc-500 text-sm">
-        Preview coming soon
-      </div>
-    ),
+    preview: <SpotlightPreview />,
   },
   {
-    id: "magnetic",
-    name: "Magnetic Icon",
-    description: "An interactive icon that attracts the cursor within a specific range.",
-    tags: ["Interaction", "Physics"],
+    id: "glow-button",
+    name: "Glow Button",
+    description: "A vibrant button with a deep neon glow and customizable color variants.",
+    tags: ["Button", "Neon", "Glow"],
     href: "#",
-    preview: (
-      <div className="flex items-center justify-center p-12 bg-zinc-950/50 rounded-lg border border-zinc-800 text-zinc-500 text-sm">
-        Preview coming soon
-      </div>
-    ),
+    preview: <GlowButtonPreview />,
   },
 ];
 
@@ -71,7 +151,7 @@ export default function ComponentsShowcase() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24 min-h-[600px]">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-        
+
         {/* Left: Interactive List */}
         <div className="flex-1">
           <motion.div
@@ -98,22 +178,19 @@ export default function ComponentsShowcase() {
               >
                 <div className="relative z-10 flex flex-col gap-1">
                   <div className="flex items-center gap-3">
-                    <h3 className={`text-xl font-semibold transition-all duration-300 ${
-                      hoveredId === comp.id ? "text-primary translate-x-2" : "text-zinc-400"
-                    }`}>
+                    <h3 className={`text-xl font-semibold transition-all duration-300 ${hoveredId === comp.id ? "text-primary translate-x-2" : "text-zinc-400"
+                      }`}>
                       {comp.name}
                     </h3>
                   </div>
-                  <p className={`text-sm transition-opacity duration-300 max-w-md ${
-                    hoveredId === comp.id ? "opacity-100 translate-x-2" : "opacity-0"
-                  }`}>
+                  <p className={`text-sm transition-opacity duration-300 max-w-md ${hoveredId === comp.id ? "opacity-100 translate-x-2" : "opacity-0"
+                    }`}>
                     {comp.description}
                   </p>
                 </div>
 
-                <div className={`transition-all duration-300 ${
-                  hoveredId === comp.id ? "opacity-100 translate-x-0" : "opacity-0 translate-x--4"
-                }`}>
+                <div className={`transition-all duration-300 ${hoveredId === comp.id ? "opacity-100 translate-x-0" : "opacity-0 translate-x--4"
+                  }`}>
                   <ArrowRightIcon className="w-5 h-5 text-primary" />
                 </div>
 
@@ -146,7 +223,7 @@ export default function ComponentsShowcase() {
                   <div className="flex-1">
                     {components.find(c => c.id === hoveredId)?.preview}
                   </div>
-                  
+
                   <div className="p-6 bg-zinc-900/30 rounded-lg border border-zinc-800/50">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {components.find(c => c.id === hoveredId)?.tags.map(tag => (
