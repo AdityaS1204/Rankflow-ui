@@ -35,4 +35,16 @@ export const registry = [
         ],
         type: "components:ui",
     },
+    {
+        name: "marquee",
+        title: "Marquee",
+        description: "A marquee component with hover to slow down the animation.",
+        dependencies: ["react", "motion"],
+        registryDependencies: [],
+        tags: ["marquee"],
+        files: [
+            "registry/marquee.tsx",
+        ],
+        type: "components:ui",
+    },
 ];
