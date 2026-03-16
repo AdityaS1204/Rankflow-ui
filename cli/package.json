@@ -11,7 +11,8 @@
         "README.md"
     ],
     "scripts": {
-        "build": "tsup index.ts --format esm --clean"
+        "build": "tsup index.ts --format esm --clean",
+        "prepublishOnly": "npm run build"
     },
     "keywords": [
         "react",
@@ -20,7 +21,7 @@
         "ui",
         "cli"
     ],
-    "author": "Aditya S",
+    "author": "Aditya Singh",
     "license": "MIT",
     "dependencies": {
         "@clack/prompts": "^0.7.0",
