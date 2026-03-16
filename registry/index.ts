@@ -11,4 +11,28 @@ export const registry = [
         ],
         type: "components:ui",
     },
+    {
+        name: "spotlight-card",
+        title: "Spotlight Card",
+        description: "A card that follows the cursor with a radiant spotlight hover effect.",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["card", "interaction", "spotlight"],
+        files: [
+            "registry/spotlight-card.tsx",
+        ],
+        type: "components:ui",
+    },
+    {
+        name: "glow-button",
+        title: "Glow Button",
+        description: "A button with a vibrant glow effect and customizable variants.",
+        dependencies: ["react", "@radix-ui/react-icons"],
+        registryDependencies: [],
+        tags: ["button", "interaction", "glow", "neon"],
+        files: [
+            "registry/glow-button.tsx",
+        ],
+        type: "components:ui",
+    },
 ];
