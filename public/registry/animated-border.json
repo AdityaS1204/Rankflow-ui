@@ -1,0 +1,22 @@
+{
+  "name": "animated-border",
+  "title": "Animated Border Button",
+  "description": "A button component with a moving gradient border animation using motion/react and CSS offset-path.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "animation",
+    "border",
+    "gradient"
+  ],
+  "files": [
+    {
+      "path": "components/ui/animated-border.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface AnimatedBorderButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  duration?: number;\n  color?: string;\n}\n\n\nexport const AnimatedBorderButton = React.forwardRef<\n  HTMLButtonElement,\n  AnimatedBorderButtonProps\n>(({ children, className, duration = 5, color = \"#3b82f6\", disabled, ...props }, ref) => {\n  return (\n    <button\n      ref={ref}\n      disabled={disabled}\n      className={cn(\n        \"relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap\",\n        \"rounded-md border border-neutral-700 bg-neutral-900 px-4 py-2 text-sm font-medium text-white\",\n        \"transition-colors hover:bg-neutral-800\",\n        \"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2\",\n        \"disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n    >\n      {/* Animated border layer */}\n      <div className=\"absolute inset-0 rounded-[inherit] border-2 border-transparent pointer-events-none [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]\">\n        <motion.div\n          className=\"absolute aspect-square\"\n          animate={{ offsetDistance: [\"0%\", \"100%\"] }}\n          style={{\n            width: \"20px\",\n            offsetPath: \"rect(0 auto auto 0 round 6px)\",\n            backgroundImage: `linear-gradient(to right, transparent, ${color}, ${color})`,\n          }}\n          transition={{\n            repeat: Infinity,\n            duration,\n            ease: \"linear\",\n          }}\n        />\n      </div>\n\n      {/* Content */}\n      <span className=\"relative z-10 flex items-center gap-2\">{children}</span>\n    </button>\n  );\n});\n\nAnimatedBorderButton.displayName = \"AnimatedBorderButton\";\n"
+    }
+  ],
+  "type": "components:ui"
+}
