@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import ComponentsShowcase from "@/components/home/ComponentGrid";
-import Footer from "@/components/layout/Footer";
+import GlowFooter from "@/components/layout/GlowFooter";
 
 export default function Home() {
   return (
@@ -19,8 +19,7 @@ export default function Home() {
         
         <ComponentsShowcase />
         <div className="mx-auto h-px w-full bg-linear-to-r from-transparent via-border/50 to-transparent" />
-        
-        <Footer />
+        <GlowFooter />
       </div>
     </main>
   );
