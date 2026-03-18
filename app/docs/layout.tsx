@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import DocsSidebar from "@/components/docs/Sidebar";
+import AuthorFooter from "@/components/layout/AuthorFooter";
 
 export default function DocsLayout({
   children,
@@ -15,6 +16,7 @@ export default function DocsLayout({
           <main className="min-w-0 flex-1 py-8">{children}</main>
         </div>
       </div>
+      <AuthorFooter />
     </>
   );
 }
