@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { SpotlightCard } from "@/registry/spotlight-card";
-import { GlowButton } from "@/registry/glow-button";
-import { AnimatedBorderButton } from "@/registry/animated-border";
+import { SpotlightCard } from "@/registry/components/spotlight-card";
+import { GlowButton } from "@/registry/components/glow-button";
+import { AnimatedBorderButton } from "@/registry/components/animated-border";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
-import { Marquee } from "@/registry/marquee";
+import { Marquee } from "@/registry/components/marquee";
+import { NoiseButton } from "@/registry/components/noise-button";
 
 // Live previews of available components 
 
@@ -61,7 +62,7 @@ function MarqueePreview() {
           <TestimonialCard key={i} {...t} />
         ))}
       </Marquee>
-      
+
       {/* Gradients to fade edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-zinc-950/50"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-zinc-950/50"></div>
@@ -110,6 +111,14 @@ function GlowButtonPreview() {
   );
 }
 
+function NoiseButtonPreview() {
+  return (
+    <div className="flex items-center justify-center p-6 bg-zinc-950/50 rounded-lg border border-zinc-800 h-full w-full">
+      <NoiseButton>Generate</NoiseButton>
+    </div>
+  );
+}
+
 const components = [
   {
     id: "animated-border",
@@ -142,6 +151,14 @@ const components = [
     tags: ["Button", "Neon", "Glow"],
     href: "#",
     preview: <GlowButtonPreview />,
+  },
+  {
+    id: "noise-button",
+    name: "Noise Button",
+    description: "A pill-shaped button with canvas-generated noise texture and a frosted ring effect.",
+    tags: ["Button", "Noise", "Interactive"],
+    href: "#",
+    preview: <NoiseButtonPreview />,
   },
 ];
 
@@ -245,3 +262,4 @@ export default function ComponentsShowcase() {
     </section>
   );
 }
+

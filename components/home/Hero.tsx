@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { AnimatedBorderButton } from "@/registry/animated-border";
+import { AnimatedBorderButton } from "@/registry/components/animated-border";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Hero() {
