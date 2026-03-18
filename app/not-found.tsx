@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { AnimatedBorderButton } from "@/registry/animated-border";
+import { AnimatedBorderButton } from "@/registry/components/animated-border";
 
 export default function NotFound() {
   return (
