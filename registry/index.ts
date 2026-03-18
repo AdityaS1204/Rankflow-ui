@@ -1,13 +1,25 @@
 export const registry = [
     {
+        name: "utils",
+        title: "Utils",
+        description: "Shared utility functions for Rankflow UI (cn, etc).",
+        dependencies: ["clsx", "tailwind-merge"],
+        registryDependencies: [],
+        tags: ["utils", "shared"],
+        files: [
+            "registry/utils.ts",
+        ],
+        type: "components:lib",
+    },
+    {
         name: "animated-border",
         title: "Animated Border Button",
         description: "A button component with a moving gradient border animation using motion/react and CSS offset-path.",
-        dependencies: ["motion"],
-        registryDependencies: [],
+        dependencies: ["motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
         tags: ["button", "animation", "border", "gradient"],
         files: [
-            "registry/animated-border.tsx",
+            "registry/components/animated-border.tsx",
         ],
         type: "components:ui",
     },
@@ -19,7 +31,7 @@ export const registry = [
         registryDependencies: [],
         tags: ["card", "interaction", "spotlight"],
         files: [
-            "registry/spotlight-card.tsx",
+            "registry/components/spotlight-card.tsx",
         ],
         type: "components:ui",
     },
@@ -31,7 +43,7 @@ export const registry = [
         registryDependencies: [],
         tags: ["button", "noise", "texture", "frosted"],
         files: [
-            "registry/noise-button.tsx",
+            "registry/components/noise-button.tsx",
         ],
         type: "components:ui",
     },
@@ -43,7 +55,7 @@ export const registry = [
         registryDependencies: [],
         tags: ["button", "interaction", "glow", "neon"],
         files: [
-            "registry/glow-button.tsx",
+            "registry/components/glow-button.tsx",
         ],
         type: "components:ui",
     },
@@ -51,11 +63,11 @@ export const registry = [
         name: "marquee",
         title: "Marquee",
         description: "A marquee component with hover to slow down the animation.",
-        dependencies: ["react", "motion"],
-        registryDependencies: [],
+        dependencies: ["react", "motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
         tags: ["marquee"],
         files: [
-            "registry/marquee.tsx",
+            "registry/components/marquee.tsx",
         ],
         type: "components:ui",
     },
