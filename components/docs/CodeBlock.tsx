@@ -10,10 +10,19 @@ interface CodeBlockProps {
   language?: string;
   filename?: string;
   hideLabel?: boolean;
+  showCopy?: boolean;
 }
 
-export function CodeBlock({ code, language = "tsx", filename, hideLabel = false }: CodeBlockProps) {
+export function CodeBlock({ 
+  code, 
+  language = "tsx", 
+  filename, 
+  hideLabel = false,
+  showCopy
+}: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
+
+  const shouldShowCopy = showCopy !== undefined ? showCopy : !hideLabel;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -66,7 +75,7 @@ export function CodeBlock({ code, language = "tsx", filename, hideLabel = false 
         </Highlight>
 
         {/* Minimalist Copy Button (Matching image) */}
-        {!hideLabel && (
+        {shouldShowCopy && (
           <button
             onClick={handleCopy}
             className="absolute top-4 right-4 p-2 rounded-lg border border-white/5 bg-white/2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/8 hover:border-white/10 text-neutral-500 hover:text-white backdrop-blur-md z-10"

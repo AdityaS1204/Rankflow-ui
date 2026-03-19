@@ -51,7 +51,7 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
         </button>
       </div>
 
-      <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-[#0d0d0d] shadow-sm">
         <AnimatePresence mode="wait">
           {activeTab === "preview" ? (
             <motion.div
@@ -66,15 +66,7 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
               <div className="absolute inset-0 z-0 opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[24px_24px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]" />
               <div className="relative z-10 w-full flex justify-center items-center">
                 {Component ? (
-                  <Component>
-                    {slug === "marquee" ? (
-                      <div className="flex gap-4">
-                         {[1,2,3,4,5].map(i => (
-                           <div key={i} className="h-20 w-40 rounded-lg bg-accent/50 border border-border flex items-center justify-center font-bold">Item {i}</div>
-                         ))}
-                      </div>
-                    ) : "Component Preview"}
-                  </Component>
+                  <Component fadeColor="#0d0d0d" />
                 ) : (
                   <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
                 )}
