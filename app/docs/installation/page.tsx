@@ -28,7 +28,7 @@ export default function InstallationPage() {
         <p className="text-sm text-muted-foreground">
           If you don&apos;t have a project yet, scaffold one with Next.js:
         </p>
-        <CodeBlock code="npx create-next-app@latest my-app --typescript --tailwind --eslint" language="bash" hideLabel />
+        <CodeBlock code="npx create-next-app@latest my-app --typescript --tailwind --eslint" language="bash" hideLabel showCopy />
       </section>
 
       {/* Step 2 */}
@@ -50,13 +50,14 @@ export default function InstallationPage() {
         </h2>
         <p className="text-sm text-muted-foreground">
           Create a{" "}
-          <code className="text-foreground bg-neutral-800 px-1.5 py-0.5 rounded text-xs font-mono">
+          <code className="text-white bg-neutral-800 px-1.5 py-0.5 rounded text-xs font-mono">
             lib/utils.ts
           </code>{" "}
           file in your project:
         </p>
         <CodeBlock
           language="typescript"
+          filename="lib/utils.ts"
           code={`import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -77,7 +78,7 @@ export function cn(...inputs: ClassValue[]) {
           The fastest way to install. The CLI fetches the component source and places
           it directly into your project.
         </p>
-        <PackageManagerTabs command="rankflow-ui add &lt;component-name&gt;" isExecute />
+        <PackageManagerTabs command="rankflow-ui add <component-name>" isExecute />
         <p className="text-sm text-muted-foreground">
           For example, to add the Animated Border Button:
         </p>
@@ -101,7 +102,7 @@ export function cn(...inputs: ClassValue[]) {
         </h2>
         <p className="text-sm text-muted-foreground leading-relaxed">
           Every component page includes the full source code. Copy it into your{" "}
-          <code className="text-foreground bg-neutral-800 px-1.5 py-0.5 rounded text-xs font-mono">
+          <code className="text-white bg-neutral-800 px-1.5 py-0.5 rounded text-xs font-mono">
             components/ui/
           </code>{" "}
           directory and import it directly.
@@ -110,7 +111,7 @@ export function cn(...inputs: ClassValue[]) {
           <p className="text-sm font-semibold text-foreground mb-3">Suggested project structure</p>
           <CodeBlock
             language="bash"
-            hideLabel
+            filename="Project Structure"
             code={`your-project/
 ├── components/
 │   └── ui/
