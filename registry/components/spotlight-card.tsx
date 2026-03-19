@@ -6,14 +6,18 @@ export const SpotlightCard = ({
     children, 
     className,
     color = "#3b82f6",
-    border = "#262626", // neutral-800
-    spotlightSize = 600
+    border = "#262626",
+    spotlightSize = 600,
+    width = "50%",
+    height = "auto"
 }: { 
     children?: React.ReactNode, 
     className?: string,
     color?: string,
     border?: string,
-    spotlightSize?: number
+    spotlightSize?: number,
+    width?: string | number,
+    height?: string | number
 }) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
@@ -28,17 +32,36 @@ export const SpotlightCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setOpacity(1)}
             onMouseLeave={() => setOpacity(0)}
-            className={`relative w-full h-full rounded-2xl bg-neutral-900 overflow-hidden ${className || ""}`}
-            style={{ borderColor: border, borderWidth: '1px', borderStyle: 'solid' }}
+            className={`group relative rounded-2xl bg-[#0d0d0d] overflow-hidden border border-white/5 transition-colors hover:border-white/10 ${className || ""}`}
+            style={{ 
+                width: typeof width === 'number' ? `${width}px` : width,
+                height: typeof height === 'number' ? `${height}px` : height,
+            }}
         >
             <div
                 className="pointer-events-none absolute -inset-px transition-opacity duration-300"
                 style={{
                     opacity,
-                    background: `radial-gradient(${spotlightSize}px circle at ${position.x}px ${position.y}px, ${color}26, transparent 40%)`
+                    background: `radial-gradient(${spotlightSize}px circle at ${position.x}px ${position.y}px, ${color}15, transparent 40%)`
                 }}
             />
-            {children}
+            <div className="relative z-10 h-full p-8 flex flex-col">
+                {children || (
+                    <>
+                        <h3 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                            Interactive Discovery
+                        </h3>
+                        <p className="text-neutral-400 leading-relaxed mb-6 text-sm">
+                            Experience the power of dynamic spotlight effects that respond to your every move. Perfect for feature highlights and premium interfaces.
+                        </p>
+                        <div className="mt-auto">
+                            <button className="text-xs font-bold text-white uppercase tracking-widest px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                                Explore More
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
         </div>
     );
 };
