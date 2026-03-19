@@ -22,6 +22,13 @@ export const registry = [
             "registry/components/animated-border.tsx",
         ],
         type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The content of the button." },
+            { name: "duration", type: "number", default: "2", description: "The duration of the border animation in seconds." },
+            { name: "borderWidth", type: "number", default: "2", description: "The width of the animated border." },
+            { name: "borderRadius", type: "string", default: "12px", description: "The border radius of the button." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
     },
     {
         name: "spotlight-card",
@@ -34,6 +41,13 @@ export const registry = [
             "registry/components/spotlight-card.tsx",
         ],
         type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The content of the card." },
+            { name: "color", type: "string", default: "#3b82f6", description: "The color of the spotlight effect." },
+            { name: "border", type: "string", default: "rgba(255,255,255,0.1)", description: "The border color of the card." },
+            { name: "spotlightSize", type: "number", default: "250", description: "The size of the spotlight in pixels." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
     },
     {
         name: "noise-button",
@@ -46,6 +60,11 @@ export const registry = [
             "registry/components/noise-button.tsx",
         ],
         type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The text content." },
+            { name: "onClick", type: "function", default: "-", description: "Event handler for click." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
     },
     {
         name: "glow-button",
@@ -58,6 +77,12 @@ export const registry = [
             "registry/components/glow-button.tsx",
         ],
         type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The button text." },
+            { name: "variant", type: "orange | red | blue | green", default: "orange", description: "The color theme of the button." },
+            { name: "disableChevron", type: "boolean", default: "false", description: "Whether to hide the double chevron icon." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
     },
     {
         name: "marquee",
@@ -70,5 +95,13 @@ export const registry = [
             "registry/components/marquee.tsx",
         ],
         type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The content to scroll." },
+            { name: "direction", type: "left | right", default: "left", description: "The scroll direction." },
+            { name: "speed", type: "number", default: "20", description: "The speed of the animation." },
+            { name: "pauseOnHover", type: "boolean", default: "true", description: "Whether to pause the animation on hover." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
     },
 ];
+
