@@ -3,6 +3,10 @@ import { notFound } from "next/navigation";
 import { CodeBlock } from "@/components/docs/CodeBlock";
 import { PackageManagerTabs } from "@/components/docs/PackageManagerTabs";
 import { DocsPager } from "@/components/docs/DocsPager";
+import { ComponentPreview } from "@/components/docs/ComponentPreview";
+import { PropsTable } from "@/components/docs/PropsTable";
+import fs from "fs";
+import path from "path";
 
 export function generateStaticParams() {
   return registry
@@ -24,12 +28,22 @@ export default async function ComponentPage({
     notFound();
   }
 
+  // Read component source code
+  let sourceCode = "";
+  try {
+    const filePath = path.join(process.cwd(), component.files[0]);
+    sourceCode = fs.readFileSync(filePath, "utf-8");
+  } catch (error) {
+    console.error("Failed to read component file:", error);
+    sourceCode = "// Source code not available";
+  }
+
   const deps = component.dependencies
     .filter((d: string) => d !== "react")
     .join(" ");
 
   return (
-    <article className="max-w-3xl">
+    <article className="max-w-3xl pb-20">
       {/* Breadcrumb */}
       <p className="text-sm text-muted-foreground mb-4">
         Docs / Components /{" "}
@@ -39,38 +53,49 @@ export default async function ComponentPage({
       <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
         {component.title}
       </h1>
-      <p className="text-lg text-muted-foreground mb-10">
+      <p className="text-lg text-muted-foreground mb-8">
         {component.description}
       </p>
 
-      <hr className="border-border mb-10" />
+      <ComponentPreview 
+        slug={slug} 
+        code={sourceCode} 
+        filename={`components/ui/${component.name}.tsx`} 
+      />
 
-      {/* Placeholder preview */}
-      <div className="rounded-lg border border-border bg-card/50 p-10 flex items-center justify-center min-h-[200px] mb-10">
-        <p className="text-muted-foreground text-sm">
-          Component preview coming soon.
-        </p>
+      <div className="space-y-12">
+        {/* Dependencies */}
+        {deps && (
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground text-balance">
+              Dependencies
+            </h2>
+            <p className="text-muted-foreground text-sm">
+              Install the following dependencies to use this component:
+            </p>
+            <PackageManagerTabs command={deps} />
+          </section>
+        )}
+
+        {/* Install via CLI */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground text-balance">
+            Installation
+          </h2>
+          <p className="text-muted-foreground text-sm">
+            Run the following command in your terminal to add the component to your project:
+          </p>
+          <PackageManagerTabs command={`rankflow-ui add ${component.name}`} isExecute />
+        </section>
       </div>
 
-      {/* Dependencies */}
-      {deps && (
-        <section className="space-y-3 mb-10">
-          <h2 className="text-xl font-semibold tracking-tight text-foreground">
-            Dependencies
-          </h2>
-          <PackageManagerTabs command={deps} />
-        </section>
-      )}
-
-      {/* Install via CLI */}
-      <section className="space-y-3 mb-10">
-        <h2 className="text-xl font-semibold tracking-tight text-foreground">
-          Installation
-        </h2>
-        <PackageManagerTabs command={`rankflow-ui add ${component.name}`} isExecute />
-      </section>
-
-      <DocsPager />
+        {/* Props Reference */}
+        {component.props && component.props.length > 0 && (
+          <PropsTable props={component.props} />
+        )}
+      <div className="mt-5 pt-5">
+        <DocsPager />
+      </div>
     </article>
   );
 }
