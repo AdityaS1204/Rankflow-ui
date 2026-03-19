@@ -18,15 +18,15 @@ interface AnimatedBorderButtonProps
 export const AnimatedBorderButton = React.forwardRef<
   HTMLButtonElement,
   AnimatedBorderButtonProps
->(({ 
-  children = "Animated Border", 
-  className, 
-  duration = 5, 
-  color = "#3b82f6", 
+>(({
+  children = "Animated Border",
+  className,
+  duration = 5,
+  color = "#3b82f6",
   borderWidth = 2,
   borderRadius = "8px",
-  disabled, 
-  ...props 
+  disabled,
+  ...props
 }, ref) => {
   return (
     <button
@@ -44,37 +44,38 @@ export const AnimatedBorderButton = React.forwardRef<
       {...props}
     >
       {/* Animated border layer */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none z-0"
-        style={{ 
+        style={{
           padding: borderWidth,
           borderRadius: "inherit"
         }}
       >
-        <div 
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes offset-route {
+            0% { offset-distance: 0%; }
+            100% { offset-distance: 100%; }
+          }
+        `}} />
+        <div
           className="absolute inset-0 [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
-          style={{ 
+          style={{
             borderRadius: "inherit",
-            border: `${borderWidth}px solid transparent` 
+            border: `${borderWidth}px solid transparent`
           }}
         >
-          <motion.div
-            className="absolute aspect-square"
-            animate={{ offsetDistance: ["0%", "100%"] }}
+          <div
+            className="absolute aspect-square rounded-full"
             style={{
               width: "40px",
               offsetPath: `rect(0 100% 100% 0 round ${borderRadius})`,
               backgroundImage: `linear-gradient(to right, transparent, ${color}, ${color})`,
-            }}
-            transition={{
-              repeat: Infinity,
-              duration,
-              ease: "linear",
+              animation: `offset-route ${duration}s linear infinite`,
             }}
           />
         </div>
       </div>
- 
+
       {/* Content */}
       <span className="relative z-10 flex items-center gap-2 tracking-tight">
         {children}
