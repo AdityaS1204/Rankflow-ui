@@ -3,6 +3,7 @@ import { AnimatedBorderButton } from "./components/animated-border";
 import { SpotlightCard } from "./components/spotlight-card";
 import { NoiseButton } from "./components/noise-button";
 import { Marquee } from "./components/marquee";
+import { GradientButton } from "./components/gradient-button";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -10,4 +11,5 @@ export const registryComponents: Record<string, any> = {
   "spotlight-card": SpotlightCard,
   "noise-button": NoiseButton,
   "marquee": Marquee,
+  "gradient-button": GradientButton,
 };

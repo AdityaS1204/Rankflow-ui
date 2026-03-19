@@ -33,7 +33,7 @@ export const registry = [
     {
         name: "spotlight-card",
         title: "Spotlight Card",
-        description: "A card that follows the cursor with a radiant spotlight hover effect.",
+        description: "A premium card component with a dynamic spotlight effect that follows the mouse cursor.",
         dependencies: ["react"],
         registryDependencies: [],
         tags: ["card", "interaction", "spotlight"],
@@ -42,10 +42,12 @@ export const registry = [
         ],
         type: "components:ui",
         props: [
-            { name: "children", type: "ReactNode", default: "-", description: "The content of the card." },
+            { name: "children", type: "ReactNode", default: "null", description: "The content of the card." },
             { name: "color", type: "string", default: "#3b82f6", description: "The color of the spotlight effect." },
-            { name: "border", type: "string", default: "rgba(255,255,255,0.1)", description: "The border color of the card." },
-            { name: "spotlightSize", type: "number", default: "250", description: "The size of the spotlight in pixels." },
+            { name: "border", type: "string", default: "#262626", description: "The border color." },
+            { name: "spotlightSize", type: "number", default: "600", description: "The radius of the spotlight effect." },
+            { name: "width", type: "string | number", default: "100%", description: "The width of the card." },
+            { name: "height", type: "string | number", default: "auto", description: "The height of the card." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
@@ -100,6 +102,22 @@ export const registry = [
             { name: "direction", type: "left | right", default: "left", description: "The scroll direction." },
             { name: "speed", type: "number", default: "20", description: "The speed of the animation." },
             { name: "pauseOnHover", type: "boolean", default: "true", description: "Whether to pause the animation on hover." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
+    {
+        name: "gradient-button",
+        title: "Gradient Button",
+        description: "A button with a continuously moving random gradient that expands on hover.",
+        dependencies: ["react", "motion", "@radix-ui/react-icons"],
+        registryDependencies: [],
+        tags: ["button", "interaction", "gradient", "hover"],
+        files: [
+            "registry/components/gradient-button.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "-", description: "The button text." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
