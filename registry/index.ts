@@ -121,5 +121,21 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "sign-up-form",
+        title: "Sign Up Form",
+        description: "A two-pane sign-up block component with a masked testimonial carousel.",
+        dependencies: ["react", "motion", "react-icons"],
+        registryDependencies: [],
+        tags: ["block", "authentication", "form", "carousel"],
+        files: [
+            "registry/components/sign-up-form.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
 
