@@ -57,18 +57,22 @@ export function CodeBlock({
               style={{ ...style, backgroundColor: 'transparent' }}
             >
               <div className="min-w-full inline-block font-mono">
-                {tokens.map((line, i) => (
-                  <div key={i} {...getLineProps({ line, key: i })} className="table-row group/line font-mono">
-                    <span className="table-cell select-none pr-6 text-right text-neutral-700 w-12 border-r border-neutral-800/30 mr-4 transition-colors group-hover/line:text-neutral-500 font-mono italic">
-                      {i + 1}
-                    </span>
-                    <span className="table-cell pl-6 font-mono">
-                      {line.map((token, key) => (
-                        <span key={key} {...getTokenProps({ token, key })} className="font-mono" />
-                      ))}
-                    </span>
-                  </div>
-                ))}
+                {tokens.map((line, i) => {
+                  const { key: lineKey, ...lineProps } = getLineProps({ line, key: i }) as any;
+                  return (
+                    <div key={lineKey} {...lineProps} className="table-row group/line font-mono">
+                      <span className="table-cell select-none pr-6 text-right text-neutral-700 w-12 border-r border-neutral-800/30 mr-4 transition-colors group-hover/line:text-neutral-500 font-mono italic">
+                        {i + 1}
+                      </span>
+                      <span className="table-cell pl-6 font-mono">
+                        {line.map((token, key) => {
+                          const { key: tokenKey, ...tokenProps } = getTokenProps({ token, key }) as any;
+                          return <span key={tokenKey} {...tokenProps} className="font-mono" />;
+                        })}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </pre>
           )}
