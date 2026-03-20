@@ -137,5 +137,18 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "gradient-ring-card",
+        title: "Gradient Ring Card",
+        description: "A card component with a frosted glass outer ring and a continuously rotating conic gradient, giving a neomorphic shadow depth between the ring and the card surface.",
+        dependencies: ["react"],
+        registryDependencies: ["utils"],
+        tags: ["card", "animation", "gradient", "neomorphism", "frost"],
+        files: [
+            "registry/components/gradient-ring-card.tsx",
+        ],
+        type: "components:ui",
+        props: []
+    },
 ];
 
