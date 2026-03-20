@@ -19,7 +19,7 @@ export default function DocsSidebar() {
       >
         {sections.map((section) => (
           <div key={section.label}>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 px-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-2 px-3">
               {section.label}
             </h4>
             <ul className="flex flex-col gap-0.5">
