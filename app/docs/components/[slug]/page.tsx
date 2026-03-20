@@ -8,6 +8,8 @@ import { PropsTable } from "@/components/docs/PropsTable";
 import fs from "fs";
 import path from "path";
 
+import { cn } from "@/lib/utils";
+
 export function generateStaticParams() {
   return registry
     .filter((item) => item.type === "components:ui")
@@ -24,7 +26,7 @@ export default async function ComponentPage({
     (item) => item.name === slug && item.type === "components:ui"
   );
 
-  if (!component) {
+  if (!component || !component.files) {
     notFound();
   }
 
@@ -42,8 +44,10 @@ export default async function ComponentPage({
     .filter((d: string) => d !== "react")
     .join(" ");
 
+  const isLarge = (component as any).size === "lg";
+
   return (
-    <article className="max-w-3xl pb-20">
+    <article className={cn("pb-20", isLarge ? "max-w-5xl" : "max-w-3xl")}>
       {/* Breadcrumb */}
       <p className="text-sm text-muted-foreground mb-4">
         Docs / Components /{" "}
@@ -57,10 +61,10 @@ export default async function ComponentPage({
         {component.description}
       </p>
 
-      <ComponentPreview 
-        slug={slug} 
-        code={sourceCode} 
-        filename={`components/ui/${component.name}.tsx`} 
+      <ComponentPreview
+        slug={slug}
+        code={sourceCode}
+        filename={`components/ui/${component.name}.tsx`}
       />
 
       <div className="space-y-12">
@@ -89,10 +93,10 @@ export default async function ComponentPage({
         </section>
       </div>
 
-        {/* Props Reference */}
-        {component.props && component.props.length > 0 && (
-          <PropsTable props={component.props} />
-        )}
+      {/* Props Reference */}
+      {component.props && component.props.length > 0 && (
+        <PropsTable props={component.props} />
+      )}
       <div className="mt-5 pt-5">
         <DocsPager />
       </div>
