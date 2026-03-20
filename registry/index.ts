@@ -163,5 +163,18 @@ export const registry = [
         type: "components:ui",
         props: []
     },
+    {
+        name: "stack-card",
+        title: "Stack Card",
+        description: "A premium stack of cards with alternating content orientations and a glassmorphism backdrop. Cards smoothly rotate to the back continuously.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge"],
+        registryDependencies: [],
+        tags: ["card", "stack", "carousel", "glassmorphism"],
+        files: [
+            "registry/components/stack-card.tsx",
+        ],
+        type: "components:ui",
+        props: []
+    },
 ];
 

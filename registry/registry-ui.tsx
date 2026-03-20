@@ -7,6 +7,7 @@ import { GradientButton } from "./components/gradient-button";
 import { SignUpForm } from "./components/sign-up-form";
 import { GradientRingCard } from "./components/gradient-ring-card";
 import { AiInput } from "./components/ai-input";
+import { StackCard } from "./components/stack-card";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -18,4 +19,5 @@ export const registryComponents: Record<string, any> = {
   "sign-up-form": SignUpForm,
   "gradient-ring-card": GradientRingCard,
   "ai-input": AiInput,
+  "stack-card": StackCard,
 };
