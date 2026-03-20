@@ -150,5 +150,18 @@ export const registry = [
         type: "components:ui",
         props: []
     },
+    {
+        name: "ai-input",
+        title: "AI Input",
+        description: "A ChatGPT-style AI prompt input with model selector dropdown, attach/globe action buttons, and voice input.",
+        dependencies: ["react-icons"],
+        registryDependencies: [],
+        tags: ["input", "ai", "chatgpt", "dropdown"],
+        files: [
+            "registry/components/ai-input.tsx",
+        ],
+        type: "components:ui",
+        props: []
+    },
 ];
 
