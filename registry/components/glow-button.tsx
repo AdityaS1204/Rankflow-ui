@@ -10,7 +10,7 @@ interface GlowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 export const GlowButton = ({ 
-  children, 
+  children = "NoteBook", 
   variant = 'orange', 
   disableChevron = false, 
   className = '',
