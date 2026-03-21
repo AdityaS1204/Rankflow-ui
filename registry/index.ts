@@ -176,5 +176,22 @@ export const registry = [
         type: "components:ui",
         props: []
     },
+    {
+        name: "command-palette",
+        title: "Command Palette",
+        description: "A Cmd+K command palette modal with fuzzy search, keyboard navigation, and recent items. Scales and fades in.",
+        dependencies: ["motion", "react-icons", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["modal", "command", "palette", "search", "keyboard"],
+        files: [
+            "registry/components/command-palette.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "open", type: "boolean", default: "false", description: "Controlled open state of the modal." },
+            { name: "onOpenChange", type: "function", default: "-", description: "Callback when open state changes." },
+            { name: "actions", type: "ActionItem[]", default: "-", description: "List of actions to display." },
+        ]
+    },
 ];
 
