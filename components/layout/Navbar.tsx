@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/shared/ThemeToggle";
 
 const navLinks = [
-  { label: "Components", href: "/components" },
+  { label: "Components", href: "/docs/components/animated-border" },
   { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/AdityaS1204/Rankflow-ui", external: true },
