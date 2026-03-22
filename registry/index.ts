@@ -193,5 +193,25 @@ export const registry = [
             { name: "actions", type: "ActionItem[]", default: "-", description: "List of actions to display." },
         ]
     },
+    {
+        name: "tweet-card",
+        title: "Tweet Card",
+        description: "A customizable Twitter tweet card component that exactly mimics the UI of a real tweet.",
+        dependencies: ["react", "react-icons", "clsx", "tailwind-merge"],
+        registryDependencies: [],
+        tags: ["card", "tweet", "social", "twitter"],
+        files: [
+            "registry/components/tweet-card.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "authorName", type: "string", default: "-", description: "The author's display name." },
+            { name: "authorUsername", type: "string", default: "-", description: "The author's username starting with @." },
+            { name: "authorAvatar", type: "string", default: "-", description: "The URL to the author's avatar image." },
+            { name: "verified", type: "boolean", default: "true", description: "Whether the author is verified." },
+            { name: "content", type: "ReactNode", default: "-", description: "The text content of the tweet." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
 
