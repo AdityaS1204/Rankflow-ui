@@ -27,11 +27,11 @@ export interface TweetCardProps {
 }
 
 export const TweetCard = ({
-  authorName,
-  authorUsername,
-  authorAvatar,
+  authorName = "Aditya" ,
+  authorUsername = "@adityas1204",
+  authorAvatar = "https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop",
   verified = true,
-  content,
+  content = "Rankflow UI is a collection of premium UI components for react and Nextjs",
   className,
 }: TweetCardProps) => {
   return (
