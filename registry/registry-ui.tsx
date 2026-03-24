@@ -9,6 +9,8 @@ import { GradientRingCard } from "./components/gradient-ring-card";
 import { AiInput } from "./components/ai-input";
 import { StackCard } from "./components/stack-card";
 import { CommandPalette } from "./components/command-palette";
+import { TweetCard } from "./components/tweet-card";
+
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
   "animated-border": AnimatedBorderButton,
@@ -21,4 +23,5 @@ export const registryComponents: Record<string, any> = {
   "ai-input": AiInput,
   "stack-card": StackCard,
   "command-palette": CommandPalette,
+  "tweet-card":TweetCard,
 };
