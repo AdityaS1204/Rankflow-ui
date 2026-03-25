@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "@/components/shared/ThemeToggle";
+import { CommandPalette, ActionItem } from "@/registry/components/command-palette";
+import { registry } from "@/registry/index";
+import { FiCode, FiZap, FiBox } from "react-icons/fi";
 
 const navLinks = [
   { label: "Components", href: "/docs/components/animated-border" },
@@ -61,8 +64,42 @@ function RankFlowIcon({ className }: { className?: string }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  const actions: ActionItem[] = [
+    {
+      id: "intro",
+      title: "Introduction",
+      icon: <FiZap />,
+      group: "Getting Started",
+      perform: () => router.push("/docs")
+    },
+    {
+      id: "install",
+      title: "Installation",
+      icon: <FiCode />,
+      group: "Getting Started",
+      perform: () => router.push("/docs/installation")
+    },
+    {
+      id: "tmpl",
+      title: "Templates",
+      icon: <FiCode />,
+      group: "Getting Started",
+      perform: () => router.push("/templates")
+    },
+    ...registry
+      .filter(item => item.type === "components:ui")
+      .map(item => ({
+        id: item.name,
+        title: item.title,
+        icon: <FiBox />,
+        group: "Components",
+        perform: () => router.push(`/docs/components/${item.name}`)
+      }))
+  ];
 
 
   useEffect(() => {
@@ -133,8 +170,12 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* Right aligned: Theme Toggle + Mobile Menu Button */}
+        {/* Right aligned: Search + Theme Toggle + Mobile Menu Button */}
         <div className="flex items-center gap-4">
+          <div className="hidden lg:block">
+            <CommandPalette actions={actions} />
+          </div>
+
           <div className="hidden md:block">
             <ModeToggle />
           </div>
