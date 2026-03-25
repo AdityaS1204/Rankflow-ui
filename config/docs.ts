@@ -11,8 +11,27 @@ export interface DocsSidebarSection {
 }
 
 export function getDocsNavigation(): DocsSidebarSection[] {
-  const componentItems: DocsSidebarItem[] = registry
-    .filter((item) => item.type === "components:ui")
+  const components = registry.filter((item) => item.type === "components:ui");
+
+  const buttons = components
+    .filter((c) => c.tags.includes("button"))
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+    }));
+
+  const cards = components
+    .filter((c) => c.tags.includes("card"))
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+    }));
+
+  const blocks = components
+    .filter((c) => 
+      !c.tags.includes("button") && 
+      !c.tags.includes("card")
+    )
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -27,8 +46,16 @@ export function getDocsNavigation(): DocsSidebarSection[] {
       ],
     },
     {
-      label: "Components",
-      items: componentItems,
+      label: "Buttons",
+      items: buttons,
+    },
+    {
+      label: "Cards",
+      items: cards,
+    },
+    {
+      label: "Blocks",
+      items: blocks,
     },
   ];
 }
