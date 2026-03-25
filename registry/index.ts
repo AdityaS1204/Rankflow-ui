@@ -230,5 +230,21 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes applied to the wrapper." },
         ]
     },
+    {
+        name: "social-share-button",
+        title: "Social Share Button",
+        description: "A neomorphic pill button that reveals animated, clickable WhatsApp, Instagram, X, and Facebook icons on hover.",
+        dependencies: ["motion", "react-icons"],
+        registryDependencies: [],
+        tags: ["button", "social", "neomorphism", "share", "hover", "animation"],
+        files: [
+            "registry/components/social-share-button.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "links", type: "SocialShareLinks", default: "{}", description: "Object containing URLs for whatsapp, instagram, x, and facebook keys." },
+            { name: "label", type: "string", default: "'Share'", description: "Text shown in the default (non-hover) state." },
+        ]
+    },
 ];
 

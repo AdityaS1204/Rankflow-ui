@@ -11,6 +11,7 @@ import { StackCard } from "./components/stack-card";
 import { CommandPalette } from "./components/command-palette";
 import { TweetCard } from "./components/tweet-card";
 import { PricingPlan } from "./components/pricing-plan";
+import { SocialShareButton } from "./components/social-share-button";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -26,4 +27,5 @@ export const registryComponents: Record<string, any> = {
   "command-palette": CommandPalette,
   "tweet-card":TweetCard,
   "pricing-plan": PricingPlan,
+  "social-share-button": SocialShareButton,
 };
