@@ -122,7 +122,7 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
         </div>
 
         <p className="mt-8 text-center text-sm font-medium text-neutral-600">
-          Already have an account? <a href="#" className="font-semibold text-[#eb5e28] hover:underline">Log in</a>
+          Already have an account? <span className="font-semibold text-[#eb5e28] cursor-pointer hover:underline">Log in</span>
         </p>
       </div>
 
