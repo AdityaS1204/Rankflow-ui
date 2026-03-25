@@ -213,5 +213,22 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "pricing-plan",
+        title: "Pricing Plan",
+        description: "A three-tier pricing card with hover gradient + noise on the price zone, slot-machine price animation via motion/react, and a spring-animated monthly/yearly toggle pill.",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        tags: ["pricing", "card", "gradient", "animation", "noise", "slot-machine"],
+        files: [
+            "registry/components/pricing-plan.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "tiers", type: "PricingTier[]", default: "TIERS", description: "Array of pricing tier objects. Each has name, monthlyPrice, yearlyPrice, description, cta, ctaVariant, features, accentA/B/C colours, and optional popular flag." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes applied to the wrapper." },
+        ]
+    },
 ];
 
