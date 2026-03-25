@@ -10,12 +10,21 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { Marquee } from "@/registry/components/marquee";
 import { NoiseButton } from "@/registry/components/noise-button";
+import { GradientButton } from "@/registry/components/gradient-button";
+import { TweetCard } from "@/registry/components/tweet-card";
+import { PricingPlan } from "@/registry/components/pricing-plan";
+import { SignUpForm } from "@/registry/components/sign-up-form";
+import { AiInput } from "@/registry/components/ai-input";
+import { StackCard } from "@/registry/components/stack-card";
+import { CommandPalette } from "@/registry/components/command-palette";
+import { GradientRingCard } from "@/registry/components/gradient-ring-card";
+import { SocialShareButton } from "@/registry/components/social-share-button";
 
-// Live previews of available components 
+// Live previews of available components
 
 function AnimatedBorderPreview() {
   return (
-    <div className="flex items-center justify-center p-6 bg-zinc-950/50 rounded-lg border border-zinc-800">
+    <div className="flex items-center justify-center p-6 bg-zinc-950/50">
       <AnimatedBorderButton color="var(--primary)" duration={3}>
         Rankflow UI
       </AnimatedBorderButton>
@@ -72,10 +81,13 @@ function MarqueePreview() {
 
 function SpotlightPreview() {
   return (
-    <div className="flex items-center justify-center p-6 bg-zinc-950/50 rounded-lg border border-zinc-800 h-full w-full">
-      <SpotlightCard className="w-64 h-32">
-        <div className="p-6 h-full flex flex-col justify-center">
-          <span className="text-foreground/80 text-sm font-medium">Spotlight Effect</span>
+    <div className="flex items-center justify-center p-4 bg-zinc-950/50 h-full w-full">
+      <SpotlightCard className="w-80 h-44">
+        <div className="p-8 h-full flex flex-col justify-center">
+          <span className="text-foreground/90 text-xl font-bold">Spotlight Effect</span>
+          <p className="text-zinc-500 text-xs mt-3 leading-relaxed">
+            Beautiful radiant glow that follows your cursor movements with precision.
+          </p>
         </div>
       </SpotlightCard>
     </div>
@@ -92,7 +104,7 @@ function GlowButtonPreview() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 h-full w-full p-6 bg-zinc-950/50 rounded-lg border border-zinc-800">
+    <div className="flex flex-col items-center justify-center gap-8 h-full w-full p-6 bg-zinc-950/50">
       <GlowButton variant={variant}>
         Interactive Glow
       </GlowButton>
@@ -113,151 +125,250 @@ function GlowButtonPreview() {
 
 function NoiseButtonPreview() {
   return (
-    <div className="flex items-center justify-center p-6 bg-zinc-950/50 rounded-lg border border-zinc-800 h-full w-full">
-      <NoiseButton>Generate</NoiseButton>
+    <NoiseButton>Generate</NoiseButton>
+  );
+}
+
+function GradientButtonPreview() {
+  return (
+    <GradientButton>Explore More</GradientButton>
+  );
+}
+
+function TweetCardPreview() {
+  return (
+    <div className="scale-75 w-full flex justify-center">
+      <TweetCard
+        authorName="Aditya Singh"
+        authorUsername="@Adityas1204"
+        authorAvatar="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop"
+        content="Building Landing pages has never been easier. Check out these components from Rankflow UI! 🚀 #frontend #ui"
+      />
+    </div>
+  );
+}
+
+function PricingPlanPreview() {
+  return (
+    <div className="scale-50 w-[800px] h-[400px] flex items-center justify-center -m-40">
+      <PricingPlan />
+    </div>
+  );
+}
+
+function AiInputPreview() {
+  return (
+    <div className="w-full px-4">
+      <AiInput />
+    </div>
+  );
+}
+
+function CommandPalettePreview() {
+  return (
+    <div className="scale-75">
+      <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl">
+        <div className="flex items-center gap-3 px-3 py-2 border-b border-zinc-800">
+          <div className="w-4 h-4 rounded bg-zinc-800" />
+          <div className="text-zinc-500 text-xs">Search components...</div>
+        </div>
+        <div className="p-2 space-y-1">
+          <div className="px-2 py-1.5 bg-primary/10 text-primary text-xs rounded">Buttons</div>
+          <div className="px-2 py-1.5 text-zinc-400 text-xs">Cards</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GradientRingCardPreview() {
+  return (
+    <div className="scale-50 -m-20">
+      <GradientRingCard />
+    </div>
+  );
+}
+
+function SocialShareButtonPreview() {
+  return (
+    <div className="flex items-center justify-center w-full h-full">
+      <SocialShareButton />
+    </div>
+  );
+}
+
+function StackCardPreview() {
+  return (
+    <div className="scale-[0.6] lg:scale-[0.8] w-84 h-80 flex items-center justify-center">
+      <div className="w-full h-full">
+        <StackCard />
+      </div>
     </div>
   );
 }
 
 const components = [
   {
-    id: "animated-border",
-    name: "Animated Border Button",
-    description: "A button with a moving gradient border that traces the edges using CSS offset-path.",
-    tags: ["Button", "Animation"],
-    href: "/components/animated-border",
-    preview: <AnimatedBorderPreview />,
+    id: "sign-up-form",
+    name: "Sign Up Form",
+    href: "/docs/components/sign-up-form",
+    preview: (
+      <div className="scale-[0.35] w-[900px] -m-64 overflow-hidden rounded-3xl">
+        <SignUpForm />
+      </div>
+    ),
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-2",
   },
   {
-    id: "marquee",
-    name: "Marquee",
-    description: "Infinitely scrolling horizontal ticker for professional testimonials or logos.",
-    tags: ["Motion", "Display"],
-    href: "#",
-    preview: <MarqueePreview />,
+    id: "pricing-plan",
+    name: "Pricing Plan",
+    href: "/docs/components/pricing-plan",
+    preview: <PricingPlanPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "stack-card",
+    name: "Stack Card",
+    href: "/docs/components/stack-card",
+    preview: <StackCardPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "ai-input",
+    name: "AI Input",
+    href: "/docs/components/ai-input",
+    preview: <AiInputPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-1",
   },
   {
     id: "spotlight",
     name: "Spotlight Card",
-    description: "A card that follows the cursor with a radiant spotlight hover effect.",
-    tags: ["Card", "Interactive"],
-    href: "#",
+    href: "/docs/components/spotlight-card",
     preview: <SpotlightPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "marquee",
+    name: "Marquee",
+    href: "/docs/components/marquee",
+    preview: <MarqueePreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "tweet-card",
+    name: "Tweet Card",
+    href: "/docs/components/tweet-card",
+    preview: <TweetCardPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-1",
   },
   {
     id: "glow-button",
     name: "Glow Button",
-    description: "A vibrant button with a deep neon glow and customizable color variants.",
-    tags: ["Button", "Neon", "Glow"],
-    href: "#",
+    href: "/docs/components/glow-button",
     preview: <GlowButtonPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "animated-border",
+    name: "Animated Border Button",
+    href: "/docs/components/animated-border",
+    preview: <AnimatedBorderPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "command-palette",
+    name: "Command Palette",
+    href: "/docs/components/command-palette",
+    preview: <CommandPalettePreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "gradient-ring-card",
+    name: "Gradient Ring Card",
+    href: "/docs/components/gradient-ring-card",
+    preview: <GradientRingCardPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
   },
   {
     id: "noise-button",
     name: "Noise Button",
-    description: "A pill-shaped button with canvas-generated noise texture and a frosted ring effect.",
-    tags: ["Button", "Noise", "Interactive"],
-    href: "#",
+    href: "/docs/components/noise-button",
     preview: <NoiseButtonPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "gradient-button",
+    name: "Gradient Button",
+    href: "/docs/components/gradient-button",
+    preview: <GradientButtonPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "social-share-button",
+    name: "Social Share Button",
+    href: "/docs/components/social-share-button",
+    preview: <SocialShareButtonPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
   },
 ];
 
 export default function ComponentsShowcase() {
-  const [hoveredId, setHoveredId] = useState<string | null>(components[0].id);
-
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 min-h-[600px]">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+    <section className="mx-auto max-w-7xl px-6 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#eb5e28]">
+          Component Library
+        </p>
+        <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          Browse our blocks
+        </h2>
+      </motion.div>
 
-        {/* Left: Interactive List */}
-        <div className="flex-1">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
+      <div className="grid grid-cols-1 md:grid-cols-4 md:grid-flow-dense gap-4">
+        {components.map((comp) => (
+          <div
+            key={comp.id}
+            className={`relative flex flex-col group p-2 rounded-3xl border border-zinc-800/10 bg-[#0d0d0d] transition-all hover:bg-[#111] hover:shadow-2xl hover:shadow-black/40 ${comp.colSpan} ${comp.rowSpan}`}
           >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
-              Component Library
-            </p>
-            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-              Browse our blocks
-            </h2>
-          </motion.div>
-
-          <div className="space-y-1">
-            {components.map((comp) => (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="flex-1 flex min-h-[220px] items-center justify-center border border-zinc-800 rounded-3xl p-4 bg-zinc-950 overflow-hidden relative z-10"
+            >
+              {comp.preview}
+            </motion.div>
+            <div className="px-4 py-4 mt-auto flex items-center gap-4 relative z-20">
+              <div className="h-px bg-zinc-800 flex-1 opacity-50 transition-colors group-hover:bg-[#eb5e28]/40" />
               <Link
-                key={comp.id}
                 href={comp.href}
-                onMouseEnter={() => setHoveredId(comp.id)}
-                className="group relative flex items-center justify-between py-6 border-b border-zinc-800/50 transition-colors"
+                className="text-xs font-bold uppercase tracking-widest text-zinc-500 transition-colors group-hover:text-[#eb5e28] whitespace-nowrap after:absolute after:inset-0"
               >
-                <div className="relative z-10 flex flex-col gap-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className={`text-xl font-semibold transition-all duration-300 ${hoveredId === comp.id ? "text-primary translate-x-2" : "text-zinc-400"
-                      }`}>
-                      {comp.name}
-                    </h3>
-                  </div>
-                  <p className={`text-sm transition-opacity duration-300 max-w-md ${hoveredId === comp.id ? "opacity-100 translate-x-2" : "opacity-0"
-                    }`}>
-                    {comp.description}
-                  </p>
-                </div>
-
-                <div className={`transition-all duration-300 ${hoveredId === comp.id ? "opacity-100 translate-x-0" : "opacity-0 translate-x--4"
-                  }`}>
-                  <ArrowRightIcon className="w-5 h-5 text-primary" />
-                </div>
-
-                {/* Hover effect background */}
-                {hoveredId === comp.id && (
-                  <motion.div
-                    layoutId="list-hover"
-                    className="absolute inset-0 bg-zinc-900/40 z-0 rounded-lg"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
+                {comp.name}
               </Link>
-            ))}
+            </div>
           </div>
-        </div>
-
-        {/* Right: Preview Area */}
-        <div className="hidden lg:block w-[450px]">
-          <div className="sticky top-32">
-            <AnimatePresence mode="wait">
-              {hoveredId && (
-                <motion.div
-                  key={hoveredId}
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-full aspect-square flex flex-col gap-6"
-                >
-                  <div className="flex-1">
-                    {components.find(c => c.id === hoveredId)?.preview}
-                  </div>
-
-                  <div className="p-6 bg-zinc-900/30 rounded-lg border border-zinc-800/50">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {components.find(c => c.id === hoveredId)?.tags.map(tag => (
-                        <span key={tag} className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 rounded">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm text-zinc-400 italic">
-                      "Clean, modular, and ready for production use."
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
