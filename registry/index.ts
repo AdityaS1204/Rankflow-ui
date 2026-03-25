@@ -219,7 +219,7 @@ export const registry = [
         description: "A three-tier pricing card with hover gradient + noise on the price zone, slot-machine price animation via motion/react, and a spring-animated monthly/yearly toggle pill.",
         dependencies: ["motion"],
         registryDependencies: [],
-        tags: ["pricing", "card", "gradient", "animation", "noise", "slot-machine"],
+        tags: ["pricing", "block", "gradient", "animation", "noise", "slot-machine"],
         files: [
             "registry/components/pricing-plan.tsx",
         ],
