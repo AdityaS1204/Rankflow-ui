@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { FiSearch, FiCode, FiFileText, FiCommand, FiClock, FiSettings, FiUser } from "react-icons/fi";
+import { FiSearch, FiCode, FiFileText, FiClock, FiSettings, FiUser, FiZap } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 import { cn } from "@/registry/utils";
 
 // --- Types ---
@@ -15,8 +16,6 @@ export type ActionItem = {
   shortcut?: string[];
 };
 
-// --- Dummy Data ---
-// In a real app, this would be passed in as props or fetched from context
 const defaultActions: ActionItem[] = [
   { id: "1", title: "Create new project...", icon: <FiCode />, group: "Actions", perform: () => console.log("New Project") },
   { id: "2", title: "Assign to team...", icon: <FiUser />, group: "Actions", perform: () => console.log("Assign") },
@@ -39,6 +38,7 @@ export function CommandPalette({
   onOpenChange,
   actions = defaultActions,
 }: CommandPaletteProps) {
+  const router = useRouter();
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setOpen = onOpenChange || setInternalOpen;
@@ -74,12 +74,20 @@ export function CommandPalette({
     }
   }, [open]);
 
-  // Filtering Logic (Instantly updates, no animation)
   const filteredActions = useMemo(() => {
     if (!search.trim()) {
-      // Show recents
-      const recents = actions.filter((a) => recentIds.includes(a.id));
-      return [{ group: "Recent", items: recents }];
+      const gStarted = actions.filter((a) => a.group === "Getting Started");
+      const recents = actions.filter((a) => recentIds.includes(a.id) && a.group !== "Getting Started").slice(0, 3);
+      
+      const res = [];
+      if (gStarted.length > 0) res.push({ group: "Getting Started", items: gStarted });
+      if (recents.length > 0) res.push({ group: "Recent", items: recents });
+      
+if (res.length === 1 && res[0].group === "Getting Started") {
+        res.push({ group: "Components", items: actions.filter(a => a.group === "Components").slice(0, 3) });
+      }
+      
+      return res;
     }
 
     const lowerSearch = search.toLowerCase();
@@ -101,12 +109,9 @@ export function CommandPalette({
     }));
   }, [search, actions, recentIds]);
 
-  // Flattened items for keyboard navigation index calculation
   const flattenedItems = useMemo(() => {
     return filteredActions.flatMap((g) => g.items);
   }, [filteredActions]);
-
-  // Reset selection on search change
   useEffect(() => {
     setSelectedIndex(0);
   }, [search]);
@@ -137,12 +142,10 @@ export function CommandPalette({
     action.perform();
     setOpen(false);
     
-    // Add to recents
     if (!recentIds.includes(action.id)) {
       setRecentIds((prev) => [action.id, ...prev].slice(0, 5));
     } else {
-      // Move to top
-      setRecentIds((prev) => [action.id, ...prev.filter(id => id !== action.id)]);
+          setRecentIds((prev) => [action.id, ...prev.filter(id => id !== action.id)]);
     }
   };
 
@@ -172,7 +175,6 @@ export function CommandPalette({
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -182,7 +184,6 @@ export function CommandPalette({
               onClick={() => setOpen(false)}
             />
 
-            {/* Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -192,7 +193,6 @@ export function CommandPalette({
               role="dialog"
               aria-modal="true"
             >
-              {/* Search Input Area */}
               <div className="flex items-center border-b border-border px-4 py-3">
                 <FiSearch className="h-5 w-5 text-muted-foreground mr-3" />
                 <input
@@ -208,7 +208,6 @@ export function CommandPalette({
                 </div>
               </div>
 
-              {/* Results List */}
               <div className="max-h-[350px] overflow-y-auto p-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border">
                 {flattenedItems.length === 0 ? (
                   <div className="py-14 text-center text-sm text-muted-foreground">
