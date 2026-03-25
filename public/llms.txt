@@ -1,0 +1,45 @@
+# Rankflow UI
+
+Rankflow UI is a high-fidelity library of UI components built for React and Next.js. It focuses on premium aesthetics, smooth animations (via Framer Motion), and developer convenience.
+
+## Core Technologies
+- **Framework**: Next.js 16 (App Router)
+- **Runtime**: React 19
+- **Styling**: Tailwind CSS 4
+- **Animation**: motion/react (Framer Motion 12)
+- **Icons**: React Icons, Lucide, Radix UI
+
+## Components Summary
+
+### Buttons
+- **Animated Border Button**: Moving gradient border using CSS offset-path.
+- **Noise Button**: 3D pill button with canvas noise texture and magic-wand icon.
+- **Glow Button**: Vibrant hover glow states (orange, red, blue, green).
+- **Gradient Button**: Continuously moving random background gradients.
+- **Social Share Button**: Neomorphic button that reveals social icons on hover with spring layout transitions.
+
+### Cards
+- **Spotlight Card**: Dark mode cards with a ray-tracing style spotlight that follows the cursor.
+- **Gradient Ring Card**: Rotating conic gradient ring around a glassmorphism card.
+- **Stack Card**: Smoothly rotating card stack with alternating orientations.
+- **Tweet Card**: High-fidelity pixel-perfect Twitter/X post reconstruction.
+
+### Interactive Blocks
+- **Sign Up Form**: Split-screen auth block with an automatic morphing testimonial box.
+- **Pricing Plan**: Three-tier pricing grid with slot-machine price animations and currency toggles.
+- **AI Input**: Sophisticated prompt input with file attachments and voice capture support.
+- **Marquee**: Infinite horizontal scroller with magnetic hover slowing.
+- **Command Palette (Cmd+K)**: Fuzzy search modal with keyboard navigation and recent item memory.
+
+## URLs & Navigation
+- **Homepage**: https://ui.rankflow.in/
+- **Templates**: https://ui.rankflow.in/templates
+- **Docs Root**: https://ui.rankflow.in/docs
+- **Component Docs**: /docs/components/[name] (e.g. /docs/components/sign-up-form)
+
+## Usage Pattern
+All components are available in the registry for direct integration.
+```bash
+npx rankflow add [component-name]
+```
+Or manual copy-paste from `/registry/components/`.
