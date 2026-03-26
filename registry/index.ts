@@ -44,7 +44,6 @@ export const registry = [
         props: [
             { name: "children", type: "ReactNode", default: "null", description: "The content of the card." },
             { name: "color", type: "string", default: "#3b82f6", description: "The color of the spotlight effect." },
-            { name: "border", type: "string", default: "#262626", description: "The border color." },
             { name: "spotlightSize", type: "number", default: "600", description: "The radius of the spotlight effect." },
             { name: "width", type: "string | number", default: "100%", description: "The width of the card." },
             { name: "height", type: "string | number", default: "auto", description: "The height of the card." },
@@ -125,8 +124,8 @@ export const registry = [
         name: "sign-up-form",
         title: "Sign Up Form",
         description: "A two-pane sign-up block component with a masked testimonial carousel.",
-        dependencies: ["react", "motion", "react-icons"],
-        registryDependencies: [],
+        dependencies: ["react", "motion", "react-icons", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
         tags: ["block", "authentication", "form", "carousel"],
         files: [
             "registry/components/sign-up-form.tsx",
@@ -142,7 +141,7 @@ export const registry = [
         title: "Gradient Ring Card",
         description: "A card component with a frosted glass outer ring and a continuously rotating conic gradient, giving a neomorphic shadow depth between the ring and the card surface.",
         dependencies: ["react"],
-        registryDependencies: ["utils"],
+        registryDependencies: [],
         tags: ["card", "animation", "gradient", "neomorphism", "frost"],
         files: [
             "registry/components/gradient-ring-card.tsx",
@@ -167,7 +166,7 @@ export const registry = [
         name: "stack-card",
         title: "Stack Card",
         description: "A premium stack of cards with alternating content orientations and a glassmorphism backdrop. Cards smoothly rotate to the back continuously.",
-        dependencies: ["framer-motion", "clsx", "tailwind-merge"],
+        dependencies: ["motion", "clsx", "tailwind-merge"],
         registryDependencies: [],
         tags: ["card", "stack", "carousel", "glassmorphism"],
         files: [
@@ -197,8 +196,8 @@ export const registry = [
         name: "tweet-card",
         title: "Tweet Card",
         description: "A customizable Twitter tweet card component that exactly mimics the UI of a real tweet.",
-        dependencies: ["react", "react-icons", "clsx", "tailwind-merge"],
-        registryDependencies: [],
+        dependencies: ["react-icons", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
         tags: ["card", "tweet", "social", "twitter"],
         files: [
             "registry/components/tweet-card.tsx",
@@ -247,4 +246,3 @@ export const registry = [
         ]
     },
 ];
-
