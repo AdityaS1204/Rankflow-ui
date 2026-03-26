@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState, useCallback } from "react";
-import Image from "next/image";
 
 export function GradientRingCard() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,7 +64,8 @@ export function GradientRingCard() {
           }}
         >
           <div className="flex flex-col gap-2 justify-between mb-4">
-            <Image src={'https://res.cloudinary.com/dp5tdrmf8/image/upload/v1774034371/neo-robot_ufqzoc.avif'} alt="Image" width={150} height={150} className="rounded-xl w-full h-full" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src='https://res.cloudinary.com/dp5tdrmf8/image/upload/v1774034371/neo-robot_ufqzoc.avif' alt="Neo Robot" className="rounded-xl w-full h-auto" />
             <div>
               <p className="text-2xl text-black font-semibold">Neo Robot</p>
               <p className="text-md text-gray-500  tracking-tight">NEO is a humanoid robot developed by the robotics company 1X (formerly Halodi Robotics) and is designed specifically for domestic use.</p>
