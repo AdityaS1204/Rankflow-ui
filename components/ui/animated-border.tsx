@@ -57,7 +57,7 @@ export const AnimatedBorderButton = React.forwardRef<
           }
         `}} />
         <div
-          className="absolute inset-0 mask-clip-[padding-box,border-box] mask-composite-[intersect] mask-[linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
+          className="absolute inset-0 [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
           style={{
             borderRadius: "inherit",
             border: `${borderWidth}px solid transparent`
