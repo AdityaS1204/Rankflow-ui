@@ -2,11 +2,15 @@
 
 import React, { useState } from 'react';
 
+/**
+ * SpotlightCard
+ * A premium card component with a dynamic spotlight effect that follows the mouse cursor.
+ * Optimized for dark-themed layouts.
+ */
 export const SpotlightCard = ({ 
     children, 
     className,
     color = "#3b82f6",
-    border = "#262626",
     spotlightSize = 600,
     width = "50%",
     height = "auto"
@@ -14,7 +18,6 @@ export const SpotlightCard = ({
     children?: React.ReactNode, 
     className?: string,
     color?: string,
-    border?: string,
     spotlightSize?: number,
     width?: string | number,
     height?: string | number
@@ -32,7 +35,7 @@ export const SpotlightCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setOpacity(1)}
             onMouseLeave={() => setOpacity(0)}
-            className={`group relative rounded-2xl bg-[#0d0d0d] overflow-hidden border border-white/5 transition-colors hover:border-white/10 ${className || ""}`}
+            className={`group relative rounded-2xl bg-[#0d0d0d] overflow-hidden border border-neutral-800 transition-colors hover:border-neutral-700 ${className || ""}`}
             style={{ 
                 width: typeof width === 'number' ? `${width}px` : width,
                 height: typeof height === 'number' ? `${height}px` : height,
