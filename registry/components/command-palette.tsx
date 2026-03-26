@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FiSearch, FiCode, FiFileText, FiClock, FiSettings, FiUser, FiZap } from "react-icons/fi";
-import { useRouter } from "next/navigation";
-import { cn } from "@/registry/utils";
+import { cn } from "@/lib/utils";
 
 // --- Types ---
 export type ActionItem = {
@@ -38,7 +37,6 @@ export function CommandPalette({
   onOpenChange,
   actions = defaultActions,
 }: CommandPaletteProps) {
-  const router = useRouter();
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setOpen = onOpenChange || setInternalOpen;
@@ -47,7 +45,6 @@ export function CommandPalette({
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Local storage fake for recent items
   const [recentIds, setRecentIds] = useState<string[]>(DEFAULT_RECENTS);
 
   // Cmd+K to open
@@ -78,40 +75,37 @@ export function CommandPalette({
     if (!search.trim()) {
       const gStarted = actions.filter((a) => a.group === "Getting Started");
       const recents = actions.filter((a) => recentIds.includes(a.id) && a.group !== "Getting Started").slice(0, 3);
-      
+
       const res = [];
       if (gStarted.length > 0) res.push({ group: "Getting Started", items: gStarted });
       if (recents.length > 0) res.push({ group: "Recent", items: recents });
-      
-if (res.length === 1 && res[0].group === "Getting Started") {
+
+      if (res.length === 1 && res[0].group === "Getting Started") {
         res.push({ group: "Components", items: actions.filter(a => a.group === "Components").slice(0, 3) });
       }
-      
+
       return res;
     }
 
     const lowerSearch = search.toLowerCase();
     const matches = actions.filter((a) =>
-      a.title.toLowerCase().includes(lowerSearch) || 
+      a.title.toLowerCase().includes(lowerSearch) ||
       a.group.toLowerCase().includes(lowerSearch)
     );
 
-    // Grouping
     const groups: Record<string, ActionItem[]> = {};
     matches.forEach((item) => {
       if (!groups[item.group]) groups[item.group] = [];
       groups[item.group].push(item);
     });
 
-    return Object.entries(groups).map(([group, items]) => ({
-      group,
-      items,
-    }));
+    return Object.entries(groups).map(([group, items]) => ({ group, items }));
   }, [search, actions, recentIds]);
 
   const flattenedItems = useMemo(() => {
     return filteredActions.flatMap((g) => g.items);
   }, [filteredActions]);
+
   useEffect(() => {
     setSelectedIndex(0);
   }, [search]);
@@ -141,11 +135,11 @@ if (res.length === 1 && res[0].group === "Getting Started") {
   const executeAction = (action: ActionItem) => {
     action.perform();
     setOpen(false);
-    
+
     if (!recentIds.includes(action.id)) {
       setRecentIds((prev) => [action.id, ...prev].slice(0, 5));
     } else {
-          setRecentIds((prev) => [action.id, ...prev.filter(id => id !== action.id)]);
+      setRecentIds((prev) => [action.id, ...prev.filter(id => id !== action.id)]);
     }
   };
 
@@ -155,17 +149,17 @@ if (res.length === 1 && res[0].group === "Getting Started") {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="group flex items-center gap-3 rounded-xl border border-border bg-background/50 px-4 py-2.5 text-sm text-muted-foreground transition-all hover:bg-accent hover:text-foreground hover:shadow-lg active:scale-95"
+          className="group flex items-center gap-3 rounded-xl border border-neutral-700/60 bg-neutral-900/50 px-4 py-2.5 text-sm text-neutral-400 transition-all hover:bg-neutral-800 hover:text-neutral-100 hover:shadow-lg active:scale-95"
         >
           <div className="flex items-center gap-2">
             <FiSearch className="h-4 w-4" />
             <span>Search commands...</span>
           </div>
           <div className="flex items-center gap-1.5 ml-4">
-            <kbd className="flex h-5 min-w-5 items-center justify-center rounded border border-border bg-muted/50 px-1.5 font-sans text-[10px] font-medium text-muted-foreground">
+            <kbd className="flex h-5 min-w-5 items-center justify-center rounded border border-neutral-700 bg-neutral-800/50 px-1.5 font-sans text-[10px] font-medium text-neutral-400">
               ⌘
             </kbd>
-            <kbd className="flex h-5 min-w-5 items-center justify-center rounded border border-border bg-muted/50 px-1.5 font-sans text-[10px] font-medium text-muted-foreground">
+            <kbd className="flex h-5 min-w-5 items-center justify-center rounded border border-neutral-700 bg-neutral-800/50 px-1.5 font-sans text-[10px] font-medium text-neutral-400">
               K
             </kbd>
           </div>
@@ -180,7 +174,7 @@ if (res.length === 1 && res[0].group === "Getting Started") {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15, ease: "easeInOut" }}
-              className="fixed inset-0 bg-background/50 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setOpen(false)}
             />
 
@@ -189,39 +183,39 @@ if (res.length === 1 && res[0].group === "Getting Started") {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.94 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="relative w-full max-w-xl overflow-hidden rounded-xl border border-border bg-background shadow-2xl mx-4"
+              className="relative w-full max-w-xl overflow-hidden rounded-xl border border-neutral-700/60 bg-neutral-900 shadow-2xl mx-4"
               role="dialog"
               aria-modal="true"
             >
-              <div className="flex items-center border-b border-border px-4 py-3">
-                <FiSearch className="h-5 w-5 text-muted-foreground mr-3" />
+              <div className="flex items-center border-b border-neutral-700/60 px-4 py-3">
+                <FiSearch className="h-5 w-5 text-neutral-400 mr-3 shrink-0" />
                 <input
                   ref={inputRef}
                   type="text"
                   placeholder="Type a command or search..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+                  className="w-full bg-transparent text-sm text-neutral-100 outline-none placeholder:text-neutral-500"
                 />
-                <div className="flex items-center gap-1 text-[10px] text-muted-foreground ml-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded border border-border bg-accent/50 font-medium">ESC</span>
+                <div className="flex items-center gap-1 text-[10px] text-neutral-500 ml-2 shrink-0">
+                  <span className="flex h-5 w-8 items-center justify-center rounded border border-neutral-700 bg-neutral-800/50 font-medium text-[9px]">ESC</span>
                 </div>
               </div>
 
-              <div className="max-h-[350px] overflow-y-auto p-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border">
+              <div className="max-h-[350px] overflow-y-auto p-2">
                 {flattenedItems.length === 0 ? (
-                  <div className="py-14 text-center text-sm text-muted-foreground">
-                    No results found for <span className="text-foreground">"{search}"</span>
+                  <div className="py-14 text-center text-sm text-neutral-500">
+                    No results found for <span className="text-neutral-200">"{search}"</span>
                   </div>
                 ) : (
                   filteredActions.map((group) => {
                     if (group.items.length === 0) return null;
                     return (
                       <div key={group.group} className="mb-4 last:mb-0">
-                        <div className="mb-1.5 px-3 text-xs font-semibold text-muted-foreground">
+                        <div className="mb-1.5 px-3 text-xs font-semibold text-neutral-500">
                           {group.group}
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           {group.items.map((item) => {
                             const index = flattenedItems.findIndex((i) => i.id === item.id);
                             const isSelected = index === selectedIndex;
@@ -233,14 +227,14 @@ if (res.length === 1 && res[0].group === "Getting Started") {
                                 className={cn(
                                   "flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors",
                                   isSelected
-                                    ? "bg-accent text-accent-foreground"
-                                    : "text-foreground hover:bg-accent/50"
+                                    ? "bg-neutral-700/60 text-neutral-100"
+                                    : "text-neutral-300 hover:bg-neutral-800/60"
                                 )}
                               >
                                 <div className="flex items-center gap-3">
                                   <span className={cn(
                                     "flex items-center justify-center w-5 h-5",
-                                    isSelected ? "text-primary" : "text-muted-foreground"
+                                    isSelected ? "text-neutral-100" : "text-neutral-500"
                                   )}>
                                     {item.icon}
                                   </span>
@@ -249,7 +243,7 @@ if (res.length === 1 && res[0].group === "Getting Started") {
                                 {item.shortcut && (
                                   <div className="flex items-center gap-1">
                                     {item.shortcut.map((key) => (
-                                      <span key={key} className="flex h-5 items-center justify-center rounded border border-border bg-background px-1.5 text-[10px] font-medium text-muted-foreground shadow-sm">
+                                      <span key={key} className="flex h-5 items-center justify-center rounded border border-neutral-700 bg-neutral-800 px-1.5 text-[10px] font-medium text-neutral-400 shadow-sm">
                                         {key}
                                       </span>
                                     ))}
