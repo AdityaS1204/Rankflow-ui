@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 interface AnimatedBorderButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -43,7 +43,6 @@ export const AnimatedBorderButton = React.forwardRef<
       )}
       {...props}
     >
-      {/* Animated border layer */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
