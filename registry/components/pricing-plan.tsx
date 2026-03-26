@@ -227,7 +227,7 @@ function PricingCard({
         {tier.features.map((f) => (
           <li key={f.text} className="flex items-start gap-2.5 text-sm">
             <span
-              className="mt-[1px] shrink-0 flex items-center justify-center w-4 h-4 rounded-full"
+              className="mt-px shrink-0 flex items-center justify-center w-4 h-4 rounded-full"
               style={{
                 background: f.included ? "#0f0f0f" : "transparent",
                 border: f.included ? "none" : "1.5px solid #d4d4d4",
