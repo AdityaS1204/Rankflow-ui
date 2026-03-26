@@ -54,7 +54,13 @@ program
 
         try {
             const response = await fetch(`${REGISTRY_URL}/index.json`);
-            if (!response.ok) throw new Error('Failed to fetch registry index');
+            if (!response.ok) throw new Error(`Failed to fetch registry index: ${response.status} ${response.statusText}`);
+
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                throw new Error(`Registry returned non-JSON response (${contentType}). Make sure ${REGISTRY_URL} is correct and accessible.`);
+            }
 
             const registry = await response.json() as Array<{ name: string; title: string; description: string }>;
             s.stop('Registry fetched');
@@ -95,7 +101,13 @@ program
             const response = await fetch(`${REGISTRY_URL}/${componentName}.json`);
             if (!response.ok) {
                 if (response.status === 404) throw new Error(`Component "${componentName}" not found in registry.`);
-                throw new Error(`Failed to fetch component: ${response.statusText}`);
+                throw new Error(`Failed to fetch component: ${response.status} ${response.statusText}`);
+            }
+
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                throw new Error(`Registry returned non-JSON response for ${componentName}. This usually happens when the registry URL is incorrect or the server is returning an error page.`);
             }
 
             const componentData = await response.json() as { files: Array<{ path: string; content: string }>; dependencies?: string[] };
