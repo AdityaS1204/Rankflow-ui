@@ -1,15 +1,9 @@
+"use client";
+
 import React from "react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/lib/utils";
 import { FaTwitter } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
-
-/**
- * Utility function to merge tailwind classes
- */
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 export interface TweetCardProps {
   /** The author's display name */
@@ -27,7 +21,7 @@ export interface TweetCardProps {
 }
 
 export const TweetCard = ({
-  authorName = "Aditya" ,
+  authorName = "Aditya",
   authorUsername = "@adityas1204",
   authorAvatar = "https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop",
   verified = true,
