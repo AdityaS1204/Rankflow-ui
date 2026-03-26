@@ -4,8 +4,10 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { AnimatedBorderButton } from "@/registry/components/animated-border";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+    const router = useRouter();
   return (
     <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-6 text-center pt-20">
       {/* Background: Dot grid only */}
@@ -46,7 +48,6 @@ export default function Hero() {
         className="max-w-3xl text-5xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
       >
         Modern UI library{" "}
-        {/* <span className="text-primary italic">handcrafted</span> */}
         <br />
         For effortless design.
       </motion.h1>
@@ -70,7 +71,7 @@ export default function Hero() {
         transition={{ delay: 0.4, duration: 0.6 }}
         className="mt-10 flex flex-wrap items-center justify-center gap-4"
       >
-        <AnimatedBorderButton color="var(--primary)" duration={3} className="px-6 py-2.5 text-sm font-semibold rounded-full border-none">
+        <AnimatedBorderButton onClick={() => router.push("/docs/components/animated-border")} color="var(--primary)" duration={3} className="px-6 py-2.5 text-sm font-semibold rounded-full border-none">
           Browse Components
         </AnimatedBorderButton>
 
