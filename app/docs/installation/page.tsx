@@ -78,11 +78,11 @@ export function cn(...inputs: ClassValue[]) {
           The fastest way to install. The CLI fetches the component source and places
           it directly into your project.
         </p>
-        <PackageManagerTabs command="rankflow-ui add <component-name>" isExecute />
+        <PackageManagerTabs command="rankflow-ui@latest add <component-name>" isExecute />
         <p className="text-sm text-muted-foreground">
           For example, to add the Animated Border Button:
         </p>
-        <PackageManagerTabs command="rankflow-ui add animated-border" isExecute />
+        <PackageManagerTabs command="rankflow-ui@latest add animated-border" isExecute />
       </section>
 
       {/* List */}
@@ -90,7 +90,7 @@ export function cn(...inputs: ClassValue[]) {
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
           List available components
         </h2>
-        <PackageManagerTabs command="rankflow-ui list" isExecute />
+        <PackageManagerTabs command="rankflow-ui@latest list" isExecute />
       </section>
 
       <hr className="border-border mb-10" />

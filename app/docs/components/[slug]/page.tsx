@@ -89,7 +89,7 @@ export default async function ComponentPage({
           <p className="text-muted-foreground text-sm">
             Run the following command in your terminal to add the component to your project:
           </p>
-          <PackageManagerTabs command={`rankflow-ui add ${component.name}`} isExecute />
+          <PackageManagerTabs command={`rankflow-ui@latest add ${component.name}`} isExecute />
         </section>
       </div>
 
