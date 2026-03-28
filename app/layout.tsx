@@ -9,8 +9,35 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "RankFlow UI",
-  description: "Modern, animated UI library for React.",
+  title: "RankFlow UI - Modern, Animated UI Library",
+  description: "A premium, UI library for React with smooth animations and clean design.",
+  openGraph: {
+    title: "RankFlow UI - Modern, Animated UI Library",
+    description: "A premium, UI library for React with smooth animations and clean design.",
+    url: "https://ui.rankflow.in",
+    siteName: "RankFlow UI",
+    images: [
+      {
+        url: "https://ui.rankflow.in/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "RankFlow UI Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RankFlow UI - Modern, Animated UI Library",
+    description: "A premium, dark-mode focused UI library for React with smooth animations and clean design.",
+    images: ["https://ui.rankflow.in/opengraph-image.png"],
+    creator: "@AdityaS1204",
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
