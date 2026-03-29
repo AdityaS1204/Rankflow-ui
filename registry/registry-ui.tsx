@@ -13,6 +13,7 @@ import { TweetCard } from "./components/tweet-card";
 import { PricingPlan } from "./components/pricing-plan";
 import { SocialShareButton } from "./components/social-share-button";
 import { HeroSection } from "./components/hero-section";
+import { AiInput02 } from "./components/ai-input-02";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -30,5 +31,7 @@ export const registryComponents: Record<string, any> = {
   "pricing-plan": PricingPlan,
   "social-share-button": SocialShareButton,
   "hero-section": HeroSection,
+  "ai-input-02": AiInput02,
 };
+
 

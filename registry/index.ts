@@ -163,6 +163,20 @@ export const registry = [
         props: []
     },
     {
+        name: "ai-input-02",
+        title: "AI Input 02",
+        description: "A premium AI input sitting on a solid footer. Features real-time audio visualization, floating input card, and app-tools drawer.",
+        dependencies: ["motion", "react-icons", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["input", "ai", "audio-visualizer", "gradient"],
+        files: [
+            "registry/components/ai-input-02.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: []
+    },
+    {
         name: "stack-card",
         title: "Stack Card",
         description: "A premium stack of cards with alternating content orientations and a glassmorphism backdrop. Cards smoothly rotate to the back continuously.",
