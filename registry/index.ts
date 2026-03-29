@@ -245,4 +245,27 @@ export const registry = [
             { name: "label", type: "string", default: "'Share'", description: "Text shown in the default (non-hover) state." },
         ]
     },
+    {
+        name: "hero-section",
+        title: "Hero Section",
+        description: "A premium SaaS hero block with warm mesh gradients, parallax blobs, accent headline, dual CTAs, and a trusted-by logo rail.",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["block", "hero", "landing", "saas", "gradient"],
+        files: [
+            "registry/components/hero-section.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "heading", type: "string", default: "'AI Workspace'", description: "Primary headline text (first line)." },
+            { name: "accentText", type: "string", default: "'Creative Thinking'", description: "The accent-colored phrase in the headline." },
+            { name: "subheading", type: "string", default: "-", description: "Descriptive paragraph below the headline." },
+            { name: "primaryCta", type: "string", default: "'Try Aura Free'", description: "Label for the primary call-to-action button." },
+            { name: "secondaryCta", type: "string", default: "'Watch Demo'", description: "Label for the secondary CTA button." },
+            { name: "onPrimaryCta", type: "function", default: "-", description: "Click handler for the primary CTA." },
+            { name: "onSecondaryCta", type: "function", default: "-", description: "Click handler for the secondary CTA." },
+        ]
+    },
 ];
+
