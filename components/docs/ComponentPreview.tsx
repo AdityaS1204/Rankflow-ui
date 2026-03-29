@@ -56,7 +56,7 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
         </button>
       </div>
 
-      <div className="relative overflow-hidden rounded-xl border border-border bg-[#0d0d0d] shadow-sm">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-[#0d0d0e] shadow-sm">
         <AnimatePresence mode="wait">
           {activeTab === "preview" ? (
             <motion.div
