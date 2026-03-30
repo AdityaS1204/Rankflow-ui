@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "RankFlow UI",
     images: [
       {
-        url: "https://ui.rankflow.in/opengraph-image.png",
+        url: "https://ui.rankflow.in/ogimg.png",
         width: 1200,
         height: 630,
         alt: "RankFlow UI Logo",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RankFlow UI - Modern, Animated UI Library",
     description: "A premium, dark-mode focused UI library for React with smooth animations and clean design.",
-    images: ["https://ui.rankflow.in/opengraph-image.png"],
+    images: ["https://ui.rankflow.in/ogimg.png"],
     creator: "@AdityaS1204",
   },
   icons: {
