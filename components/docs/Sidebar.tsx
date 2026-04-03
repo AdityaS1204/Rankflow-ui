@@ -32,13 +32,20 @@ export default function DocsSidebar() {
                     <Link
                       href={item.href}
                       onMouseEnter={() => setHoveredHref(item.href)}
-                      className={`relative flex items-center px-3 py-1.5 text-sm rounded-md transition-colors duration-200 ${
+                      className={`relative flex items-center justify-between px-3 py-1.5 text-sm rounded-md transition-colors duration-200 ${
                         isActive
                           ? "text-foreground font-medium"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
-                      <span className="relative z-10">{item.title}</span>
+                      <span className="relative z-10 flex items-center gap-2">
+                        {item.title}
+                        {item.isNew && (
+                          <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-tight bg-amber-500 text-black rounded-lg shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                            New
+                          </span>
+                        )}
+                      </span>
 
                       {(isHovered || (isActive && !hoveredHref)) && (
                         <motion.div
