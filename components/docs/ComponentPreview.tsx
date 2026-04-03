@@ -70,15 +70,11 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
                 isLarge ? "min-h-[500px] lg:min-h-[600px]" : "min-h-[400px]"
               )}
             >
-              {/* Dotted Background */}
-              <div className="absolute inset-0 z-0 opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[24px_24px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]" />
-              <div className="relative z-10 w-full flex justify-center items-center">
-                {Component ? (
-                  <Component fadeColor="#0d0d0d" />
-                ) : (
-                  <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
-                )}
-              </div>
+              {Component ? (
+                <Component fadeColor="#0d0d0d" />
+              ) : (
+                <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
+              )}
             </motion.div>
           ) : (
             <motion.div
