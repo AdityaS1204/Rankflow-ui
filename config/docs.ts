@@ -3,6 +3,7 @@ import { registry } from "@/registry/index";
 export interface DocsSidebarItem {
   title: string;
   href: string;
+  isNew?: boolean;
 }
 
 export interface DocsSidebarSection {
@@ -30,11 +31,13 @@ export function getDocsNavigation(): DocsSidebarSection[] {
   const blocks = components
     .filter((c) => 
       !c.tags.includes("button") && 
-      !c.tags.includes("card")
+      !c.tags.includes("card") &&
+      !c.tags.includes("backgrounds")
     )
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
     }));
 
   return [
@@ -56,6 +59,12 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     {
       label: "Blocks",
       items: blocks,
+    },
+    {
+      label: "Backgrounds",
+      items: [
+        { title: "Dot Grid Background", href: "/docs/components/dot-grid-background", isNew: true },
+      ],
     },
   ];
 }
