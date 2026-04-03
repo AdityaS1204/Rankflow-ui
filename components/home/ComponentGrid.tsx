@@ -19,6 +19,7 @@ import { StackCard } from "@/registry/components/stack-card";
 import { CommandPalette } from "@/registry/components/command-palette";
 import { GradientRingCard } from "@/registry/components/gradient-ring-card";
 import { SocialShareButton } from "@/registry/components/social-share-button";
+import { DotGridBackground } from "@/registry/components/dot-grid-background";
 
 // Live previews of available components
 
@@ -207,6 +208,19 @@ function StackCardPreview() {
   );
 }
 
+function DotGridPreview() {
+  return (
+    <div className="relative w-full h-full min-h-[220px] overflow-hidden rounded-3xl">
+      <DotGridBackground />
+      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+        <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/5">
+          Grid Interaction
+        </span>
+      </div>
+    </div>
+  );
+}
+
 const components = [
   {
     id: "sign-up-form",
@@ -322,6 +336,14 @@ const components = [
     href: "/docs/components/social-share-button",
     preview: <SocialShareButtonPreview />,
     colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "dot-grid-background",
+    name: "Dot Grid Background",
+    href: "/docs/components/dot-grid-background",
+    preview: <DotGridPreview />,
+    colSpan: "md:col-span-2",
     rowSpan: "md:row-span-1",
   },
 ];
