@@ -281,5 +281,27 @@ export const registry = [
             { name: "onSecondaryCta", type: "function", default: "-", description: "Click handler for the secondary CTA." },
         ]
     },
+    {
+        name: "dot-grid-background",
+        title: "Dot Grid Background",
+        isNew: true,
+        description: "A premium fullscreen background inspired by the Miracle UI. Features a dense grid of randomly blinking dots with an interactive cursor-follow lighting effect.",
+        dependencies: ["react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["backgrounds", "canvas", "grid", "blinking", "animation"],
+        files: [
+            "registry/components/dot-grid-background.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "dotSize", type: "number", default: "1.2", description: "The radius of each dot in pixels." },
+            { name: "gap", type: "number", default: "12", description: "The grid spacing between dots (lower = higher density)." },
+            { name: "blinkProbability", type: "number", default: "0.005", description: "Chance of a dot starting to blink [0, 1]." },
+            { name: "blinkSpeed", type: "number", default: "0.05", description: "Interpolation speed of the opacity transition." },
+            { name: "cursorRadius", type: "number", default: "100", description: "Radius around the cursor where dots light up." },
+            { name: "cursorStrength", type: "number", default: "0.5", description: "Maximum additional opacity from cursor proximity." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
 
