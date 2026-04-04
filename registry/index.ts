@@ -343,5 +343,24 @@ export const registry = [
             { name: "once", type: "boolean", default: "true", description: "Whether the animation should only play once." },
         ]
     },
+    {
+        name:"parallax-text",
+        title:"Parallax Text",
+        isNew:true,
+        description:"A parallax text effect component with multiple vibrant layers that react to cursor movement.",
+        dependencies:["motion"],
+        registryDependencies:["utils"],
+        tags:["text","parallax","interaction","animation"],
+        files:[
+            "registry/components/parallax-text.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "text", type: "string", default: "'Rankflow UI'", description: "The text to display." },
+            { name: "layers", type: "number", default: "5", description: "Number of text layers to generate." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." }
+        ]
+    },
+    
 ];
 
