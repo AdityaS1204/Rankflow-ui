@@ -303,5 +303,25 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name:"scroll-velocity",
+        title:"Scroll Velocity",
+        isNew:true,
+        description:"A text component that moves with the scroll velocity.",
+        dependencies:["react"],
+        registryDependencies:[],
+        tags:["block","interaction","text"],
+        files:[
+            "registry/components/scroll-velocity.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "texts", type: "string[]", default: "['Rankflow UI is a react component library', 'Rankflow UI is a react component library']", description: "Array of texts to display." },
+            { name: "baseVelocity", type: "number", default: "1", description: "Base velocity of the text." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+            { name: "textClassName", type: "string", default: "''", description: "Additional CSS classes for the text." },
+        ]
+    },
+    
 ];
 

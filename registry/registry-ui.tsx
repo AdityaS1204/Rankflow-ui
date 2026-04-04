@@ -15,6 +15,7 @@ import { SocialShareButton } from "./components/social-share-button";
 import { HeroSection } from "./components/hero-section";
 import { AiInput02 } from "./components/ai-input-02";
 import { DotGridBackground } from "./components/dot-grid-background";
+import { ScrollVelocity } from "./components/scroll-velocity";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -34,6 +35,5 @@ export const registryComponents: Record<string, any> = {
   "hero-section": HeroSection,
   "ai-input-02": AiInput02,
   "dot-grid-background": DotGridBackground,
+  "scroll-velocity": ScrollVelocity,
 };
-
-
