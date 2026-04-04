@@ -21,7 +21,7 @@ export function Marquee({
   vertical = false,
   repeat = 4,
   speed = 40, // Pixels per second
-  fadeColor = "#0d0d0d",
+  fadeColor = "var(--background)",
 }: MarqueeProps) {
   const [isHovered, setIsHovered] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -41,15 +41,15 @@ export function Marquee({
 
   const renderContent = () => (
     children || defaultTestimonials.map((t, i) => (
-      <div key={i} className="flex w-[350px] flex-col gap-2 rounded-2xl border border-white/5 bg-[#111111] p-6 shadow-xl transition-colors hover:border-white/10">
+      <div key={i} className="flex w-[350px] flex-col gap-2 rounded-2xl border border-neutral-200 dark:border-white/5 bg-white dark:bg-[#111111] p-6 transition-colors hover:border-neutral-300 dark:hover:border-white/10">
         <div className="flex items-center gap-3">
           <div className={cn("h-10 w-10 shrink-0 rounded-full bg-linear-to-br opacity-80", t.color)} />
           <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white leading-none">{t.name}</span>
+            <span className="text-sm font-semibold text-neutral-900 dark:text-white leading-none">{t.name}</span>
             <span className="text-[11px] text-neutral-500 mt-1">{t.role}</span>
           </div>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-neutral-400">
+        <p className="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
           {t.text}
         </p>
       </div>
@@ -97,24 +97,15 @@ export function Marquee({
         vertical ? "flex-col" : "flex-row",
         className
       )}
+      style={{
+        maskImage: vertical
+          ? "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)"
+          : "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+        WebkitMaskImage: vertical
+          ? "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)"
+          : "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+      }}
     >
-      {/* Fade Overlays */}
-      <div 
-        className={cn("pointer-events-none absolute inset-y-0 left-0 z-20 w-1/4 bg-linear-to-r", !vertical ? "block" : "hidden")} 
-        style={{ backgroundImage: `linear-gradient(to right, ${fadeColor}, transparent)` }}
-      />
-      <div 
-        className={cn("pointer-events-none absolute inset-y-0 right-0 z-20 w-1/4 bg-linear-to-l", !vertical ? "block" : "hidden")} 
-        style={{ backgroundImage: `linear-gradient(to left, ${fadeColor}, transparent)` }}
-      />
-      <div 
-        className={cn("pointer-events-none absolute inset-x-0 top-0 z-20 h-1/4 bg-linear-to-b", vertical ? "block" : "hidden")} 
-        style={{ backgroundImage: `linear-gradient(to bottom, ${fadeColor}, transparent)` }}
-      />
-      <div 
-        className={cn("pointer-events-none absolute inset-x-0 bottom-0 z-20 h-1/4 bg-linear-to-t", vertical ? "block" : "hidden")} 
-        style={{ backgroundImage: `linear-gradient(to top, ${fadeColor}, transparent)` }}
-      />
 
       <motion.div 
         style={{ x, y }} 
