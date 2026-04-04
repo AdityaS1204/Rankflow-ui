@@ -56,7 +56,6 @@ function MeshBlob({
   );
 }
 
-/* ————— Main component ————— */
 interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   heading?: string;
   accentText?: string;
@@ -69,7 +68,7 @@ interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Navbar = () => (
-  <nav className="absolute left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-6 sm:px-12">
+  <nav className="absolute left-0 top-0 z-20 flex w-full items-center justify-between px-6 py-6 sm:px-12">
     {/* Logo */}
     <div className="flex items-center gap-2">
       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e53e2e]">
@@ -184,7 +183,6 @@ export function HeroSection({
       </div>
 
       <div className="relative z-10 flex max-w-3xl flex-col items-center pt-20 sm:pt-0">
-        {/* Headline */}
         <h1 className="text-5xl font-bold leading-[1.1] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
           {heading}
           <br />
