@@ -46,7 +46,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
   };
 
   return (
-    <div className="group relative rounded-2xl bg-[#111111] border border-white/5 p-3 md:p-4 font-mono shadow-2xl transition-all hover:border-white/10">
+    <div className="group relative rounded-2xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-3 md:p-4 font-mono shadow-xl dark:shadow-2xl transition-all hover:border-neutral-300 dark:hover:border-white/10">
       {/* Tab bar / Header */}
       <div className="flex items-center justify-between mb-3 px-1">
         <div className="flex gap-1">
@@ -54,11 +54,10 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
             <button
               key={pm}
               onClick={() => setActive(pm)}
-              className={`relative px-3 py-1.5 text-[13px] font-mono transition-colors duration-200 ${
-                active === pm
-                  ? "text-white"
-                  : "text-neutral-500 hover:text-neutral-300"
-              }`}
+              className={`relative px-3 py-1.5 text-[13px] font-mono transition-colors duration-200 ${active === pm
+                  ? "text-black dark:text-white"
+                  : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300"
+                }`}
             >
               {pm}
               {active === pm && (
@@ -75,7 +74,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
         {/* Copy Button (matching CodeBlock style) */}
         <button
           onClick={handleCopy}
-          className="p-2 rounded-lg border border-white/5 bg-white/2 hover:bg-white/8 hover:border-white/10 text-neutral-500 hover:text-white transition-all backdrop-blur-md"
+          className="p-2 rounded-lg border border-neutral-200 dark:border-white/5 bg-white dark:bg-white/2 hover:bg-neutral-100 dark:hover:bg-white/8 hover:border-neutral-300 dark:hover:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white transition-all backdrop-blur-md"
           aria-label="Copy command"
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -105,11 +104,11 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
       </div>
 
       {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-[#080808] border border-white/5 overflow-hidden">
-        <CodeBlock 
-          code={getCommand(active, command, isExecute)} 
-          language="bash" 
-          hideLabel 
+      <div className="relative rounded-xl bg-neutral-50 dark:bg-[#080808] border border-neutral-200 dark:border-white/5 overflow-hidden">
+        <CodeBlock
+          code={getCommand(active, command, isExecute)}
+          language="bash"
+          hideLabel
         />
       </div>
     </div>

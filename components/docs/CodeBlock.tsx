@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes, type Language } from "prism-react-renderer";
@@ -21,6 +22,15 @@ export function CodeBlock({
   showCopy
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = !mounted || resolvedTheme !== "light";
+  const prismTheme = isDark ? themes.vsDark : themes.github;
 
   const shouldShowCopy = showCopy !== undefined ? showCopy : !hideLabel;
 
@@ -33,20 +43,20 @@ export function CodeBlock({
   const lang = (language?.toLowerCase() === "typescript" ? "tsx" : language?.toLowerCase() || "tsx") as Language;
 
   return (
-    <div className="group relative rounded-xl bg-[#111111] border border-white/5 p-0 md:p-3 font-mono shadow-2xl transition-all hover:border-white/10">
+    <div className="group relative rounded-xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-0 md:p-3 font-mono shadow-xl dark:shadow-2xl transition-all hover:border-neutral-300 dark:hover:border-white/10">
       {/* Header Label (Filename or Language) */}
       {!hideLabel && (filename || language) && (
         <div className="mb-3 flex items-center px-1">
-          <span className="text-[13px] font-medium text-neutral-400/90 tracking-tight">
+          <span className="text-[13px] font-medium text-neutral-600 dark:text-neutral-400/90 tracking-tight">
             {filename || language}
           </span>
         </div>
       )}
 
       {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-[#080808] border border-white/5 overflow-hidden">
+      <div className="relative rounded-xl bg-neutral-50 dark:bg-[#080808] border border-neutral-200 dark:border-white/5 overflow-hidden">
         <Highlight
-          theme={themes.vsDark}
+          theme={prismTheme}
           code={code.trim()}
           language={lang}
         >
@@ -61,7 +71,7 @@ export function CodeBlock({
                   const { key: lineKey, ...lineProps } = getLineProps({ line, key: i }) as any;
                   return (
                     <div key={lineKey} {...lineProps} className="table-row group/line font-mono">
-                      <span className="table-cell select-none pr-6 text-right text-neutral-700 w-12 border-r border-neutral-800/30 mr-4 transition-colors group-hover/line:text-neutral-500 font-mono italic">
+                      <span className="table-cell select-none pr-6 text-right text-neutral-400 dark:text-neutral-700 w-12 border-r border-neutral-200 dark:border-neutral-800/30 mr-4 transition-colors group-hover/line:text-neutral-600 dark:group-hover/line:text-neutral-500 font-mono italic">
                         {i + 1}
                       </span>
                       <span className="table-cell pl-6 font-mono">
@@ -82,7 +92,7 @@ export function CodeBlock({
         {shouldShowCopy && (
           <button
             onClick={handleCopy}
-            className="absolute top-4 right-4 p-2 rounded-lg border border-white/5 bg-white/2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/8 hover:border-white/10 text-neutral-500 hover:text-white backdrop-blur-md z-10"
+            className="absolute top-4 right-4 p-2 rounded-lg border border-neutral-200 dark:border-white/5 bg-white dark:bg-white/2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-white/8 hover:border-neutral-300 dark:hover:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white backdrop-blur-md z-10"
             aria-label="Copy code"
           >
             <AnimatePresence mode="wait" initial={false}>
