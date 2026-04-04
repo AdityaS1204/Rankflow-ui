@@ -361,6 +361,24 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." }
         ]
     },
-    
+    {
+        name:"pixel-fall-effect",
+        title:"Pixel Fall Effect",
+        isNew:true,
+        description:"A card component where an interactive pixelated screen shatters and falls down on hover, revealing an underlying vibrant color.",
+        dependencies:["react", "lucide-react"],
+        registryDependencies:["utils"],
+        tags:["card","canvas","animation","interaction","pixel"],
+        files:[
+            "registry/components/pixel-fall-effect.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "defaultColor", type: "string", default: "'#2563eb'", description: "The color of the canvas layer." },
+            { name: "hoverColor", type: "string", default: "'#ef4444'", description: "The background color revealed on hover." },
+            { name: "pixelSize", type: "number", default: "16", description: "The size of each falling pixel block." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." }
+        ]
+    }
 ];
 

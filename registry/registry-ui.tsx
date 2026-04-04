@@ -18,7 +18,7 @@ import { DotGridBackground } from "./components/dot-grid-background";
 import { ScrollVelocity } from "./components/scroll-velocity";
 import { TextGenerateEffect } from "./components/text-generate-effect";
 import { ParallaxText } from "./components/parallax-text";
-
+import { PixelFallEffect } from "./components/pixel-fall-effect";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -41,4 +41,5 @@ export const registryComponents: Record<string, any> = {
   "scroll-velocity": ScrollVelocity,
   "text-generate-effect": TextGenerateEffect,
   "parallax-text": ParallaxText,
+  "pixel-fall-effect": PixelFallEffect,
 };
