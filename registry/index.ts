@@ -322,6 +322,26 @@ export const registry = [
             { name: "textClassName", type: "string", default: "''", description: "Additional CSS classes for the text." },
         ]
     },
-    
+    {
+        name:"text-generate-effect",
+        title:"Text Generate Effect",
+        isNew:true,
+        description:"A text component with a blur effect when it comes into view.",
+        dependencies:["react"],
+        registryDependencies:[],
+        tags:["block","interaction","text"],
+        files:[
+            "registry/components/text-generate-effect.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "text", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text to display." },
+            { name: "children", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text to display." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+            { name: "delay", type: "number", default: "0", description: "Delay before the animation starts." },
+            { name: "wordDelay", type: "number", default: "0", description: "Delay between words." },
+            { name: "once", type: "boolean", default: "true", description: "Whether the animation should only play once." },
+        ]
+    },
 ];
 
