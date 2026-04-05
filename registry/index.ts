@@ -304,18 +304,18 @@ export const registry = [
         ]
     },
     {
-        name:"scroll-velocity",
-        title:"Scroll Velocity",
-        isNew:true,
-        description:"A text component that moves with the scroll velocity.",
-        dependencies:["react"],
-        registryDependencies:[],
-        tags:["block","interaction","text"],
-        files:[
+        name: "scroll-velocity",
+        title: "Scroll Velocity",
+        isNew: true,
+        description: "A text component that moves with the scroll velocity.",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["block", "interaction", "text"],
+        files: [
             "registry/components/scroll-velocity.tsx",
         ],
-        type:"components:ui",
-        props:[
+        type: "components:ui",
+        props: [
             { name: "texts", type: "string[]", default: "['Rankflow UI is a react component library', 'Rankflow UI is a react component library']", description: "Array of texts to display." },
             { name: "baseVelocity", type: "number", default: "1", description: "Base velocity of the text." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
@@ -323,18 +323,18 @@ export const registry = [
         ]
     },
     {
-        name:"text-generate-effect",
-        title:"Text Generate Effect",
-        isNew:true,
-        description:"A text component with a blur effect when it comes into view.",
-        dependencies:["react"],
-        registryDependencies:[],
-        tags:["block","interaction","text"],
-        files:[
+        name: "text-generate-effect",
+        title: "Text Generate Effect",
+        isNew: true,
+        description: "A text component with a blur effect when it comes into view.",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["block", "interaction", "text"],
+        files: [
             "registry/components/text-generate-effect.tsx",
         ],
-        type:"components:ui",
-        props:[
+        type: "components:ui",
+        props: [
             { name: "text", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text to display." },
             { name: "children", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text to display." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
@@ -344,36 +344,36 @@ export const registry = [
         ]
     },
     {
-        name:"parallax-text",
-        title:"Parallax Text",
-        isNew:true,
-        description:"A parallax text effect component with multiple vibrant layers that react to cursor movement.",
-        dependencies:["motion"],
-        registryDependencies:["utils"],
-        tags:["text","parallax","interaction","animation"],
-        files:[
+        name: "parallax-text",
+        title: "Parallax Text",
+        isNew: true,
+        description: "A parallax text effect component with multiple vibrant layers that react to cursor movement.",
+        dependencies: ["motion"],
+        registryDependencies: ["utils"],
+        tags: ["text", "parallax", "interaction", "animation"],
+        files: [
             "registry/components/parallax-text.tsx",
         ],
-        type:"components:ui",
-        props:[
+        type: "components:ui",
+        props: [
             { name: "text", type: "string", default: "'Rankflow UI'", description: "The text to display." },
             { name: "layers", type: "number", default: "5", description: "Number of text layers to generate." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." }
         ]
     },
     {
-        name:"pixel-fall-effect",
-        title:"Pixel Fall Effect",
-        isNew:true,
-        description:"A card component where an interactive pixelated screen shatters and falls down on hover, revealing an underlying vibrant color.",
-        dependencies:["react", "lucide-react"],
-        registryDependencies:["utils"],
-        tags:["card","canvas","animation","interaction","pixel"],
-        files:[
+        name: "pixel-fall-effect",
+        title: "Pixel Fall Effect",
+        isNew: true,
+        description: "A card component where an interactive pixelated screen shatters and falls down on hover, revealing an underlying vibrant color.",
+        dependencies: ["react", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["card", "canvas", "animation", "interaction", "pixel"],
+        files: [
             "registry/components/pixel-fall-effect.tsx",
         ],
-        type:"components:ui",
-        props:[
+        type: "components:ui",
+        props: [
             { name: "direction", type: "string", default: "'down'", description: "The direction of the pixel fall." },
             { name: "defaultColor", type: "string", default: "'#2563eb'", description: "The color of the canvas layer." },
             { name: "hoverColor", type: "string", default: "'#ef4444'", description: "The background color revealed on hover." },
@@ -382,33 +382,67 @@ export const registry = [
         ]
     },
     {
-        name:"ai-input-03",
-        title:"AI Input 03",
-        isNew:true,
-        description:"A clean, light-themed AI input mimicking a premium dashboard interface. Features uploaded drafts preview, auto-expanding textarea, and a segmented control toolbar for image/video generation.",
-        dependencies:["react", "lucide-react", "motion", "clsx", "tailwind-merge"],
-        registryDependencies:["utils"],
-        tags:["input","ai","dashboard","drafts","clean"],
-        files:[
+        name: "ai-input-03",
+        title: "AI Input 03",
+        isNew: true,
+        description: "A clean, light-themed AI input mimicking a premium dashboard interface. Features uploaded drafts preview, auto-expanding textarea, and a segmented control toolbar for image/video generation.",
+        dependencies: ["react", "lucide-react", "motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["input", "ai", "dashboard", "drafts", "clean"],
+        files: [
             "registry/components/ai-input-03.tsx",
         ],
-        type:"components:ui",
-        props:[]
+        type: "components:ui",
+        props: []
     },
     {
-        name:"text-reveal",
-        title:"Text Reveal",
-        isNew:true,
-        description:"A bold text component that smoothly reveals words based on scroll position.",
-        dependencies:["react", "motion"],
-        registryDependencies:["utils"],
-        tags:["text","scroll","animation","reveal"],
-        files:[
+        name: "text-reveal",
+        title: "Text Reveal",
+        isNew: true,
+        description: "A bold text component that smoothly reveals words based on scroll position.",
+        dependencies: ["react", "motion"],
+        registryDependencies: ["utils"],
+        tags: ["text", "scroll", "animation", "reveal"],
+        files: [
             "registry/components/text-reveal.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "text", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text content to be revealed." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
+        ]
+    },
+    {
+        name:"dither-background",
+        title:"Dither Background",
+        isNew:true,
+        description:"A premium background component that renders a subtle, pixelated dithering effect on top of soft gradients.",
+        dependencies:["react"],
+        registryDependencies:["utils"],
+        tags:["backgrounds","dither","pixel-perfect"],
+        files:[
+            "registry/components/dither-background.tsx",
         ],
         type:"components:ui",
         props:[
-            { name: "text", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text content to be revealed." },
+            { name: "children", type: "ReactNode", default: "-", description: "The content to be rendered on top of the background." }
+        ]
+    },
+    {
+        name:"expandable-cards",
+        title:"Expandable Cards",
+        isNew:true,
+        description:"A group of vertical cards that expand smoothly on hover using Framer Motion layout animations. Perfect for displaying featured collections or portfolio categories.",
+        dependencies:["motion", "clsx", "tailwind-merge"],
+        registryDependencies:["utils"],
+        tags:["card","interaction","stock-images","expandable"],
+        files:[
+            "registry/components/expandable-cards.tsx",
+        ],
+        type:"components:ui",
+        size: "lg",
+        props:[
+            { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
         ]
     }
