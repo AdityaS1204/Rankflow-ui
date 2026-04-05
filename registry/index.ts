@@ -394,5 +394,22 @@ export const registry = [
         ],
         type:"components:ui",
         props:[]
+    },
+    {
+        name:"text-reveal",
+        title:"Text Reveal",
+        isNew:true,
+        description:"A bold text component that smoothly reveals words based on scroll position.",
+        dependencies:["react", "motion"],
+        registryDependencies:["utils"],
+        tags:["text","scroll","animation","reveal"],
+        files:[
+            "registry/components/text-reveal.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "text", type: "string", default: "'If you clean a vacuum cleaner, you become a vacuum cleaner'", description: "The text content to be revealed." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
+        ]
     }
 ];
