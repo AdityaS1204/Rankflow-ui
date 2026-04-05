@@ -26,14 +26,32 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
+    }));
+
+  const textAnimations = components
+    .filter((c) => c.tags.includes("text"))
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
     }));
 
   const blocks = components
     .filter((c) => 
       !c.tags.includes("button") && 
       !c.tags.includes("card") &&
-      !c.tags.includes("backgrounds")
+      !c.tags.includes("backgrounds") &&
+      !c.tags.includes("text")
     )
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
+    }));
+
+const backgrounds = components
+    .filter((c) => c.tags.includes("backgrounds"))
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -49,6 +67,10 @@ export function getDocsNavigation(): DocsSidebarSection[] {
       ],
     },
     {
+      label: "Text Animations",
+      items: textAnimations,
+    },
+    {
       label: "Buttons",
       items: buttons,
     },
@@ -62,9 +84,7 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     },
     {
       label: "Backgrounds",
-      items: [
-        { title: "Dot Grid Background", href: "/docs/components/dot-grid-background", isNew: true },
-      ],
+      items:backgrounds,
     },
   ];
 }
