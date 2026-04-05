@@ -413,36 +413,20 @@ export const registry = [
         ]
     },
     {
-        name:"dither-background",
-        title:"Dither Background",
-        isNew:true,
-        description:"A premium background component that renders a subtle, pixelated dithering effect on top of soft gradients.",
-        dependencies:["react"],
-        registryDependencies:["utils"],
-        tags:["backgrounds","dither","pixel-perfect"],
-        files:[
-            "registry/components/dither-background.tsx",
-        ],
-        type:"components:ui",
-        props:[
-            { name: "children", type: "ReactNode", default: "-", description: "The content to be rendered on top of the background." }
-        ]
-    },
-    {
-        name:"expandable-cards",
-        title:"Expandable Cards",
-        isNew:true,
-        description:"A group of vertical cards that expand smoothly on hover using Framer Motion layout animations. Perfect for displaying featured collections or portfolio categories.",
-        dependencies:["motion", "clsx", "tailwind-merge"],
-        registryDependencies:["utils"],
-        tags:["card","interaction","stock-images","expandable"],
-        files:[
+        name: "expandable-cards",
+        title: "Expandable Cards",
+        isNew: true,
+        description: "A group of vertical cards that expand smoothly on hover using Framer Motion layout animations. Perfect for displaying featured collections or portfolio categories.",
+        dependencies: ["motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["card", "interaction", "stock-images", "expandable"],
+        files: [
             "registry/components/expandable-cards.tsx",
         ],
-        type:"components:ui",
+        type: "components:ui",
         size: "lg",
-        props:[
-            { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
+        props: [
+        { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
         ]
     }
