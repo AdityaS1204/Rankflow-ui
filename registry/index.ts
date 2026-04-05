@@ -374,11 +374,25 @@ export const registry = [
         ],
         type:"components:ui",
         props:[
+            { name: "direction", type: "string", default: "'down'", description: "The direction of the pixel fall." },
             { name: "defaultColor", type: "string", default: "'#2563eb'", description: "The color of the canvas layer." },
             { name: "hoverColor", type: "string", default: "'#ef4444'", description: "The background color revealed on hover." },
             { name: "pixelSize", type: "number", default: "16", description: "The size of each falling pixel block." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." }
         ]
+    },
+    {
+        name:"ai-input-03",
+        title:"AI Input 03",
+        isNew:true,
+        description:"A clean, light-themed AI input mimicking a premium dashboard interface. Features uploaded drafts preview, auto-expanding textarea, and a segmented control toolbar for image/video generation.",
+        dependencies:["react", "lucide-react", "motion", "clsx", "tailwind-merge"],
+        registryDependencies:["utils"],
+        tags:["input","ai","dashboard","drafts","clean"],
+        files:[
+            "registry/components/ai-input-03.tsx",
+        ],
+        type:"components:ui",
+        props:[]
     }
 ];
-

@@ -19,6 +19,7 @@ import { ScrollVelocity } from "./components/scroll-velocity";
 import { TextGenerateEffect } from "./components/text-generate-effect";
 import { ParallaxText } from "./components/parallax-text";
 import { PixelFallEffect } from "./components/pixel-fall-effect";
+import { AiInput03 } from "./components/ai-input-03";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -42,4 +43,5 @@ export const registryComponents: Record<string, any> = {
   "text-generate-effect": TextGenerateEffect,
   "parallax-text": ParallaxText,
   "pixel-fall-effect": PixelFallEffect,
+  "ai-input-03": AiInput03,
 };
