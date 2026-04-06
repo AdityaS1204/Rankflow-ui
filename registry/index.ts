@@ -429,5 +429,24 @@ export const registry = [
         { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
         ]
+    },
+    {
+        name: "drawing-cursor",
+        title: "Drawing Cursor",
+        isNew: true,
+        description: "A premium background component where the mouse cursor draws a fading pencil-like line on a canvas. Supports touch and smooth opacity fading.",
+        dependencies: ["react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["backgrounds", "canvas", "cursor", "animation", "draw"],
+        files: [
+            "registry/components/drawing-cursor.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "lineColor", type: "string", default: "'#b6eb00'", description: "Color of the drawn line." },
+            { name: "lineWidth", type: "number", default: "2", description: "Width of the pencil stroke." },
+            { name: "fadeDuration", type: "number", default: "1000", description: "Duration in ms for the drawn path to disappear." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." }
+        ]
     }
 ];

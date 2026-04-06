@@ -22,6 +22,8 @@ import { PixelFallEffect } from "./components/pixel-fall-effect";
 import { AiInput03 } from "./components/ai-input-03";
 import { TextReveal } from "./components/text-reveal";
 import { ExpandableCards } from "./components/expandable-cards";
+import { DrawingCursor } from "./components/drawing-cursor";
+
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -48,4 +50,5 @@ export const registryComponents: Record<string, any> = {
   "ai-input-03": AiInput03,
   "text-reveal": TextReveal,
   "expandable-cards": ExpandableCards,
+  "drawing-cursor": DrawingCursor,
 };
