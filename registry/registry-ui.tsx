@@ -23,6 +23,7 @@ import { AiInput03 } from "./components/ai-input-03";
 import { TextReveal } from "./components/text-reveal";
 import { ExpandableCards } from "./components/expandable-cards";
 import { DrawingCursor } from "./components/drawing-cursor";
+import { FileUpload } from "./components/file-upload";
 
 
 export const registryComponents: Record<string, any> = {
@@ -51,4 +52,5 @@ export const registryComponents: Record<string, any> = {
   "text-reveal": TextReveal,
   "expandable-cards": ExpandableCards,
   "drawing-cursor": DrawingCursor,
+  "file-upload": FileUpload,
 };

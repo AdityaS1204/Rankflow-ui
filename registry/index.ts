@@ -448,5 +448,21 @@ export const registry = [
             { name: "fadeDuration", type: "number", default: "1000", description: "Duration in ms for the drawn path to disappear." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." }
         ]
+    },
+    {
+        name: "file-upload",
+        title: "File Upload",
+        isNew: true,
+        description: "A premium file upload block component with drag-and-drop support, file type automatic detection, and smooth micro-animations for adding/removing files.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["block", "upload", "interaction", "files", "animation"],
+        files: [
+            "registry/components/file-upload.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." }
+        ]
     }
 ];
