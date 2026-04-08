@@ -7,7 +7,6 @@ import { SpotlightCard } from "@/registry/components/spotlight-card";
 import { GlowButton } from "@/registry/components/glow-button";
 import { AnimatedBorderButton } from "@/registry/components/animated-border";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-
 import { Marquee } from "@/registry/components/marquee";
 import { NoiseButton } from "@/registry/components/noise-button";
 import { GradientButton } from "@/registry/components/gradient-button";
@@ -20,6 +19,11 @@ import { CommandPalette } from "@/registry/components/command-palette";
 import { GradientRingCard } from "@/registry/components/gradient-ring-card";
 import { SocialShareButton } from "@/registry/components/social-share-button";
 import { DotGridBackground } from "@/registry/components/dot-grid-background";
+import { AiInput03 } from "@/registry/components/ai-input-03";
+import {ParallaxText  } from "@/registry/components/parallax-text";
+import {ScrollVelocity  } from "@/registry/components/scroll-velocity";
+import { PixelFallEffect } from "@/registry/components/pixel-fall-effect";
+import { ExpandableCards } from "@/registry/components/expandable-cards";
 
 // Live previews of available components
 
@@ -221,6 +225,48 @@ function DotGridPreview() {
   );
 }
 
+function AiInput03Preview() {
+  return (
+    <div className="w-full px-4">
+      <AiInput03 />
+    </div>
+  )
+}
+
+function ParallaxTextPreview() {
+  return (
+    <div className="w-full px-1">
+
+      <ParallaxText text="Rankflow ui" className="text-xl" />
+    </div>
+  )
+}
+
+function PixelFallPreview() {
+  return (
+    <div className="w-full px-1 flex justify-center">
+      <PixelFallEffect />
+    </div>
+  )
+}
+
+function ScrollVelocityPreview() {
+  return (
+    <div className="w-full px-1">
+      <ScrollVelocity />
+    </div>
+  )
+}
+
+function ExpandableCardPreview() {
+  return (
+    <div className="w-full px-1">
+      <ExpandableCards />
+    </div>
+  )
+}
+
+
 const components = [
   {
     id: "sign-up-form",
@@ -346,6 +392,46 @@ const components = [
     colSpan: "md:col-span-2",
     rowSpan: "md:row-span-1",
   },
+  {
+    id: "ai-input-03",
+    name: "AI Input 03",
+    href: "/docs/components/ai-input-03",
+    preview: <AiInput03Preview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-1",
+  },
+  {
+    id: "parallax-text",
+    name: "Parallax Text",
+    href: "/docs/components/parallax-text",
+    preview: <ParallaxTextPreview />,
+    colSpan: "md:col-span-4",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "scroll-velocity",
+    name: "Scroll Velocity",
+    href: "/docs/components/scroll-velocity",
+    preview: <ScrollVelocityPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-4",
+  },
+  {
+    id: "pixel-fall-effect",
+    name: " Effect",
+    href: "/docs/components/",
+    preview: <PixelFallPreview />,
+    colSpan: "md:col-span-2",
+    rowSpan: "md:row-span-4",
+  },
+  {
+    id: "expandable-cards",
+    name: " Expandable cards",
+    href: "/docs/components/expandable-cards",
+    preview: <ExpandableCardPreview />,
+    colSpan: "md:col-span-3",
+    rowSpan: "md:row-span-4",
+  }
 ];
 
 export default function ComponentsShowcase() {
