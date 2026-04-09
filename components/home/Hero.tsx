@@ -87,7 +87,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="mt-6 max-w-2xl text-base text-foreground font-medium md:text-lg bg-black/50 dark:bg-transparent px-4 py-2 rounded-lg"
+        className="mt-6 max-w-2xl text-base text-foreground font-medium md:text-lg px-4 py-2 rounded-lg"
       >
         RankFlow UI is a curated collection of high-performance, animated React
         components. Ready to use, highly customizable, and optimized for speed.
