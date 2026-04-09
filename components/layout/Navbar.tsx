@@ -10,7 +10,7 @@ import { registry } from "@/registry/index";
 import { FiCode, FiZap, FiBox } from "react-icons/fi";
 
 const navLinks = [
-  { label: "Components", href: "/docs/components/animated-border" },
+  { label: "Components", href: "/docs/components/scroll-velocity" },
   { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/AdityaS1204/Rankflow-ui", external: true },
