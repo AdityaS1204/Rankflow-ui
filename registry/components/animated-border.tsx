@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface AnimatedBorderButtonProps
@@ -35,9 +34,9 @@ export const AnimatedBorderButton = React.forwardRef<
       style={{ borderRadius }}
       className={cn(
         "relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap",
-        "border border-neutral-700 bg-neutral-900 px-4 py-2 text-sm font-medium text-white",
-        "transition-colors hover:bg-neutral-800",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2",
+        "border border-border bg-background px-4 py-2 text-sm font-medium text-foreground",
+        "transition-colors hover:bg-muted dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-800",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         "disabled:pointer-events-none disabled:opacity-50",
         className
       )}
