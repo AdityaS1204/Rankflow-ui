@@ -29,7 +29,7 @@ import { ExpandableCards } from "@/registry/components/expandable-cards";
 
 function AnimatedBorderPreview() {
   return (
-    <div className="flex items-center justify-center p-6 bg-zinc-950/50">
+    <div className="flex items-center justify-center p-6 bg-muted/0 dark:bg-zinc-950/50">
       <AnimatedBorderButton color="var(--primary)" duration={3}>
         Rankflow UI
       </AnimatedBorderButton>
@@ -39,17 +39,17 @@ function AnimatedBorderPreview() {
 
 function TestimonialCard({ name, role, content, avatar }: { name: string, role: string, content: string, avatar: string }) {
   return (
-    <div className="flex flex-col gap-3 p-4 w-64 bg-zinc-900/50 border border-zinc-800 rounded-xl">
+    <div className="flex w-64 flex-col gap-3 rounded-xl border border-border bg-background p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
           {avatar}
         </div>
         <div>
-          <p className="text-xs font-semibold text-zinc-200">{name}</p>
-          <p className="text-[10px] text-zinc-500">{role}</p>
+          <p className="text-xs font-semibold text-foreground">{name}</p>
+          <p className="text-[10px] text-muted-foreground">{role}</p>
         </div>
       </div>
-      <p className="text-[11px] text-zinc-400 leading-relaxed line-clamp-2">
+      <p className="line-clamp-2 text-[11px] leading-relaxed text-muted-foreground">
         {content}
       </p>
     </div>
@@ -65,7 +65,7 @@ function MarqueePreview() {
   ];
 
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950/50 p-6">
+    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-border bg-muted/60 p-6 dark:border-zinc-800 dark:bg-zinc-950/50">
       <Marquee speed={40} className="[--gap:1.5rem]">
         {testimonials.map((t, i) => (
           <TestimonialCard key={i} {...t} />
@@ -78,19 +78,19 @@ function MarqueePreview() {
       </Marquee>
 
       {/* Gradients to fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-zinc-950/50"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-zinc-950/50"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-muted/40 to-transparent dark:from-zinc-950/50"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-muted/40 to-transparent dark:from-zinc-950/50"></div>
     </div>
   );
 }
 
 function SpotlightPreview() {
   return (
-    <div className="flex items-center justify-center p-4 bg-zinc-950/50 h-full w-full">
+    <div className="flex h-full w-full items-center justify-center bg-muted/0 p-4 dark:bg-zinc-950/50">
       <SpotlightCard className="w-80 h-44">
         <div className="p-8 h-full flex flex-col justify-center">
           <span className="text-foreground/90 text-xl font-bold">Spotlight Effect</span>
-          <p className="text-zinc-500 text-xs mt-3 leading-relaxed">
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
             Beautiful radiant glow that follows your cursor movements with precision.
           </p>
         </div>
@@ -109,18 +109,20 @@ function GlowButtonPreview() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 h-full w-full p-6 bg-zinc-950/50">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-8 bg-muted/0 p-6 dark:bg-zinc-950/50">
       <GlowButton variant={variant}>
-        Interactive Glow
+        Rankflow
       </GlowButton>
 
-      <div className="flex gap-3 p-2 bg-zinc-900/50 rounded-full border border-zinc-800">
+      <div className="flex gap-3 rounded-full border border-border bg-background/70 p-2 dark:border-zinc-800 dark:bg-zinc-900/50">
         {colors.map((c) => (
           <button
             key={c.name}
             onClick={() => setVariant(c.name as any)}
-            className={`w-5 h-5 rounded-full border border-white/10 transition-transform hover:scale-125 ${c.class} ${variant === c.name ? 'ring-2 ring-white ring-offset-2 ring-offset-black scale-110' : ''
-              }`}
+            className={
+              `h-5 w-5 rounded-full border border-black/10 transition-transform hover:scale-125 dark:border-white/10 ${c.class} ` +
+              (variant === c.name ? "scale-110 ring-2 ring-foreground ring-offset-2 ring-offset-background" : "")
+            }
           />
         ))}
       </div>
@@ -455,14 +457,14 @@ export default function ComponentsShowcase() {
         {components.map((comp) => (
           <div
             key={comp.id}
-            className={`relative flex flex-col group p-2 rounded-3xl border border-zinc-800/10 bg-[#0d0d0d] transition-all hover:bg-[#111] hover:shadow-2xl hover:shadow-black/40 ${comp.colSpan} ${comp.rowSpan}`}
+            className={`relative flex flex-col group p-2 rounded-3xl border border-zinc-800/10 bg-accent dark:bg-[#0d0d0d] dark:hover:bg-[#111] dark:hover:shadow-2xl dark:hover:shadow-black/40 ${comp.colSpan} ${comp.rowSpan}`}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="flex-1 flex min-h-[220px] items-center justify-center border border-zinc-800 rounded-3xl p-4 bg-zinc-950 overflow-hidden relative z-10"
+              className="flex-1 flex min-h-[220px] items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-3xl p-4 bg-white dark:bg-zinc-950 overflow-hidden relative z-10"
             >
               {comp.preview}
             </motion.div>
@@ -481,4 +483,3 @@ export default function ComponentsShowcase() {
     </section>
   );
 }
-
