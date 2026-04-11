@@ -8,15 +8,23 @@ import { registryComponents } from "@/registry/registry-ui";
 import { registry } from "@/registry/index";
 import { cn } from "@/lib/utils";
 import { RotateCw } from "lucide-react";
+import { CopyPromptButtons } from "./CopyPromptButton";
 
 interface ComponentPreviewProps {
   slug: string;
   code: string;
   filename?: string;
+  componentName?: string;
+  dependencies?: string[];
 }
 
-export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps) {
-
+export function ComponentPreview({
+  slug,
+  code,
+  filename,
+  componentName,
+  dependencies = [],
+}: ComponentPreviewProps) {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
   const [previewKey, setPreviewKey] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -40,6 +48,7 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
       isLarge ? "max-w-5xl" : "max-w-3xl"
     )}>
       <div className="flex items-center justify-between border-b border-border pb-px">
+        {/* Tabs */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setActiveTab("preview")}
@@ -70,15 +79,30 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
             Code
           </button>
         </div>
-        {activeTab === "preview" && (
-          <button
-            onClick={() => setPreviewKey((prev) => prev + 1)}
-            className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md"
-            title="Reload preview"
-          >
-            <RotateCw className="h-4 w-4" />
-          </button>
-        )}
+
+        {/* Right-side action buttons */}
+        <div className="flex items-center gap-1.5 pb-px">
+          {/* AI copy-prompt icon buttons — always visible */}
+          <CopyPromptButtons
+            componentName={componentName ?? slug}
+            sourceCode={code}
+            dependencies={dependencies}
+          />
+
+          {/* Vertical separator */}
+          <div className="mx-1 h-4 w-px bg-border" />
+
+          {/* Reload button — only shown on preview tab */}
+          {activeTab === "preview" && (
+            <button
+              onClick={() => setPreviewKey((prev) => prev + 1)}
+              className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md"
+              title="Reload preview"
+            >
+              <RotateCw className="h-4 w-4" />
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="relative overflow-hidden rounded-xl border border-border bg-background shadow-sm">
@@ -96,7 +120,9 @@ export function ComponentPreview({ slug, code, filename }: ComponentPreviewProps
               )}
             >
               {Component ? (
-                <Component key={previewKey} fadeColor={fadeColor} />
+                <div className="w-full flex items-center justify-center font-[inherit]">
+                  <Component key={previewKey} fadeColor={fadeColor} />
+                </div>
               ) : (
                 <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
               )}
