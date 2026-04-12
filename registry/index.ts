@@ -1,3 +1,5 @@
+import { BrutalistKey } from "./components/brutalist-key";
+
 export const registry = [
     {
         name: "utils",
@@ -483,4 +485,21 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the accordion wrapper." },
         ]
     },
+    {
+        name:"brutalist-key",
+        title:"Brutalist Key",
+        isNew:true,
+        description:"A brutalist key component with a unique design.",
+        dependencies:["react"],
+        registryDependencies:[],
+        tags:["button","key","brutalist"],
+        files:[
+            "registry/components/brutalist-key.tsx",
+        ],
+        type:"components:ui",
+        props:[
+            { name: "children", type: "ReactNode", default: "-", description: "The content of the key." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the key." },
+        ]
+    }
 ];
