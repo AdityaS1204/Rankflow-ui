@@ -464,5 +464,23 @@ export const registry = [
         props: [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." }
         ]
-    }
+    },
+    {
+        name: "accordion",
+        title: "Accordion",
+        isNew: true,
+        description: "Accordion component with smooth animations",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["block", "accordion","interaction", "animation"],
+        files: [
+            "registry/components/accordion.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "items", type: "AccordionItem[]", default: "DEFAULT_ITEMS", description: "Array of accordion items, each with id, question, and answer fields." },
+            { name: "allowMultiple", type: "boolean", default: "false", description: "Whether multiple accordion items can be open at the same time." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the accordion wrapper." },
+        ]
+    },
 ];
