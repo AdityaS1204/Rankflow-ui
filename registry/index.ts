@@ -536,6 +536,26 @@ export const registry = [
         size:"lg",
         props: []
     },
+     {
+        name: "product-showcase-card",
+        title: "Product Showcase Card",
+        isNew: true,
+        description: "A premium product card with an integrated image carousel, fluid pill indicators, and a bookmark action.",
+        dependencies: ["react", "motion", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["product", "ecommerce", "card", "carousel", "store"],
+        files: [
+            "registry/components/product-showcase-card.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "title", type: "string", default: "'Nike Air Max 270'", description: "The product title." },
+            { name: "subtitle", type: "string", default: "'Men's Everyday Sneakers...'", description: "The short description or features subtitle." },
+            { name: "price", type: "string", default: "'$150'", description: "The price string." },
+            { name: "images", type: "string[]", default: "Unsplash Array", description: "Array of image URLs for the carousel." },
+            { name: "className", type: "string", default: "''", description: "Additional Tailwind classes." }
+        ]
+    },
     
 ];
 

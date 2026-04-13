@@ -27,7 +27,7 @@ import { FileUpload } from "./components/file-upload";
 import { BrutalistKey } from "./components/brutalist-key";
 import { Accordion } from "./components/accordion";
 import { BentoGrid001 } from "./components/bento-grid-001";
-
+import { ProductShowcaseCard } from "./components/product-showcase-card";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -59,4 +59,5 @@ export const registryComponents: Record<string, any> = {
   "brutalist-key": BrutalistKey,
   "accordion": Accordion,
   "bento-grid-001": BentoGrid001,
+  "product-showcase-card": ProductShowcaseCard,
 };
