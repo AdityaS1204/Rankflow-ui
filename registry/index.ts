@@ -556,6 +556,27 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional Tailwind classes." }
         ]
     },
-    
+    {
+        name: "music-player-card",
+        title: "Music Player Card",
+        isNew: true,
+        description: "A beautifully styled, fully functional glassmorphic music player card.",
+        dependencies: ["react", "motion", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["player", "music", "audio", "glassmorphism", "card"],
+        files: [
+            "registry/components/music-player-card.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "artistName", type: "string", default: "'Diljit Dosanjh'", description: "The name of the featured artist." },
+            { name: "artistHandle", type: "string", default: "'@diljitdosanjh'", description: "The social handle of the artist." },
+            { name: "artistAvatar", type: "string", default: "Unsplash URL", description: "URL pointing to the artist's avatar image." },
+            { name: "coverArt", type: "string", default: "Unsplash URL", description: "URL pointing to the background track cover art." },
+            { name: "songName", type: "string", default: "'GOAT'", description: "The name of the current track/song." },
+            { name: "duration", type: "number", default: "133", description: "Total duration of the track in seconds." },
+            { name: "className", type: "string", default: "''", description: "Additional Tailwind CSS classes." }
+        ]
+    },    
 ];
 
