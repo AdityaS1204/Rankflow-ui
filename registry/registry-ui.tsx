@@ -58,5 +58,5 @@ export const registryComponents: Record<string, any> = {
   "file-upload": FileUpload,
   "brutalist-key": BrutalistKey,
   "accordion": Accordion,
-  "color-bento-grid": BentoGrid001,
+  "bento-grid-001": BentoGrid001,
 };
