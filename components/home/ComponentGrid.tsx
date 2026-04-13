@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { SpotlightCard } from "@/registry/components/spotlight-card";
 import { GlowButton } from "@/registry/components/glow-button";
 import { AnimatedBorderButton } from "@/registry/components/animated-border";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Marquee } from "@/registry/components/marquee";
 import { NoiseButton } from "@/registry/components/noise-button";
 import { GradientButton } from "@/registry/components/gradient-button";
@@ -15,7 +14,6 @@ import { PricingPlan } from "@/registry/components/pricing-plan";
 import { SignUpForm } from "@/registry/components/sign-up-form";
 import { AiInput } from "@/registry/components/ai-input";
 import { StackCard } from "@/registry/components/stack-card";
-import { CommandPalette } from "@/registry/components/command-palette";
 import { GradientRingCard } from "@/registry/components/gradient-ring-card";
 import { SocialShareButton } from "@/registry/components/social-share-button";
 import { DotGridBackground } from "@/registry/components/dot-grid-background";
@@ -78,8 +76,8 @@ function MarqueePreview() {
       </Marquee>
 
       {/* Gradients to fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-muted/40 to-transparent dark:from-zinc-950/50"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-muted/40 to-transparent dark:from-zinc-950/50"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-muted/60 to-transparent dark:from-zinc-950/50"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-muted/60 to-transparent dark:from-zinc-950/50"></div>
     </div>
   );
 }
@@ -100,12 +98,13 @@ function SpotlightPreview() {
 }
 
 function GlowButtonPreview() {
-  const [variant, setVariant] = useState<'orange' | 'red' | 'blue' | 'green'>('orange');
-  const colors = [
-    { name: 'orange', class: 'bg-[#DE732C]' },
-    { name: 'red', class: 'bg-[#ff0000]' },
-    { name: 'blue', class: 'bg-[#126fff]' },
-    { name: 'green', class: 'bg-[#176635]' },
+  type GlowVariant = "orange" | "red" | "blue" | "green";
+  const [variant, setVariant] = useState<GlowVariant>("orange");
+  const colors: Array<{ name: GlowVariant; class: string }> = [
+    { name: "orange", class: "bg-[#DE732C]" },
+    { name: "red", class: "bg-[#ff0000]" },
+    { name: "blue", class: "bg-[#126fff]" },
+    { name: "green", class: "bg-[#176635]" },
   ];
 
   return (
@@ -118,7 +117,7 @@ function GlowButtonPreview() {
         {colors.map((c) => (
           <button
             key={c.name}
-            onClick={() => setVariant(c.name as any)}
+            onClick={() => setVariant(c.name)}
             className={
               `h-5 w-5 rounded-full border border-black/10 transition-transform hover:scale-125 dark:border-white/10 ${c.class} ` +
               (variant === c.name ? "scale-110 ring-2 ring-foreground ring-offset-2 ring-offset-background" : "")
@@ -269,6 +268,21 @@ function ExpandableCardPreview() {
 }
 
 
+function DesktopOptimizedOverlay() {
+  return (
+    <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center bg-white/10 dark:bg-zinc-950/20 backdrop-blur-[2px]">
+      <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl max-w-[200px]">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-[#eb5e28] mb-1.5 leading-tight">
+          Desktop View Recommended
+        </p>
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          This component is optimized for larger displays to ensure an ideal interactive experience. Please switch to a laptop or desktop.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 const components = [
   {
     id: "sign-up-form",
@@ -305,6 +319,7 @@ const components = [
     preview: <AiInputPreview />,
     colSpan: "md:col-span-2",
     rowSpan: "md:row-span-1",
+    desktopOnly: true,
   },
   {
     id: "spotlight",
@@ -401,6 +416,7 @@ const components = [
     preview: <AiInput03Preview />,
     colSpan: "md:col-span-2",
     rowSpan: "md:row-span-1",
+    desktopOnly: true,
   },
   {
     id: "parallax-text",
@@ -463,10 +479,10 @@ export default function ComponentsShowcase() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
               className="flex-1 flex min-h-[220px] items-center justify-center border dark:border-zinc-800 border-zinc-200 rounded-3xl p-4 bg-white dark:bg-zinc-950 overflow-hidden relative z-10"
             >
               {comp.preview}
+              {comp.desktopOnly && <DesktopOptimizedOverlay />}
             </motion.div>
             <div className="px-4 py-4 mt-auto flex items-center gap-4 relative z-20">
               <div className="h-px bg-zinc-800 flex-1 opacity-50 transition-colors group-hover:bg-[#eb5e28]/40" />
