@@ -26,6 +26,7 @@ import { DrawingCursor } from "./components/drawing-cursor";
 import { FileUpload } from "./components/file-upload";
 import { BrutalistKey } from "./components/brutalist-key";
 import { Accordion } from "./components/accordion";
+import { BentoGrid001 } from "./components/bento-grid-001";
 
 
 export const registryComponents: Record<string, any> = {
@@ -57,4 +58,5 @@ export const registryComponents: Record<string, any> = {
   "file-upload": FileUpload,
   "brutalist-key": BrutalistKey,
   "accordion": Accordion,
+  "color-bento-grid": BentoGrid001,
 };

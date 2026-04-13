@@ -162,6 +162,7 @@ export const registry = [
             "registry/components/ai-input.tsx",
         ],
         type: "components:ui",
+        desktopOnly: true,
         props: []
     },
     {
@@ -176,6 +177,7 @@ export const registry = [
         ],
         type: "components:ui",
         size: "lg",
+        desktopOnly: true,
         props: []
     },
     {
@@ -395,6 +397,7 @@ export const registry = [
             "registry/components/ai-input-03.tsx",
         ],
         type: "components:ui",
+        desktopOnly: true,
         props: []
     },
     {
@@ -501,5 +504,38 @@ export const registry = [
             { name: "children", type: "ReactNode", default: "-", description: "The content of the key." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the key." },
         ]
-    }
+    },
+    {
+        name: "ecosystem-hero",
+        title: "Ecosystem Hero",
+        isNew: true,
+        description: "A premium hero section with fractal wall background, 3D buttons, and floating app icons.",
+        dependencies: ["react", "motion", "lucide-react", "react-icons"],
+        registryDependencies: [],
+        tags: ["hero", "block", "landing", "3d", "fractal"],
+        files: [
+            "registry/components/ecosystem-hero.tsx",
+        ],
+        type: "components:ui",
+        size:"lg",
+        fullScreenPreview: true,
+        props: []
+    },
+    {
+        name: "bento-grid-001",
+        title: " Bento Grid 001",
+        isNew: true,
+        description: "An interactive bento grid Layout of color palettes with fluid resizing layout animations. You can use it for your next bento grid layout.",
+        dependencies: ["react", "motion", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["grid", "bento", "layout", "cards", "colors"],
+        files: [
+            "registry/components/bento-grid-001.tsx",
+        ],
+        type: "components:ui",
+        size:"lg",
+        props: []
+    },
+    
 ];
+
