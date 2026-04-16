@@ -41,7 +41,7 @@ export default function Hero() {
         transition={{ delay: 0.1, duration: 0.5 }}
         className="mb-6 flex items-center gap-2"
       >
-        <Link href="/docs/components/hero-section" className="relative overflow-hidden rounded-full border  border-zinc-300/30 shadow-2xs px-4 py-1.5 text-xs font-medium text-foreground cursor-pointer">
+        <Link href="/docs/components/parallax-text" className="relative overflow-hidden rounded-full border  border-zinc-300/30 shadow-2xs px-4 py-1.5 text-xs font-medium text-foreground cursor-pointer">
           {/* Shimmer sweep */}
           <motion.div
             className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
@@ -49,7 +49,7 @@ export default function Hero() {
             animate={{ x: ["-100%", "200%"] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "linear", repeatDelay: 2 }}
           />
-          <div className="relative group flex gap-1">✦ Introducing new<span className="group-hover:text-amber-500 flex gap-1 transition-all duration-150">Hero section <ArrowRightIcon className="group-hover:translate-x-1 transition-all duration-150"/> </span></div>
+          <div className="relative group flex gap-1">✦ Introducing new<span className="group-hover:text-amber-500 flex gap-1 transition-all duration-150"> Parallax Text <ArrowRightIcon className="group-hover:translate-x-1 transition-all duration-150"/> </span></div>
         </Link>
       </motion.div>
 
