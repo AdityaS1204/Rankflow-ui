@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { AnimatedBorderButton } from "@/registry/components/animated-border";
-import { GitHubLogoIcon, BoxIcon,ArrowRightIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, BoxIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
 function CornerBracket({
@@ -12,10 +12,10 @@ function CornerBracket({
   position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }) {
   const posClass = {
-    "top-left":    "top-[-2px] left-[-2px]",
-    "top-right":   "top-[-2px] right-[-2px] rotate-90",
+    "top-left": "top-[-2px] left-[-2px]",
+    "top-right": "top-[-2px] right-[-2px] rotate-90",
     "bottom-left": "bottom-[-2px] left-[-2px] -rotate-90",
-    "bottom-right":"bottom-[-2px] right-[-2px] rotate-180",
+    "bottom-right": "bottom-[-2px] right-[-2px] rotate-180",
   }[position];
 
   return (
@@ -45,11 +45,11 @@ export default function Hero() {
           {/* Shimmer sweep */}
           <motion.div
             className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
-            style={{skewX:"-45deg"}}
+            style={{ skewX: "-45deg" }}
             animate={{ x: ["-100%", "200%"] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "linear", repeatDelay: 2 }}
           />
-          <div className="relative group flex gap-1">✦ Introducing new<span className="group-hover:text-amber-500 flex gap-1 transition-all duration-150"> Parallax Text <ArrowRightIcon className="group-hover:translate-x-1 transition-all duration-150"/> </span></div>
+          <div className="relative group flex gap-1">✦ Introducing new<span className="group-hover:text-amber-500 flex gap-1 transition-all duration-150"> Parallax Text <ArrowRightIcon className="group-hover:translate-x-1 transition-all duration-150" /> </span></div>
         </Link>
       </motion.div>
 
