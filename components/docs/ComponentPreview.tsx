@@ -7,7 +7,7 @@ import { CodeBlock } from "./CodeBlock";
 import { registryComponents } from "@/registry/registry-ui";
 import { registry } from "@/registry/index";
 import { cn } from "@/lib/utils";
-import { RotateCw } from "lucide-react";
+import { RotateCw, Frame } from "lucide-react";
 import { CopyPromptButtons } from "./CopyPromptButton";
 
 interface ComponentPreviewProps {
@@ -45,7 +45,7 @@ export function ComponentPreview({
   return (
     <div className={cn(
       "group relative my-10 flex flex-col space-y-4",
-      isLarge ? "max-w-5xl" : "max-w-3xl"
+      isLarge ? "max-w-6xl" : "max-w-3xl"
     )}>
       <div className="flex items-center justify-between border-b border-border pb-px">
         {/* Tabs */}
@@ -80,27 +80,37 @@ export function ComponentPreview({
           </button>
         </div>
 
-        {/* Right-side action buttons */}
+
         <div className="flex items-center gap-1.5 pb-px">
-          {/* AI copy-prompt icon buttons — always visible */}
           <CopyPromptButtons
             componentName={componentName ?? slug}
             sourceCode={code}
             dependencies={dependencies}
           />
 
-          {/* Vertical separator */}
           <div className="mx-1 h-4 w-px bg-border" />
 
-          {/* Reload button — only shown on preview tab */}
           {activeTab === "preview" && (
-            <button
-              onClick={() => setPreviewKey((prev) => prev + 1)}
-              className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md"
-              title="Reload preview"
-            >
-              <RotateCw className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setPreviewKey((prev) => prev + 1)}
+                className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md"
+                title="Reload preview"
+              >
+                <RotateCw className="h-4 w-4" />
+              </button>
+              {(metadata as any)?.fullScreenPreview && (
+                <a
+                  href={`/preview/${slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md"
+                  title="Open in Fullscreen"
+                >
+                  <Frame className="h-4 w-4" />
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>
