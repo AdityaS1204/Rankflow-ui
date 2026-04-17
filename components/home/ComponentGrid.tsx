@@ -18,10 +18,11 @@ import { GradientRingCard } from "@/registry/components/gradient-ring-card";
 import { SocialShareButton } from "@/registry/components/social-share-button";
 import { DotGridBackground } from "@/registry/components/dot-grid-background";
 import { AiInput03 } from "@/registry/components/ai-input-03";
-import {ParallaxText  } from "@/registry/components/parallax-text";
-import {ScrollVelocity  } from "@/registry/components/scroll-velocity";
+import { ParallaxText } from "@/registry/components/parallax-text";
+import { ScrollVelocity } from "@/registry/components/scroll-velocity";
 import { PixelFallEffect } from "@/registry/components/pixel-fall-effect";
 import { ExpandableCards } from "@/registry/components/expandable-cards";
+import DitherImage from "@/registry/components/dither";
 
 // Live previews of available components
 
@@ -237,7 +238,6 @@ function AiInput03Preview() {
 function ParallaxTextPreview() {
   return (
     <div className="w-full px-1">
-
       <ParallaxText text="Rankflow ui" className="text-xl" />
     </div>
   )
@@ -263,6 +263,20 @@ function ExpandableCardPreview() {
   return (
     <div className="w-full px-1">
       <ExpandableCards />
+    </div>
+  )
+}
+
+function DitherPreview() {
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <DitherImage
+        src="https://plus.unsplash.com/premium_photo-1661964177687-57387c2cbd14?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ditherMode="halftone"
+        gridSize={2}
+        colorMode="original"
+        className="w-full h-full object-cover transition-transform duration-700"
+      />
     </div>
   )
 }
@@ -449,6 +463,14 @@ const components = [
     preview: <ExpandableCardPreview />,
     colSpan: "md:col-span-3",
     rowSpan: "md:row-span-4",
+  },
+  {
+    id: "dither",
+    name: "Dither Image & Video",
+    href: "/docs/components/dither",
+    preview: <DitherPreview />,
+    colSpan: "md:col-span-4",
+    rowSpan: "md:row-span-2",
   }
 ];
 
