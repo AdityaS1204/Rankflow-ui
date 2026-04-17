@@ -578,5 +578,35 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional Tailwind CSS classes." }
         ]
     },    
+    {
+        name: "dither",
+        title: "Dither Image",
+        isNew: true,
+        description: "A high-performance dithering component for images and videos with multiple algorithms (Bayer, Floyd-Steinberg, Halftone, etc.) and real-time color palette mapping.",
+        dependencies: ["react"],
+        registryDependencies: ["utils"],
+        tags: ["backgrounds","canvas", "dither", "image", "pixel-art", "animation"],
+        files: [
+            "registry/components/dither.tsx",
+        ],
+        type: "components:ui",
+        size:"lg",
+        props: [
+            { name: "src", type: "string", default: "'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1470&auto=format&fit=crop'", description: "Source image URL." },
+            { name: "alt", type: "string", default: "''", description: "Accessibility text." },
+            { name: "fit", type: "'cover' | 'contain' | 'fill' | 'none'", default: "'cover'", description: "CSS object-fit behavior." },
+            { name: "gridSize", type: "number", default: "4", description: "Pixelation/grid size." },
+            { name: "ditherMode", type: "DitheringMode", default: "'bayer'", description: "Dithering algorithm: 'bayer', 'bayer8', 'floyd', 'halftone', 'noise', 'crosshatch'." },
+            { name: "threshold", type: "number", default: "0.5", description: "Dither threshold bias (0-1)." },
+            { name: "colorMode", type: "'grayscale' | 'duotone' | 'original' | 'custom'", default: "'grayscale'", description: "Color mapping mode." },
+            { name: "primaryColor", type: "string", default: "'#000000'", description: "Dark color for duotone modes (hex)." },
+            { name: "secondaryColor", type: "string", default: "'#ffffff'", description: "Light color for duotone modes (hex)." },
+            { name: "invert", type: "boolean", default: "false", description: "Invert final colors." },
+            { name: "brightness", type: "number", default: "0", description: "Brightness offset (-1 to 1)." },
+            { name: "contrast", type: "number", default: "1", description: "Contrast multiplier (0 to 2)." },
+            { name: "animated", type: "boolean", default: "false", description: "Animate the dither pattern (works with noise mode)." },
+            { name: "animationSpeed", type: "number", default: "0.02", description: "Speed of animation increment." },
+        ]
+    },
 ];
 

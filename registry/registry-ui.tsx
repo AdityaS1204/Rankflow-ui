@@ -29,6 +29,7 @@ import { Accordion } from "./components/accordion";
 import { BentoGrid001 } from "./components/bento-grid-001";
 import { ProductShowcaseCard } from "./components/product-showcase-card";
 import { MusicPlayerCard } from "./components/music-player-card";
+import DitherImage from "./components/dither";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -62,4 +63,5 @@ export const registryComponents: Record<string, any> = {
   "bento-grid-001": BentoGrid001,
   "product-showcase-card": ProductShowcaseCard,
   "music-player-card": MusicPlayerCard,
+  "dither": DitherImage,
 };
