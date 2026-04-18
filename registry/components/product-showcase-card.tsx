@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import { Bookmark, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ export function ProductShowcaseCard({
   const [direction, setDirection] = useState(1);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const slideVariants = {
+  const slideVariants: Variants = {
     hidden: (direction: number) => ({
       x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
@@ -162,7 +162,7 @@ export function ProductShowcaseCard({
             <button
               onClick={() => setIsBookmarked(!isBookmarked)}
               className={cn(
-                "w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center hover:scale-[1.05] active:scale-[0.95] transition-all border",
+                "w-12 h-12 shrink-0 rounded-full flex items-center justify-center hover:scale-[1.05] active:scale-[0.95] transition-all border",
                 isBookmarked 
                   ? "bg-neutral-100 border-neutral-200" 
                   : "bg-white border-neutral-200 shadow-sm"
