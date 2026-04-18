@@ -394,7 +394,7 @@ export default function DitherImage({
         }
       })();
 
-      ctx.putImageData(new ImageData(out, w, h), 0, 0);
+      ctx.putImageData(new ImageData(new Uint8ClampedArray(out), w, h), 0, 0);
     };
 
     const start = (img: HTMLImageElement) => {
