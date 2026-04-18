@@ -310,7 +310,6 @@ export const registry = [
     {
         name: "scroll-velocity",
         title: "Scroll Velocity",
-        isNew: true,
         description: "A text component that moves with the scroll velocity.",
         dependencies: ["react"],
         registryDependencies: [],
@@ -350,7 +349,6 @@ export const registry = [
     {
         name: "parallax-text",
         title: "Parallax Text",
-        isNew: true,
         description: "A parallax text effect component with multiple vibrant layers that react to cursor movement.",
         dependencies: ["motion"],
         registryDependencies: ["utils"],
@@ -388,7 +386,6 @@ export const registry = [
     {
         name: "ai-input-03",
         title: "AI Input 03",
-        isNew: true,
         description: "A clean, light-themed AI input mimicking a premium dashboard interface. Features uploaded drafts preview, auto-expanding textarea, and a segmented control toolbar for image/video generation.",
         dependencies: ["react", "lucide-react", "motion", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -403,7 +400,6 @@ export const registry = [
     {
         name: "text-reveal",
         title: "Text Reveal",
-        isNew: true,
         description: "A bold text component that smoothly reveals words based on scroll position.",
         dependencies: ["react", "motion"],
         registryDependencies: ["utils"],
@@ -438,7 +434,6 @@ export const registry = [
     {
         name: "drawing-cursor",
         title: "Drawing Cursor",
-        isNew: true,
         description: "A premium background component where the mouse cursor draws a fading pencil-like line on a canvas. Supports touch and smooth opacity fading.",
         dependencies: ["react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
