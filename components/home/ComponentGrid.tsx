@@ -451,7 +451,7 @@ const components = [
   {
     id: "pixel-fall-effect",
     name: " Effect",
-    href: "/docs/components/",
+    href: "/docs/components/pixel-fall-effect",
     preview: <PixelFallPreview />,
     colSpan: "md:col-span-2",
     rowSpan: "md:row-span-4",
