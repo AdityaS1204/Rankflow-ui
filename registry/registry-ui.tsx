@@ -31,6 +31,8 @@ import { ProductShowcaseCard } from "./components/product-showcase-card";
 import { MusicPlayerCard } from "./components/music-player-card";
 import DitherImage from "./components/dither";
 import { EcosystemHero } from "./components/ecosystem-hero";
+import { DeleteButton } from "./components/delete-button";
+import { BrutalistButton } from "./components/brutalist-button";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -66,4 +68,6 @@ export const registryComponents: Record<string, any> = {
   "music-player-card": MusicPlayerCard,
   "dither": DitherImage,
   "ecosystem-hero": EcosystemHero,
+  "delete-button": DeleteButton,
+  "brutalist-button": BrutalistButton,
 };

@@ -603,5 +603,43 @@ export const registry = [
             { name: "animationSpeed", type: "number", default: "0.02", description: "Speed of animation increment." },
         ]
     },
+    {
+        name: "delete-button",
+        title: "Delete Button",
+        isNew: true,
+        description: "A button that requires the user to hold it for a specified duration to trigger a delete action, preventing accidental deletions.",
+        dependencies: ["react", "motion"],
+        registryDependencies: [],
+        tags: ["button", "interaction", "hold", "delete", "confirmation"],
+        files: [
+            "registry/components/delete-button.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "onDelete", type: "() => void", default: "-", description: "Callback function to execute when the button is successfully held for the specified time." },
+            { name: "holdTime", type: "number", default: "2000", description: "Duration in milliseconds to hold the button before triggering the delete action." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes to apply to the button." },
+            { name: "...props", type: "React.ButtonHTMLAttributes<HTMLButtonElement>", default: "-", description: "Standard button attributes." },
+        ]
+    },
+    {
+        name: "brutalist-button",
+        title: "Brutalist Button",
+        isNew: true,
+        description: "A heavy, mechanical-style button with a 3D depth effect, mechanical click animation, and interactive ripples.",
+        dependencies: ["react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["button", "brutalist", "mechanical", "3d", "interaction"],
+        files: [
+            "registry/components/brutalist-button.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "children", type: "ReactNode", default: "'button'", description: "The button text or content." },
+            { name: "size", type: "sm | md | lg", default: "md", description: "The size of the button." },
+            { name: "color", type: "zinc | amber | red | blue | emerald | light", default: "light", description: "The color theme of the button." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
 
