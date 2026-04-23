@@ -23,6 +23,8 @@ import { ScrollVelocity } from "@/registry/components/scroll-velocity";
 import { PixelFallEffect } from "@/registry/components/pixel-fall-effect";
 import { ExpandableCards } from "@/registry/components/expandable-cards";
 import DitherImage from "@/registry/components/dither";
+import { BrutalistButton } from "@/registry/components/brutalist-button";
+import { DeleteButton } from "@/registry/components/delete-button";
 
 // Live previews of available components
 
@@ -281,6 +283,48 @@ function DitherPreview() {
   )
 }
 
+function BrutalistButtonPreview() {
+  type BrutalistVariant = "zinc" | "amber" | "red" | "blue" | "emerald" | "light";
+  const [variant, setVariant] = useState<BrutalistVariant>("light");
+  const colors: Array<{ name: BrutalistVariant; class: string }> = [
+    { name: "light", class: "bg-[#f5f5f0]" },
+    { name: "zinc", class: "bg-[#1a1a1a]" },
+    { name: "amber", class: "bg-[#1c1500]" },
+    { name: "red", class: "bg-[#1a0000]" },
+    { name: "blue", class: "bg-[#00001a]" },
+    { name: "emerald", class: "bg-[#001a0a]" },
+  ];
+
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-8 bg-muted/0 p-6 dark:bg-zinc-950/50">
+      <BrutalistButton color={variant}>
+        Button
+      </BrutalistButton>
+
+      <div className="flex gap-2 rounded-full border border-border bg-background/70 p-2 dark:border-zinc-800 dark:bg-zinc-900/50">
+        {colors.map((c) => (
+          <button
+            key={c.name}
+            onClick={() => setVariant(c.name)}
+            className={
+              `h-4 w-4 rounded-full border border-black/10 transition-transform hover:scale-125 dark:border-white/10 ${c.class} ` +
+              (variant === c.name ? "scale-110 ring-1 ring-foreground ring-offset-1 ring-offset-background" : "")
+            }
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DeleteButtonPreview() {
+  return (
+    <div className="flex items-center justify-center p-6 bg-muted/0 dark:bg-zinc-950/50">
+      <DeleteButton />
+    </div>
+  );
+}
+
 
 function DesktopOptimizedOverlay() {
   return (
@@ -470,6 +514,22 @@ const components = [
     href: "/docs/components/dither",
     preview: <DitherPreview />,
     colSpan: "md:col-span-4",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "brutalist-button",
+    name: "Brutalist Button",
+    href: "/docs/components/brutalist-button",
+    preview: <BrutalistButtonPreview />,
+    colSpan: "md:col-span-1",
+    rowSpan: "md:row-span-2",
+  },
+  {
+    id: "delete-button",
+    name: "Delete Button",
+    href: "/docs/components/delete-button",
+    preview: <DeleteButtonPreview />,
+    colSpan: "md:col-span-1",
     rowSpan: "md:row-span-2",
   }
 ];
