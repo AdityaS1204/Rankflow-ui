@@ -19,6 +19,7 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
     }));
 
   const cards = components
