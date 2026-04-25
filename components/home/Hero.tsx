@@ -68,7 +68,7 @@ export default function Hero() {
 
         {/* Box: amber border + dense amber dot grid */}
         <h1
-          className="relative w-full px-10 py-8 text-5xl font-extrabold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          className="relative w-full px-10 py-8 text-3xl font-extrabold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl"
           style={{
             border: "1.5px solid #f59e0b",
             backgroundImage:
