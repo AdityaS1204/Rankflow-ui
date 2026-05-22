@@ -43,13 +43,24 @@ export function getDocsNavigation(): DocsSidebarSection[] {
       !c.tags.includes("button") && 
       !c.tags.includes("card") &&
       !c.tags.includes("backgrounds") &&
-      !c.tags.includes("text")
+      !c.tags.includes("text") &&
+      !c.tags.includes("page-sections")
     )
+
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
       isNew: (item as any).isNew,
     }));
+
+
+const PageSections = components
+.filter((c)=>c.tags.includes("page-sections"))
+.map((item)=> ({
+  title: item.title,
+  href: `/docs/components/${item.name}`,
+  isNew:(item as any).isNew
+}))
 
 const backgrounds = components
     .filter((c) => c.tags.includes("backgrounds"))
@@ -82,6 +93,10 @@ const backgrounds = components
     {
       label: "Blocks",
       items: blocks,
+    },
+    {
+      label: "Page sections",
+      items:PageSections,
     },
     {
       label: "Backgrounds",
