@@ -484,6 +484,58 @@ export const registry = [
         ]
     },
     {
+        name: "accordion-pill-luxe",
+        title: "Pill Luxe Accordion",
+        isNew: true,
+        description: "A frosted glass accordion with full-radius pill triggers, plus-to-close icon morph, and spring height expansion inside one luxe shell.",
+        dependencies: ["react", "motion"],
+        registryDependencies: [],
+        tags: ["block", "accordion", "interaction", "animation"],
+        files: [
+            "registry/components/accordion-pill-luxe.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "items", type: "AccordionPillItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
+        ]
+    },
+    {
+        name: "accordion-neon-rail",
+        title: "Neon Rail Accordion",
+        isNew: true,
+        description: "A sharp, square accordion with a sliding neon rail indicator and horizontal clip-path content reveal — technical control-panel aesthetic.",
+        dependencies: ["react", "motion"],
+        registryDependencies: [],
+        tags: ["block", "accordion", "interaction", "animation"],
+        files: [
+            "registry/components/accordion-neon-rail.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "items", type: "AccordionRailItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
+            { name: "accentColor", type: "string", default: "#22d3ee", description: "Accent color for the sliding rail and open-state highlights." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
+        ]
+    },
+    {
+        name: "accordion-stack-deck",
+        title: "Stack Deck Accordion",
+        isNew: true,
+        description: "An overlapping card-deck accordion where collapsed rows shrink to strips and the active panel lifts forward with depth and spring motion.",
+        dependencies: ["react", "motion"],
+        registryDependencies: [],
+        tags: ["block", "accordion", "interaction", "animation"],
+        files: [
+            "registry/components/accordion-stack-deck.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "items", type: "AccordionStackItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
+        ]
+    },
+    {
         name:"brutalist-key",
         title:"Brutalist Key",
         isNew:true,
@@ -641,5 +693,105 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
-];
+    {
+        name: "faq-001",
+        title: "FAQ 001",
 
+        isNew: true,
+        description: "A premium FAQ section with smooth accordion interactions, optional subheading, and responsive preview controls.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["faq", "accordion", "page-sections", "interaction"],
+        files: [
+            "registry/components/faq-001.tsx",
+        ],
+
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "title", type: "string", default: "'Frequently asked questions'", description: "The main title of the section." },
+            { name: "subheading", type: "string", default: "-", description: "Optional subheading text." },
+            { name: "items", type: "FAQItem[]", default: "DEFAULT_FAQS", description: "Array of FAQ items with id, question, and answer." },
+            { name: "showPreviewControls", type: "boolean", default: "true", description: "Whether to show the responsive preview buttons." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
+    {
+        name: "faq-002",
+        title: "FAQ 002",
+        isNew: true,
+        description: "A professional FAQ section with category tabs, Radix UI accordion, and a clean minimalist design inspired by modern UI kits.",
+        dependencies: ["@radix-ui/react-accordion", "@radix-ui/react-tabs", "motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["faq", "accordion", "page-sections", "tabs", "radix"],
+        files: [
+            "registry/components/faq-002.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: []
+    },
+    {
+        name: "faq-003",
+        title: "FAQ 003",
+        isNew: true,
+        description: "A minimal FAQ section with a clean bottom-border accordion. No card borders — just a title and smooth open/close interactions.",
+        dependencies: ["@radix-ui/react-accordion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["block", "faq", "accordion", "page-sections", "minimal"],
+        files: [
+            "registry/components/faq-003.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "title", type: "string", default: "'Frequently asked questions'", description: "The section heading." },
+            { name: "items", type: "FAQItem[]", default: "DEFAULT_FAQS", description: "Array of FAQ items with id, question, and answer." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
+    {
+        name: "faq-004",
+        title: "FAQ 004",
+        isNew: true,
+        description: "A split two-column FAQ layout: sticky title and description on the left, smooth bottom-border accordion on the right. Ideal for marketing and landing pages.",
+        dependencies: ["@radix-ui/react-accordion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["block", "faq", "accordion", "page-sections", "split-layout"],
+        files: [
+            "registry/components/faq-004.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "title", type: "string", default: "'Frequently asked questions'", description: "The left-column section heading." },
+            { name: "subtitle", type: "string", default: "-", description: "Optional descriptive text shown below the title." },
+            { name: "items", type: "FAQItem[]", default: "DEFAULT_FAQS", description: "Array of FAQ items with id, question, and answer." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
+    {
+        name: "footer-001",
+        title: "Footer 001",
+        isNew: true,
+        description: "A clean, rounded-border footer with a logo, tagline, social icons on the left, and a three-column link grid on the right.",
+        dependencies: ["clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["footer", "page-sections", "navigation", "links"],
+        files: [
+            "registry/components/footer-001.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "logoName", type: "string", default: "'Luminary.io'", description: "The brand/logo name displayed in the footer." },
+            { name: "tagline", type: "string", default: "-", description: "Short description shown below the logo." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
+];
