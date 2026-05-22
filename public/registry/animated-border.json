@@ -3,9 +3,13 @@
   "title": "Animated Border Button",
   "description": "A button component with a moving gradient border animation using motion/react and CSS offset-path.",
   "dependencies": [
-    "motion"
+    "motion",
+    "clsx",
+    "tailwind-merge"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
   "tags": [
     "button",
     "animation",
@@ -15,8 +19,40 @@
   "files": [
     {
       "path": "components/ui/animated-border.tsx",
-      "content": "\"use client\";\n\nimport React from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface AnimatedBorderButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  duration?: number;\n  color?: string;\n}\n\n\nexport const AnimatedBorderButton = React.forwardRef<\n  HTMLButtonElement,\n  AnimatedBorderButtonProps\n>(({ children, className, duration = 5, color = \"#3b82f6\", disabled, ...props }, ref) => {\n  return (\n    <button\n      ref={ref}\n      disabled={disabled}\n      className={cn(\n        \"relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap\",\n        \"rounded-md border border-neutral-700 bg-neutral-900 px-4 py-2 text-sm font-medium text-white\",\n        \"transition-colors hover:bg-neutral-800\",\n        \"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2\",\n        \"disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n    >\n      {/* Animated border layer */}\n      <div className=\"absolute inset-0 rounded-[inherit] border-2 border-transparent pointer-events-none [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]\">\n        <motion.div\n          className=\"absolute aspect-square\"\n          animate={{ offsetDistance: [\"0%\", \"100%\"] }}\n          style={{\n            width: \"20px\",\n            offsetPath: \"rect(0 auto auto 0 round 6px)\",\n            backgroundImage: `linear-gradient(to right, transparent, ${color}, ${color})`,\n          }}\n          transition={{\n            repeat: Infinity,\n            duration,\n            ease: \"linear\",\n          }}\n        />\n      </div>\n\n      {/* Content */}\n      <span className=\"relative z-10 flex items-center gap-2\">{children}</span>\n    </button>\n  );\n});\n\nAnimatedBorderButton.displayName = \"AnimatedBorderButton\";\n"
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface AnimatedBorderButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  duration?: number;\n  color?: string;\n  children?: React.ReactNode;\n  className?: string;\n  borderWidth?: number;\n  borderRadius?: string;\n}\n\n\nexport const AnimatedBorderButton = React.forwardRef<\n  HTMLButtonElement,\n  AnimatedBorderButtonProps\n>(({\n  children = \"Animated Border\",\n  className,\n  duration = 5,\n  color = \"#3b82f6\",\n  borderWidth = 2,\n  borderRadius = \"8px\",\n  disabled,\n  ...props\n}, ref) => {\n  return (\n    <button\n      ref={ref}\n      disabled={disabled}\n      style={{ borderRadius }}\n      className={cn(\n        \"relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap\",\n        \"border border-border bg-background px-4 py-2 text-sm font-medium text-foreground\",\n        \"transition-colors hover:bg-muted dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-800\",\n        \"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n        \"disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n      {...props}\n    >\n      {/* Animated border layer */}\n      <div\n        className=\"absolute inset-0 pointer-events-none z-0\"\n        style={{\n          padding: borderWidth,\n          borderRadius: \"inherit\"\n        }}\n      >\n        <style dangerouslySetInnerHTML={{ __html: `\n          @keyframes offset-route {\n            0% { offset-distance: 0%; }\n            100% { offset-distance: 100%; }\n          }\n        `}} />\n        <div\n          className=\"absolute inset-0 [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]\"\n          style={{\n            borderRadius: \"inherit\",\n            border: `${borderWidth}px solid transparent`\n          }}\n        >\n          <div\n            className=\"absolute aspect-square rounded-full\"\n            style={{\n              width: \"40px\",\n              offsetPath: `rect(0 100% 100% 0 round ${borderRadius})`,\n              backgroundImage: `linear-gradient(to right, transparent, ${color}, ${color})`,\n              animation: `offset-route ${duration}s linear infinite`,\n            }}\n          />\n        </div>\n      </div>\n\n      {/* Content */}\n      <span className=\"relative z-10 flex items-center gap-2 tracking-tight\">\n        {children}\n      </span>\n    </button>\n  );\n});\n\nAnimatedBorderButton.displayName = \"AnimatedBorderButton\";\n"
     }
   ],
-  "type": "components:ui"
+  "type": "components:ui",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "-",
+      "description": "The content of the button."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "2",
+      "description": "The duration of the border animation in seconds."
+    },
+    {
+      "name": "borderWidth",
+      "type": "number",
+      "default": "2",
+      "description": "The width of the animated border."
+    },
+    {
+      "name": "borderRadius",
+      "type": "string",
+      "default": "12px",
+      "description": "The border radius of the button."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Additional CSS classes."
+    }
+  ]
 }
