@@ -46,3 +46,8 @@ next-env.d.ts
 # registry build files
 /public/registry/*.json
 !/public/registry/index.json
+
+/test-sandbox/*
+test-output.txt
+/app/demo/*
+/demo.txt
