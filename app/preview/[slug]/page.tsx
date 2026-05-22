@@ -5,7 +5,7 @@ import React from "react";
 
 export function generateStaticParams() {
   return registry
-    .filter((item) => (item as any).fullScreenPreview === true)
+    .filter((item) => (item as any).fullScreenPreview === true || item.tags.includes("page-sections"))
     .map((item) => ({ slug: item.name }));
 }
 
@@ -17,9 +17,13 @@ export default async function PreviewPage({
   const { slug } = await params;
   const componentMetadata = registry.find((item) => item.name === slug);
 
-  if (!componentMetadata || !(componentMetadata as any).fullScreenPreview) {
+  const isFullScreenAllowed = (componentMetadata as any)?.fullScreenPreview === true || 
+                              componentMetadata?.tags.includes("page-sections");
+
+  if (!componentMetadata || !isFullScreenAllowed) {
     notFound();
   }
+
 
   const Component = registryComponents[slug];
 
