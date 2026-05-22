@@ -35,7 +35,7 @@ export const SpotlightCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setOpacity(1)}
             onMouseLeave={() => setOpacity(0)}
-            className={`group relative rounded-2xl bg-[#0d0d0d] overflow-hidden border border-neutral-800 transition-colors hover:border-neutral-700 ${className || ""}`}
+            className={`group relative overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-neutral-300 dark:border-neutral-800 dark:bg-[#0d0d0d] dark:hover:border-neutral-700 ${className || ""}`}
             style={{ 
                 width: typeof width === 'number' ? `${width}px` : width,
                 height: typeof height === 'number' ? `${height}px` : height,
@@ -51,14 +51,14 @@ export const SpotlightCard = ({
             <div className="relative z-10 h-full p-8 flex flex-col">
                 {children || (
                     <>
-                        <h3 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                        <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground dark:text-white">
                             Interactive Discovery
                         </h3>
-                        <p className="text-neutral-400 leading-relaxed mb-6 text-sm">
+                        <p className="mb-6 text-sm leading-relaxed text-muted-foreground dark:text-neutral-400">
                             Experience the power of dynamic spotlight effects that respond to your every move. Perfect for feature highlights and premium interfaces.
                         </p>
                         <div className="mt-auto">
-                            <button className="text-xs font-bold text-white uppercase tracking-widest px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                            <button className="rounded-lg border border-border bg-muted/40 px-4 py-2 text-xs font-bold uppercase tracking-widest text-foreground transition-colors hover:bg-muted dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
                                 Explore More
                             </button>
                         </div>
