@@ -72,7 +72,7 @@ function AccordionRow({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
+      className={`overflow-hidden rounded-xl border transition-colors duration-300 sm:rounded-2xl ${
         isOpen
           ? "border-border bg-muted/50 shadow-sm dark:border-zinc-600/60 dark:bg-zinc-900/70 dark:shadow-[0_0_0_1px_rgba(235,94,40,0.08),_0_8px_32px_rgba(0,0,0,0.4)]"
           : "border-border bg-background/70 hover:bg-muted/40 dark:border-zinc-800/50 dark:bg-zinc-900/30 dark:hover:border-zinc-700/60 dark:hover:bg-zinc-900/50"
@@ -84,10 +84,10 @@ function AccordionRow({
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left group"
+        className="group flex w-full items-start justify-between gap-3 px-4 py-3.5 text-left sm:items-center sm:gap-4 sm:px-5 sm:py-4"
       >
         <span
-          className={`text-sm font-semibold leading-snug transition-colors duration-300 ${
+          className={`min-w-0 flex-1 pr-2 text-[13px] font-semibold leading-snug transition-colors duration-300 sm:pr-0 sm:text-sm md:text-base ${
             isOpen
               ? "text-foreground dark:text-white"
               : "text-foreground/80 group-hover:text-foreground dark:text-zinc-300 dark:group-hover:text-white"
@@ -128,11 +128,11 @@ function AccordionRow({
               animate={{ filter: "blur(0px)", y: 0 }}
               exit={{ filter: "blur(6px)", y: -4 }}
               transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-              className="px-5 pb-5"
+              className="px-4 pb-4 sm:px-5 sm:pb-5"
             >
-              <div className="mb-4 h-px rounded-full bg-border/80 dark:bg-zinc-800/80" />
+              <div className="mb-3 h-px rounded-full bg-border/80 sm:mb-4 dark:bg-zinc-800/80" />
               <p
-                className="text-sm leading-relaxed text-muted-foreground dark:text-zinc-400"
+                className="text-xs leading-relaxed text-muted-foreground sm:text-sm dark:text-zinc-400"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {item.answer}
@@ -166,7 +166,7 @@ export function Accordion({
   };
 
   return (
-    <div className={`flex flex-col gap-3 w-full max-w-2xl mx-auto ${className}`}>
+    <div className={`mx-auto flex w-full min-w-0 max-w-2xl flex-col gap-2 px-3 sm:gap-3 sm:px-0 ${className}`}>
       {items.map((item) => (
         <AccordionRow
           key={item.id}
