@@ -11,7 +11,7 @@ const FractalWall = () => {
       {Array.from({ length: 12 }).map((_, i) => (
         <div
           key={i}
-          className="flex-1 h-full border-l border-white/60 bg-linear-to-r from-black/[0.03] to-transparent shadow-[inset_10px_0_20px_-10px_rgba(0,0,0,0.05)]"
+          className="flex-1 h-full border-l border-white/60 bg-linear-to-r from-black/3 to-transparent shadow-[inset_10px_0_20px_-10px_rgba(0,0,0,0.05)]"
         />
       ))}
     </div>
@@ -193,7 +193,7 @@ export function EcosystemHero() {
             initial={{ opacity: 0, x: 40, y: 20 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative rounded-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] bg-white border border-neutral-200/60 w-full lg:w-[140%] lg:mr-[-40%] z-10 aspect-[5/4] sm:aspect-auto flex flex-col"
+            className="relative rounded-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] bg-white border border-neutral-200/60 w-full lg:w-[140%] lg:mr-[-40%] z-10 aspect-5/4 sm:aspect-auto flex flex-col"
           >
             {/* Mac Titlebar */}
             <div className="bg-white/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-neutral-100 relative z-20">
@@ -212,7 +212,7 @@ export function EcosystemHero() {
               <img
                 src="https://i.pinimg.com/1200x/7c/2f/95/7c2f95f7264fcd443c52904c9f9cf779.jpg"
                 alt="Product Dashboard Mockup"
-                className="w-full h-full object-cover object-left-top mix-blend-multiply opacity-90"
+                className="w-full h-full object-cover object-top-left mix-blend-multiply opacity-90"
               />
             </div>
           </motion.div>
