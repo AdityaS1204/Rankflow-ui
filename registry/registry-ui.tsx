@@ -26,6 +26,9 @@ import { DrawingCursor } from "./components/drawing-cursor";
 import { FileUpload } from "./components/file-upload";
 import { BrutalistKey } from "./components/brutalist-key";
 import { Accordion } from "./components/accordion";
+import { AccordionPillLuxe } from "./components/accordion-pill-luxe";
+import { AccordionNeonRail } from "./components/accordion-neon-rail";
+import { AccordionStackDeck } from "./components/accordion-stack-deck";
 import { BentoGrid001 } from "./components/bento-grid-001";
 import { ProductShowcaseCard } from "./components/product-showcase-card";
 import { MusicPlayerCard } from "./components/music-player-card";
@@ -33,6 +36,15 @@ import DitherImage from "./components/dither";
 import { EcosystemHero } from "./components/ecosystem-hero";
 import { DeleteButton } from "./components/delete-button";
 import { BrutalistButton } from "./components/brutalist-button";
+import { FAQ001 } from "./components/faq-001";
+import { FAQ002 } from "./components/faq-002";
+import { FAQ003 } from "./components/faq-003";
+import { FAQ004 } from "./components/faq-004";
+import { Footer001 } from "./components/footer-001";
+
+
+
+
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -63,6 +75,9 @@ export const registryComponents: Record<string, any> = {
   "file-upload": FileUpload,
   "brutalist-key": BrutalistKey,
   "accordion": Accordion,
+  "accordion-pill-luxe": AccordionPillLuxe,
+  "accordion-neon-rail": AccordionNeonRail,
+  "accordion-stack-deck": AccordionStackDeck,
   "bento-grid-001": BentoGrid001,
   "product-showcase-card": ProductShowcaseCard,
   "music-player-card": MusicPlayerCard,
@@ -70,4 +85,9 @@ export const registryComponents: Record<string, any> = {
   "ecosystem-hero": EcosystemHero,
   "delete-button": DeleteButton,
   "brutalist-button": BrutalistButton,
+  "faq-001": FAQ001,
+  "faq-002": FAQ002,
+  "faq-003": FAQ003,
+  "faq-004": FAQ004,
+  "footer-001": Footer001,
 };
