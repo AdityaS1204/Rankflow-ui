@@ -65,6 +65,8 @@ export default async function ComponentPage({
         slug={slug}
         code={sourceCode}
         filename={`components/ui/${component.name}.tsx`}
+        componentName={component.title}
+        dependencies={component.dependencies}
       />
 
       <div className="space-y-12">
