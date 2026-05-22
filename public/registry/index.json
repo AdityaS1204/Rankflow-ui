@@ -1,16 +1,537 @@
 [
   {
+    "name": "utils",
+    "title": "Utils",
+    "description": "Shared utility functions for Rankflow UI (cn, etc).",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "utils",
+      "shared"
+    ]
+  },
+  {
     "name": "animated-border",
     "title": "Animated Border Button",
     "description": "A button component with a moving gradient border animation using motion/react and CSS offset-path.",
     "dependencies": [
-      "motion"
+      "motion",
+      "clsx",
+      "tailwind-merge"
     ],
     "tags": [
       "button",
       "animation",
       "border",
       "gradient"
+    ]
+  },
+  {
+    "name": "spotlight-card",
+    "title": "Spotlight Card",
+    "description": "A premium card component with a dynamic spotlight effect that follows the mouse cursor.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "card",
+      "interaction",
+      "spotlight"
+    ]
+  },
+  {
+    "name": "noise-button",
+    "title": "Noise Button",
+    "description": "A pill-shaped button with canvas noise texture, frosted outer ring, and magic-wand icon.",
+    "dependencies": [
+      "react",
+      "@radix-ui/react-icons"
+    ],
+    "tags": [
+      "button",
+      "noise",
+      "texture",
+      "frosted"
+    ]
+  },
+  {
+    "name": "glow-button",
+    "title": "Glow Button",
+    "description": "A button with a vibrant glow effect and customizable variants.",
+    "dependencies": [
+      "react",
+      "@radix-ui/react-icons"
+    ],
+    "tags": [
+      "button",
+      "interaction",
+      "glow",
+      "neon"
+    ]
+  },
+  {
+    "name": "marquee",
+    "title": "Marquee",
+    "description": "A marquee component with hover to slow down the animation.",
+    "dependencies": [
+      "react",
+      "motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "marquee"
+    ]
+  },
+  {
+    "name": "gradient-button",
+    "title": "Gradient Button",
+    "description": "A button with a continuously moving random gradient that expands on hover.",
+    "dependencies": [
+      "react",
+      "motion",
+      "@radix-ui/react-icons"
+    ],
+    "tags": [
+      "button",
+      "interaction",
+      "gradient",
+      "hover"
+    ]
+  },
+  {
+    "name": "sign-up-form",
+    "title": "Sign Up Form",
+    "description": "A two-pane sign-up block component with a masked testimonial carousel.",
+    "dependencies": [
+      "react",
+      "motion",
+      "react-icons",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "block",
+      "authentication",
+      "form",
+      "carousel"
+    ]
+  },
+  {
+    "name": "gradient-ring-card",
+    "title": "Gradient Ring Card",
+    "description": "A card component with a frosted glass outer ring and a continuously rotating conic gradient, giving a neomorphic shadow depth between the ring and the card surface.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "card",
+      "animation",
+      "gradient",
+      "neomorphism",
+      "frost"
+    ]
+  },
+  {
+    "name": "ai-input",
+    "title": "AI Input",
+    "description": "A ChatGPT-style AI prompt input with model selector dropdown, attach/globe action buttons, and voice input.",
+    "dependencies": [
+      "react-icons"
+    ],
+    "tags": [
+      "input",
+      "ai",
+      "chatgpt",
+      "dropdown"
+    ]
+  },
+  {
+    "name": "ai-input-02",
+    "title": "AI Input 02",
+    "description": "A premium AI input sitting on a solid footer. Features real-time audio visualization, floating input card, and app-tools drawer.",
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "input",
+      "ai",
+      "audio-visualizer",
+      "gradient"
+    ]
+  },
+  {
+    "name": "stack-card",
+    "title": "Stack Card",
+    "description": "A premium stack of cards with alternating content orientations and a glassmorphism backdrop. Cards smoothly rotate to the back continuously.",
+    "dependencies": [
+      "motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "card",
+      "stack",
+      "carousel",
+      "glassmorphism"
+    ]
+  },
+  {
+    "name": "command-palette",
+    "title": "Command Palette",
+    "description": "A Cmd+K command palette modal with fuzzy search, keyboard navigation, and recent items. Scales and fades in.",
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "modal",
+      "command",
+      "palette",
+      "search",
+      "keyboard"
+    ]
+  },
+  {
+    "name": "tweet-card",
+    "title": "Tweet Card",
+    "description": "A customizable Twitter tweet card component that exactly mimics the UI of a real tweet.",
+    "dependencies": [
+      "react-icons",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "card",
+      "tweet",
+      "social",
+      "twitter"
+    ]
+  },
+  {
+    "name": "pricing-plan",
+    "title": "Pricing Plan",
+    "description": "A three-tier pricing card with hover gradient + noise on the price zone, slot-machine price animation via motion/react, and a spring-animated monthly/yearly toggle pill.",
+    "dependencies": [
+      "motion"
+    ],
+    "tags": [
+      "pricing",
+      "block",
+      "gradient",
+      "animation",
+      "noise",
+      "slot-machine"
+    ]
+  },
+  {
+    "name": "social-share-button",
+    "title": "Social Share Button",
+    "description": "A neomorphic pill button that reveals animated, clickable WhatsApp, Instagram, X, and Facebook icons on hover.",
+    "dependencies": [
+      "motion",
+      "react-icons"
+    ],
+    "tags": [
+      "button",
+      "social",
+      "neomorphism",
+      "share",
+      "hover",
+      "animation"
+    ]
+  },
+  {
+    "name": "hero-section",
+    "title": "Hero Section",
+    "description": "A premium SaaS hero block with warm mesh gradients, parallax blobs, accent headline, dual CTAs, and a trusted-by logo rail.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "block",
+      "hero",
+      "landing",
+      "saas",
+      "gradient"
+    ]
+  },
+  {
+    "name": "dot-grid-background",
+    "title": "Dot Grid Background",
+    "description": "A premium fullscreen background inspired by the Miracle UI. Features a dense grid of randomly blinking dots with an interactive cursor-follow lighting effect.",
+    "dependencies": [
+      "react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "backgrounds",
+      "canvas",
+      "grid",
+      "blinking",
+      "animation"
+    ]
+  },
+  {
+    "name": "scroll-velocity",
+    "title": "Scroll Velocity",
+    "description": "A text component that moves with the scroll velocity.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "block",
+      "interaction",
+      "text"
+    ]
+  },
+  {
+    "name": "text-generate-effect",
+    "title": "Text Generate Effect",
+    "description": "A text component with a blur effect when it comes into view.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "block",
+      "interaction",
+      "text"
+    ]
+  },
+  {
+    "name": "parallax-text",
+    "title": "Parallax Text",
+    "description": "A parallax text effect component with multiple vibrant layers that react to cursor movement.",
+    "dependencies": [
+      "motion"
+    ],
+    "tags": [
+      "text",
+      "parallax",
+      "interaction",
+      "animation"
+    ]
+  },
+  {
+    "name": "pixel-fall-effect",
+    "title": "Pixel Fall Effect",
+    "description": "A card component where an interactive pixelated screen shatters and falls down on hover, revealing an underlying vibrant color.",
+    "dependencies": [
+      "react",
+      "lucide-react"
+    ],
+    "tags": [
+      "card",
+      "canvas",
+      "animation",
+      "interaction",
+      "pixel"
+    ]
+  },
+  {
+    "name": "ai-input-03",
+    "title": "AI Input 03",
+    "description": "A clean, light-themed AI input mimicking a premium dashboard interface. Features uploaded drafts preview, auto-expanding textarea, and a segmented control toolbar for image/video generation.",
+    "dependencies": [
+      "react",
+      "lucide-react",
+      "motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "input",
+      "ai",
+      "dashboard",
+      "drafts",
+      "clean"
+    ]
+  },
+  {
+    "name": "text-reveal",
+    "title": "Text Reveal",
+    "description": "A bold text component that smoothly reveals words based on scroll position.",
+    "dependencies": [
+      "react",
+      "motion"
+    ],
+    "tags": [
+      "text",
+      "scroll",
+      "animation",
+      "reveal"
+    ]
+  },
+  {
+    "name": "expandable-cards",
+    "title": "Expandable Cards",
+    "description": "A group of vertical cards that expand smoothly on hover using Framer Motion layout animations. Perfect for displaying featured collections or portfolio categories.",
+    "dependencies": [
+      "motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "card",
+      "interaction",
+      "stock-images",
+      "expandable"
+    ]
+  },
+  {
+    "name": "drawing-cursor",
+    "title": "Drawing Cursor",
+    "description": "A premium background component where the mouse cursor draws a fading pencil-like line on a canvas. Supports touch and smooth opacity fading.",
+    "dependencies": [
+      "react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "backgrounds",
+      "canvas",
+      "cursor",
+      "animation",
+      "draw"
+    ]
+  },
+  {
+    "name": "file-upload",
+    "title": "File Upload",
+    "description": "A premium file upload block component with drag-and-drop support, file type automatic detection, and smooth micro-animations for adding/removing files.",
+    "dependencies": [
+      "motion",
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "tags": [
+      "block",
+      "upload",
+      "interaction",
+      "files",
+      "animation"
+    ]
+  },
+  {
+    "name": "accordion",
+    "title": "Accordion",
+    "description": "Accordion component with smooth animations",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "block",
+      "accordion",
+      "interaction",
+      "animation"
+    ]
+  },
+  {
+    "name": "brutalist-key",
+    "title": "Brutalist Key",
+    "description": "A brutalist key component with a unique design.",
+    "dependencies": [
+      "react"
+    ],
+    "tags": [
+      "button",
+      "key",
+      "brutalist"
+    ]
+  },
+  {
+    "name": "ecosystem-hero",
+    "title": "Ecosystem Hero",
+    "description": "A premium hero section with fractal wall background, 3D buttons, and floating app icons.",
+    "dependencies": [
+      "react",
+      "motion",
+      "lucide-react",
+      "react-icons"
+    ],
+    "tags": [
+      "hero",
+      "block",
+      "landing",
+      "3d",
+      "fractal"
+    ]
+  },
+  {
+    "name": "color-bento-grid",
+    "title": "Color Bento Grid",
+    "description": "An interactive bento grid of color palettes with fluid resizing layout animations.",
+    "dependencies": [
+      "react",
+      "motion",
+      "lucide-react"
+    ],
+    "tags": [
+      "grid",
+      "bento",
+      "layout",
+      "cards",
+      "colors"
+    ]
+  },
+  {
+    "name": "music-player-card",
+    "title": "Music Player Card",
+    "description": "A beautifully styled, fully functional glassmorphic music player card.",
+    "dependencies": [
+      "react",
+      "motion",
+      "lucide-react"
+    ],
+    "tags": [
+      "player",
+      "music",
+      "audio",
+      "glassmorphism",
+      "card"
+    ]
+  },
+  {
+    "name": "product-showcase-card",
+    "title": "Product Showcase Card",
+    "description": "A premium product card with an integrated image carousel, fluid pill indicators, and a bookmark action.",
+    "dependencies": [
+      "react",
+      "motion",
+      "lucide-react"
+    ],
+    "tags": [
+      "product",
+      "ecommerce",
+      "card",
+      "carousel",
+      "store"
+    ]
+  },
+  {
+    "name": "interactive-product-grid",
+    "title": "Interactive Product Grid",
+    "description": "A 3x3 modal-driven product grid featuring seamless layout animations to a premium details sheet.",
+    "dependencies": [
+      "react",
+      "motion"
+    ],
+    "tags": [
+      "grid",
+      "product",
+      "store",
+      "modal",
+      "animation",
+      "framer"
     ]
   }
 ]
