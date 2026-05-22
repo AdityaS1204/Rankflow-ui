@@ -7,8 +7,9 @@ import { CodeBlock } from "./CodeBlock";
 import { registryComponents } from "@/registry/registry-ui";
 import { registry } from "@/registry/index";
 import { cn } from "@/lib/utils";
-import { RotateCw, Frame } from "lucide-react";
+import { RotateCw, Frame, Monitor, Tablet, Smartphone } from "lucide-react";
 import { CopyPromptButtons } from "./CopyPromptButton";
+
 
 interface ComponentPreviewProps {
   slug: string;
@@ -28,7 +29,9 @@ export function ComponentPreview({
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
   const [previewKey, setPreviewKey] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [previewWidth, setPreviewWidth] = useState<"desktop" | "tablet" | "mobile">("desktop");
   const { resolvedTheme } = useTheme();
+
 
   useEffect(() => {
     setMounted(true);
@@ -37,10 +40,18 @@ export function ComponentPreview({
   const Component = registryComponents[slug];
   const metadata = registry.find(c => c.name === slug);
   const isLarge = metadata?.size === "lg";
+  const isPageSection = metadata?.tags.includes("page-sections");
 
   // Use resolvedTheme, default to dark on server
   const isDark = !mounted || resolvedTheme !== "light";
   const fadeColor = isDark ? "#0d0d0d" : "#ffffff";
+
+  const widthClasses = {
+    desktop: "max-w-full",
+    tablet: "max-w-[768px]",
+    mobile: "max-w-[375px]",
+  };
+
 
   return (
     <div className={cn(
@@ -82,11 +93,56 @@ export function ComponentPreview({
 
 
         <div className="flex items-center gap-1.5 pb-px">
+          {activeTab === "preview" && isPageSection && (
+            <>
+              <div className="flex items-center gap-1 rounded-md border border-border bg-muted/30 p-0.5">
+                <button
+                  onClick={() => setPreviewWidth("desktop")}
+                  className={cn(
+                    "flex h-7 w-7 items-center justify-center rounded-sm transition-all",
+                    previewWidth === "desktop"
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                  title="Desktop View"
+                >
+                  <Monitor className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  onClick={() => setPreviewWidth("tablet")}
+                  className={cn(
+                    "flex h-7 w-7 items-center justify-center rounded-sm transition-all",
+                    previewWidth === "tablet"
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                  title="Tablet View"
+                >
+                  <Tablet className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  onClick={() => setPreviewWidth("mobile")}
+                  className={cn(
+                    "flex h-7 w-7 items-center justify-center rounded-sm transition-all",
+                    previewWidth === "mobile"
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                  title="Mobile View"
+                >
+                  <Smartphone className="h-3.5 w-3.5" />
+                </button>
+              </div>
+              <div className="mx-1 h-4 w-px bg-border" />
+            </>
+          )}
+
           <CopyPromptButtons
             componentName={componentName ?? slug}
             sourceCode={code}
             dependencies={dependencies}
           />
+
 
           <div className="mx-1 h-4 w-px bg-border" />
 
@@ -99,7 +155,7 @@ export function ComponentPreview({
               >
                 <RotateCw className="h-4 w-4" />
               </button>
-              {(metadata as any)?.fullScreenPreview && (
+              {((metadata as any)?.fullScreenPreview || isPageSection) && (
                 <a
                   href={`/preview/${slug}`}
                   target="_blank"
@@ -110,6 +166,7 @@ export function ComponentPreview({
                   <Frame className="h-4 w-4" />
                 </a>
               )}
+
             </div>
           )}
         </div>
@@ -130,10 +187,15 @@ export function ComponentPreview({
               )}
             >
               {Component ? (
-                <div className="w-full flex items-center justify-center font-[inherit]">
+                <motion.div 
+                  layout
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                  className={cn("w-full flex items-center justify-center font-[inherit] transition-all duration-500", widthClasses[previewWidth])}
+                >
                   <Component key={previewKey} fadeColor={fadeColor} />
-                </div>
+                </motion.div>
               ) : (
+
                 <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
               )}
             </motion.div>
