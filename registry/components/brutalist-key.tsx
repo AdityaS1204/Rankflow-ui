@@ -121,7 +121,7 @@ export const BrutalistKey = ({
           }}
         >
           <span
-            className={`pointer-events-none absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b ${c.gloss} rounded-t-[6px]`}
+            className={`pointer-events-none absolute top-0 left-0 right-0 h-1/2 bg-linear-to-b ${c.gloss} rounded-t-[6px]`}
           />
 
           <span className="absolute inset-0 overflow-hidden rounded-[7px]">
