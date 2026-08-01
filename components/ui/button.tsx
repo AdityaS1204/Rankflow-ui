@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -18,11 +18,15 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        glow: "bg-[#DE732C] border border-[#f8d4b3]/80 text-white [box-shadow:0_0_60px_-10px_#DE732C] hover:[box-shadow:0_0_80px_-8px_#DE732C] hover:opacity-90",
+        "glow-blue": "bg-[#126fff] border border-[#9ec4ff]/90 text-white [box-shadow:0_0_60px_-10px_#0165FF] hover:[box-shadow:0_0_80px_-8px_#0165FF]",
+        shadow: "bg-white text-black border-2 border-black [box-shadow:4px_4px_0_#000] hover:[box-shadow:2px_2px_0_#000] active:[box-shadow:0px_0px_0_#000] active:translate-x-[2px] active:translate-y-[2px]",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 px-10 text-xl rounded-2xl",
         icon: "h-10 w-10",
       },
     },
@@ -30,7 +34,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 )
 
 export interface ButtonProps
@@ -49,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     )
-  },
+  }
 )
 Button.displayName = "Button"
 

@@ -722,8 +722,9 @@ export const registry = [
         title: "FAQ 002",
         isNew: true,
         description: "A professional FAQ section with category tabs, Radix UI accordion, and a clean minimalist design inspired by modern UI kits.",
-        dependencies: ["@radix-ui/react-accordion", "@radix-ui/react-tabs", "motion", "lucide-react", "clsx", "tailwind-merge"],
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
+        shadcnDependencies: ["accordion", "tabs"],
         tags: ["faq", "accordion", "page-sections", "tabs", "radix"],
         files: [
             "registry/components/faq-002.tsx",
@@ -738,8 +739,9 @@ export const registry = [
         title: "FAQ 003",
         isNew: true,
         description: "A minimal FAQ section with a clean bottom-border accordion. No card borders — just a title and smooth open/close interactions.",
-        dependencies: ["@radix-ui/react-accordion", "lucide-react", "clsx", "tailwind-merge"],
+        dependencies: ["lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
+        shadcnDependencies: ["accordion"],
         tags: ["block", "faq", "accordion", "page-sections", "minimal"],
         files: [
             "registry/components/faq-003.tsx",
@@ -758,8 +760,9 @@ export const registry = [
         title: "FAQ 004",
         isNew: true,
         description: "A split two-column FAQ layout: sticky title and description on the left, smooth bottom-border accordion on the right. Ideal for marketing and landing pages.",
-        dependencies: ["@radix-ui/react-accordion", "lucide-react", "clsx", "tailwind-merge"],
+        dependencies: ["lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
+        shadcnDependencies: ["accordion"],
         tags: ["block", "faq", "accordion", "page-sections", "split-layout"],
         files: [
             "registry/components/faq-004.tsx",

@@ -7,6 +7,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "utils",
       "shared"
@@ -21,6 +22,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "animation",
@@ -35,6 +37,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "interaction",
@@ -49,6 +52,7 @@
       "react",
       "@radix-ui/react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "noise",
@@ -64,6 +68,7 @@
       "react",
       "@radix-ui/react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "interaction",
@@ -81,6 +86,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "marquee"
     ]
@@ -94,6 +100,7 @@
       "motion",
       "@radix-ui/react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "interaction",
@@ -112,6 +119,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "authentication",
@@ -126,6 +134,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "animation",
@@ -141,6 +150,7 @@
     "dependencies": [
       "react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "input",
       "ai",
@@ -158,6 +168,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "input",
       "ai",
@@ -174,6 +185,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "stack",
@@ -191,6 +203,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "modal",
       "command",
@@ -208,6 +221,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "tweet",
@@ -222,6 +236,7 @@
     "dependencies": [
       "motion"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "pricing",
       "block",
@@ -239,6 +254,7 @@
       "motion",
       "react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "social",
@@ -255,6 +271,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "hero",
@@ -272,6 +289,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "backgrounds",
       "canvas",
@@ -287,6 +305,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "interaction",
@@ -300,6 +319,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "interaction",
@@ -313,6 +333,7 @@
     "dependencies": [
       "motion"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "text",
       "parallax",
@@ -328,6 +349,7 @@
       "react",
       "lucide-react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "canvas",
@@ -347,6 +369,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "input",
       "ai",
@@ -363,6 +386,7 @@
       "react",
       "motion"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "text",
       "scroll",
@@ -379,6 +403,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "card",
       "interaction",
@@ -395,6 +420,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "backgrounds",
       "canvas",
@@ -413,6 +439,7 @@
       "clsx",
       "tailwind-merge"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "upload",
@@ -428,6 +455,55 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
+    "tags": [
+      "block",
+      "accordion",
+      "interaction",
+      "animation"
+    ]
+  },
+  {
+    "name": "accordion-pill-luxe",
+    "title": "Pill Luxe Accordion",
+    "description": "A frosted glass accordion with full-radius pill triggers, plus-to-close icon morph, and spring height expansion inside one luxe shell.",
+    "dependencies": [
+      "react",
+      "motion"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "block",
+      "accordion",
+      "interaction",
+      "animation"
+    ]
+  },
+  {
+    "name": "accordion-neon-rail",
+    "title": "Neon Rail Accordion",
+    "description": "A sharp, square accordion with a sliding neon rail indicator and horizontal clip-path content reveal — technical control-panel aesthetic.",
+    "dependencies": [
+      "react",
+      "motion"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "block",
+      "accordion",
+      "interaction",
+      "animation"
+    ]
+  },
+  {
+    "name": "accordion-stack-deck",
+    "title": "Stack Deck Accordion",
+    "description": "An overlapping card-deck accordion where collapsed rows shrink to strips and the active panel lifts forward with depth and spring motion.",
+    "dependencies": [
+      "react",
+      "motion"
+    ],
+    "shadcnDependencies": [],
     "tags": [
       "block",
       "accordion",
@@ -442,6 +518,7 @@
     "dependencies": [
       "react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "button",
       "key",
@@ -458,6 +535,7 @@
       "lucide-react",
       "react-icons"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "hero",
       "block",
@@ -467,37 +545,21 @@
     ]
   },
   {
-    "name": "color-bento-grid",
-    "title": "Color Bento Grid",
-    "description": "An interactive bento grid of color palettes with fluid resizing layout animations.",
+    "name": "bento-grid-001",
+    "title": " Bento Grid 001",
+    "description": "An interactive bento grid Layout of color palettes with fluid resizing layout animations. You can use it for your next bento grid layout.",
     "dependencies": [
       "react",
       "motion",
       "lucide-react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "grid",
       "bento",
       "layout",
       "cards",
       "colors"
-    ]
-  },
-  {
-    "name": "music-player-card",
-    "title": "Music Player Card",
-    "description": "A beautifully styled, fully functional glassmorphic music player card.",
-    "dependencies": [
-      "react",
-      "motion",
-      "lucide-react"
-    ],
-    "tags": [
-      "player",
-      "music",
-      "audio",
-      "glassmorphism",
-      "card"
     ]
   },
   {
@@ -509,6 +571,7 @@
       "motion",
       "lucide-react"
     ],
+    "shadcnDependencies": [],
     "tags": [
       "product",
       "ecommerce",
@@ -518,20 +581,169 @@
     ]
   },
   {
-    "name": "interactive-product-grid",
-    "title": "Interactive Product Grid",
-    "description": "A 3x3 modal-driven product grid featuring seamless layout animations to a premium details sheet.",
+    "name": "music-player-card",
+    "title": "Music Player Card",
+    "description": "A beautifully styled, fully functional glassmorphic music player card.",
+    "dependencies": [
+      "react",
+      "motion",
+      "lucide-react"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "player",
+      "music",
+      "audio",
+      "glassmorphism",
+      "card"
+    ]
+  },
+  {
+    "name": "dither",
+    "title": "Dither Image",
+    "description": "A high-performance dithering component for images and videos with multiple algorithms (Bayer, Floyd-Steinberg, Halftone, etc.) and real-time color palette mapping.",
+    "dependencies": [
+      "react"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "backgrounds",
+      "canvas",
+      "dither",
+      "image",
+      "pixel-art",
+      "animation"
+    ]
+  },
+  {
+    "name": "delete-button",
+    "title": "Delete Button",
+    "description": "A button that requires the user to hold it for a specified duration to trigger a delete action, preventing accidental deletions.",
     "dependencies": [
       "react",
       "motion"
     ],
+    "shadcnDependencies": [],
     "tags": [
-      "grid",
-      "product",
-      "store",
-      "modal",
-      "animation",
-      "framer"
+      "button",
+      "interaction",
+      "hold",
+      "delete",
+      "confirmation"
+    ]
+  },
+  {
+    "name": "brutalist-button",
+    "title": "Brutalist Button",
+    "description": "A heavy, mechanical-style button with a 3D depth effect, mechanical click animation, and interactive ripples.",
+    "dependencies": [
+      "react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "button",
+      "brutalist",
+      "mechanical",
+      "3d",
+      "interaction"
+    ]
+  },
+  {
+    "name": "faq-001",
+    "title": "FAQ 001",
+    "description": "A premium FAQ section with smooth accordion interactions, optional subheading, and responsive preview controls.",
+    "dependencies": [
+      "motion",
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "faq",
+      "accordion",
+      "page-sections",
+      "interaction"
+    ]
+  },
+  {
+    "name": "faq-002",
+    "title": "FAQ 002",
+    "description": "A professional FAQ section with category tabs, Radix UI accordion, and a clean minimalist design inspired by modern UI kits.",
+    "dependencies": [
+      "motion",
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [
+      "accordion",
+      "tabs"
+    ],
+    "tags": [
+      "faq",
+      "accordion",
+      "page-sections",
+      "tabs",
+      "radix"
+    ]
+  },
+  {
+    "name": "faq-003",
+    "title": "FAQ 003",
+    "description": "A minimal FAQ section with a clean bottom-border accordion. No card borders — just a title and smooth open/close interactions.",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [
+      "accordion"
+    ],
+    "tags": [
+      "block",
+      "faq",
+      "accordion",
+      "page-sections",
+      "minimal"
+    ]
+  },
+  {
+    "name": "faq-004",
+    "title": "FAQ 004",
+    "description": "A split two-column FAQ layout: sticky title and description on the left, smooth bottom-border accordion on the right. Ideal for marketing and landing pages.",
+    "dependencies": [
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [
+      "accordion"
+    ],
+    "tags": [
+      "block",
+      "faq",
+      "accordion",
+      "page-sections",
+      "split-layout"
+    ]
+  },
+  {
+    "name": "footer-001",
+    "title": "Footer 001",
+    "description": "A clean, rounded-border footer with a logo, tagline, social icons on the left, and a three-column link grid on the right.",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "footer",
+      "page-sections",
+      "navigation",
+      "links"
     ]
   }
 ]

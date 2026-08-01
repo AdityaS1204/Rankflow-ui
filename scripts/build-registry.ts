@@ -49,6 +49,7 @@ async function buildRegistry() {
             title: item.title,
             description: item.description,
             dependencies: item.dependencies,
+            shadcnDependencies: item.shadcnDependencies ?? [],
             tags: item.tags,
         });
 

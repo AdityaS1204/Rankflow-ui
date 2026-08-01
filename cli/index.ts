@@ -6,6 +6,7 @@ import color from 'picocolors';
 import fetch from 'node-fetch';
 import fs from 'fs-extra';
 import path from 'path';
+import { execa } from 'execa';
 
 const program = new Command();
 const REGISTRY_URL = process.env.REGISTRY_URL || 'https://ui.rankflow.in/registry';
@@ -51,6 +52,11 @@ async function getTargetPath(framework: FrameworkOptions, type: string): Promise
     };
 
     return paths[framework] || paths.default;
+}
+
+async function checkShadcnDep(depName: string, framework: FrameworkOptions): Promise<boolean> {
+    const uiDir = await getTargetPath(framework, 'components:ui');
+    return fs.pathExists(path.join(uiDir, `${depName}.tsx`));
 }
 
 program
@@ -133,8 +139,27 @@ program
                 type: string; 
                 files: Array<{ path: string; content: string }>; 
                 dependencies?: string[]; 
-                registryDependencies?: string[] 
+                registryDependencies?: string[];
+                shadcnDependencies?: string[];
             };
+
+            // Check and install shadcn dependencies first
+            if (data.shadcnDependencies) {
+                for (const shadcnDep of data.shadcnDependencies) {
+                    const exists = await checkShadcnDep(shadcnDep, framework);
+                    if (!exists) {
+                        const shouldInstall = await p.confirm({
+                            message: `This component needs shadcn "${shadcnDep}". Install it now?`,
+                            initialValue: true,
+                        });
+                        if (shouldInstall) {
+                            s.stop(`Installing shadcn primitive: ${shadcnDep}`);
+                            await execa('npx', ['shadcn@latest', 'add', shadcnDep, '--yes'], { cwd: process.cwd(), stdio: 'inherit' });
+                            s.start(`Continuing installation of ${componentName}...`);
+                        }
+                    }
+                }
+            }
 
             // Recursively install registry dependencies first
             if (data.registryDependencies) {
