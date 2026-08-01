@@ -183,6 +183,7 @@ export function ComponentPreview({
               transition={{ duration: 0.2 }}
               className={cn(
                 "relative flex w-full items-center justify-center p-4 md:p-12",
+                slug === "spotlight-text" && "bg-neutral-950 rounded-xl",
                 isLarge ? "min-h-[500px] lg:min-h-[600px]" : "min-h-[400px]"
               )}
             >
