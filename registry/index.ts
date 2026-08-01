@@ -797,4 +797,33 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "spotlight-text",
+        title: "Spotlight Text",
+        isNew: true,
+        description: "Dim a block of text and sweep a soft cursor-following spotlight across it to reveal the bright letters underneath on hover.",
+        dependencies: ["clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["text", "effect", "spotlight", "hover", "cursor", "typography", "animation"],
+        files: [
+            "registry/components/spotlight-text.tsx",
+        ],
+        type: "components:ui",
+        props: [
+            { name: "text", type: "string", default: "'Sweep a soft cursor-following spotlight across this text block to reveal...'", description: "The text content to display." },
+            { name: "children", type: "ReactNode", default: "-", description: "Custom React node text content if text prop is not used." },
+            { name: "spotlightRadius", type: "number", default: "120", description: "Spotlight radius in pixels (20 to 700 px)." },
+            { name: "brightColor", type: "string", default: "'rgb(255, 255, 255)'", description: "Color of the bright revealed text layer." },
+            { name: "dimColor", type: "string", default: "'rgba(255, 255, 255, 0.2)'", description: "Color of the base dimmed text layer." },
+            { name: "intensity", type: "number", default: "20", description: "Solid core percentage before the soft edge fade starts (0 to 100)." },
+            { name: "followSpeed", type: "number", default: "0.08", description: "Smoothness factor for cursor following lerp (0.01 = very slow/smooth, 1 = instant)." },
+            { name: "transitionDuration", type: "number", default: "0.3", description: "Transition duration for opening/closing reveal effect in seconds." },
+            { name: "transitionTiming", type: "string", default: "'cubic-bezier(0.16, 1, 0.3, 1)'", description: "CSS transition timing function for spotlight reveal." },
+            { name: "hideCursor", type: "boolean", default: "true", description: "Whether to hide native cursor on hover." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+            { name: "style", type: "CSSProperties", default: "-", description: "Custom styles for font family, size, weight, spacing, alignment, etc." }
+        ]
+    },
 ];
+
+

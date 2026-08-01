@@ -23,7 +23,7 @@ const GALLERY = [
   "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=800&auto=format&fit=crop",
 ];
 
-const SPRING_TRANSITION = { type: "spring", stiffness: 300, damping: 30, duration: 0.6 };
+const SPRING_TRANSITION = { type: "spring" as const, stiffness: 300, damping: 30 };
 
 export function InteractiveProductGrid() {
   const [activeItem, setActiveItem] = useState<typeof PRODUCTS[0] | null>(null);

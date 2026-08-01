@@ -41,6 +41,7 @@ import { FAQ002 } from "./components/faq-002";
 import { FAQ003 } from "./components/faq-003";
 import { FAQ004 } from "./components/faq-004";
 import { Footer001 } from "./components/footer-001";
+import { SpotlightText } from "./components/spotlight-text";
 
 
 
@@ -90,4 +91,6 @@ export const registryComponents: Record<string, any> = {
   "faq-003": FAQ003,
   "faq-004": FAQ004,
   "footer-001": Footer001,
+  "spotlight-text": SpotlightText,
 };
+

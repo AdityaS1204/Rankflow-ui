@@ -745,5 +745,24 @@
       "navigation",
       "links"
     ]
+  },
+  {
+    "name": "spotlight-text",
+    "title": "Spotlight Text",
+    "description": "Dim a block of text and sweep a soft cursor-following spotlight across it to reveal the bright letters underneath on hover.",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "text",
+      "effect",
+      "spotlight",
+      "hover",
+      "cursor",
+      "typography",
+      "animation"
+    ]
   }
 ]
