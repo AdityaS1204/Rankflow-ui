@@ -42,10 +42,8 @@ import { FAQ003 } from "./components/faq-003";
 import { FAQ004 } from "./components/faq-004";
 import { Footer001 } from "./components/footer-001";
 import { SpotlightText } from "./components/spotlight-text";
-
-
-
-
+import { CursorTooltipPortalDemo } from "./components/cursor-tooltip-portal-demo";
+import { AiFeedbackBarDemo } from "./components/ai-feedback-bar-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -92,5 +90,6 @@ export const registryComponents: Record<string, any> = {
   "faq-004": FAQ004,
   "footer-001": Footer001,
   "spotlight-text": SpotlightText,
+  "cursor-tooltip-portal": CursorTooltipPortalDemo,
+  "ai-feedback-bar": AiFeedbackBarDemo,
 };
-

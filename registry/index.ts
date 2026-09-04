@@ -328,7 +328,6 @@ export const registry = [
     {
         name: "text-generate-effect",
         title: "Text Generate Effect",
-        isNew: true,
         description: "A text component with a blur effect when it comes into view.",
         dependencies: ["react"],
         registryDependencies: [],
@@ -366,7 +365,6 @@ export const registry = [
     {
         name: "pixel-fall-effect",
         title: "Pixel Fall Effect",
-        isNew: true,
         description: "A card component where an interactive pixelated screen shatters and falls down on hover, revealing an underlying vibrant color.",
         dependencies: ["react", "lucide-react"],
         registryDependencies: ["utils"],
@@ -416,7 +414,6 @@ export const registry = [
     {
         name: "expandable-cards",
         title: "Expandable Cards",
-        isNew: true,
         description: "A group of vertical cards that expand smoothly on hover using Framer Motion layout animations. Perfect for displaying featured collections or portfolio categories.",
         dependencies: ["motion", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -452,7 +449,6 @@ export const registry = [
     {
         name: "file-upload",
         title: "File Upload",
-        isNew: true,
         description: "A premium file upload block component with drag-and-drop support, file type automatic detection, and smooth micro-animations for adding/removing files.",
         dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -468,7 +464,6 @@ export const registry = [
     {
         name: "accordion",
         title: "Accordion",
-        isNew: true,
         description: "Accordion component with smooth animations",
         dependencies: ["react"],
         registryDependencies: [],
@@ -486,7 +481,6 @@ export const registry = [
     {
         name: "accordion-pill-luxe",
         title: "Pill Luxe Accordion",
-        isNew: true,
         description: "A frosted glass accordion with full-radius pill triggers, plus-to-close icon morph, and spring height expansion inside one luxe shell.",
         dependencies: ["react", "motion"],
         registryDependencies: [],
@@ -503,7 +497,6 @@ export const registry = [
     {
         name: "accordion-neon-rail",
         title: "Neon Rail Accordion",
-        isNew: true,
         description: "A sharp, square accordion with a sliding neon rail indicator and horizontal clip-path content reveal — technical control-panel aesthetic.",
         dependencies: ["react", "motion"],
         registryDependencies: [],
@@ -521,7 +514,6 @@ export const registry = [
     {
         name: "accordion-stack-deck",
         title: "Stack Deck Accordion",
-        isNew: true,
         description: "An overlapping card-deck accordion where collapsed rows shrink to strips and the active panel lifts forward with depth and spring motion.",
         dependencies: ["react", "motion"],
         registryDependencies: [],
@@ -538,7 +530,6 @@ export const registry = [
     {
         name:"brutalist-key",
         title:"Brutalist Key",
-        isNew:true,
         description:"A brutalist key component with a unique design.",
         dependencies:["react"],
         registryDependencies:[],
@@ -555,7 +546,6 @@ export const registry = [
     {
         name: "ecosystem-hero",
         title: "Ecosystem Hero",
-        isNew: true,
         description: "A premium hero section with fractal wall background, 3D buttons, and floating app icons.",
         dependencies: ["react", "motion", "lucide-react", "react-icons"],
         registryDependencies: [],
@@ -571,7 +561,6 @@ export const registry = [
     {
         name: "bento-grid-001",
         title: " Bento Grid 001",
-        isNew: true,
         description: "An interactive bento grid Layout of color palettes with fluid resizing layout animations. You can use it for your next bento grid layout.",
         dependencies: ["react", "motion", "lucide-react"],
         registryDependencies: ["utils"],
@@ -586,7 +575,6 @@ export const registry = [
      {
         name: "product-showcase-card",
         title: "Product Showcase Card",
-        isNew: true,
         description: "A premium product card with an integrated image carousel, fluid pill indicators, and a bookmark action.",
         dependencies: ["react", "motion", "lucide-react"],
         registryDependencies: ["utils"],
@@ -606,7 +594,6 @@ export const registry = [
     {
         name: "music-player-card",
         title: "Music Player Card",
-        isNew: true,
         description: "A beautifully styled, fully functional glassmorphic music player card.",
         dependencies: ["react", "motion", "lucide-react"],
         registryDependencies: ["utils"],
@@ -627,8 +614,7 @@ export const registry = [
     },    
     {
         name: "dither",
-        title: "Dither Image",
-        isNew: true,
+        title: "Dither Effect",
         description: "A high-performance dithering component for images and videos with multiple algorithms (Bayer, Floyd-Steinberg, Halftone, etc.) and real-time color palette mapping.",
         dependencies: ["react"],
         registryDependencies: ["utils"],
@@ -677,7 +663,6 @@ export const registry = [
     {
         name: "brutalist-button",
         title: "Brutalist Button",
-        isNew: true,
         description: "A heavy, mechanical-style button with a 3D depth effect, mechanical click animation, and interactive ripples.",
         dependencies: ["react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -696,8 +681,6 @@ export const registry = [
     {
         name: "faq-001",
         title: "FAQ 001",
-
-        isNew: true,
         description: "A premium FAQ section with smooth accordion interactions, optional subheading, and responsive preview controls.",
         dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -720,7 +703,6 @@ export const registry = [
     {
         name: "faq-002",
         title: "FAQ 002",
-        isNew: true,
         description: "A professional FAQ section with category tabs, Radix UI accordion, and a clean minimalist design inspired by modern UI kits.",
         dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -737,7 +719,6 @@ export const registry = [
     {
         name: "faq-003",
         title: "FAQ 003",
-        isNew: true,
         description: "A minimal FAQ section with a clean bottom-border accordion. No card borders — just a title and smooth open/close interactions.",
         dependencies: ["lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -758,7 +739,6 @@ export const registry = [
     {
         name: "faq-004",
         title: "FAQ 004",
-        isNew: true,
         description: "A split two-column FAQ layout: sticky title and description on the left, smooth bottom-border accordion on the right. Ideal for marketing and landing pages.",
         dependencies: ["lucide-react", "clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -780,7 +760,6 @@ export const registry = [
     {
         name: "footer-001",
         title: "Footer 001",
-        isNew: true,
         description: "A clean, rounded-border footer with a logo, tagline, social icons on the left, and a three-column link grid on the right.",
         dependencies: ["clsx", "tailwind-merge"],
         registryDependencies: ["utils"],
@@ -824,6 +803,58 @@ export const registry = [
             { name: "style", type: "CSSProperties", default: "-", description: "Custom styles for font family, size, weight, spacing, alignment, etc." }
         ]
     },
+    {
+        name: "cursor-tooltip-portal",
+        title: "Cursor Tooltip Portal",
+        isNew: true,
+        description: "A high-performance cursor-anchored tooltip portal with inertial spring tracking, context-aware content switching, and elegant multiline blur-fade reveal transitions.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["cursor", "tooltip", "portal", "card", "interaction", "animation", "badge"],
+        files: [
+            "registry/components/cursor-tooltip-portal.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "text", type: "string", default: "undefined", description: "Dynamic contextual text to display inside the cursor-following floating portal." },
+            { name: "defaultText", type: "string", default: "'Explore'", description: "Fallback text displayed when no specific hover target text is provided." },
+            { name: "children", type: "ReactNode", default: "-", description: "Interactive content or card grid that the cursor tracks across." },
+            { name: "maxWidth", type: "number | string", default: "240", description: "Maximum width of the floating portal card before multiline truncation." },
+            { name: "maxHeight", type: "number | string", default: "120", description: "Maximum height of the floating portal card." },
+            { name: "maxLines", type: "number", default: "3", description: "Maximum number of lines allowed before truncating with ellipsis." },
+            { name: "stiffness", type: "number", default: "220", description: "Spring stiffness for cursor tracking speed." },
+            { name: "damping", type: "number", default: "24", description: "Spring damping factor for smooth trailing delay." },
+            { name: "mass", type: "number", default: "0.6", description: "Mass of spring physics creating inertial delay." },
+            { name: "offsetX", type: "number", default: "16", description: "Offset distance from cursor on X axis." },
+            { name: "offsetY", type: "number", default: "16", description: "Offset distance from cursor on Y axis." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container wrapper." },
+            { name: "cardClassName", type: "string", default: "''", description: "Additional CSS classes for the floating portal card." }
+        ]
+    },
+    {
+        name: "ai-feedback-bar",
+        title: "AI Feedback Bar",
+        isNew: true,
+        description: "An AI response feedback bar with helpful thumbs up/down icons that smoothly morphs into an expanded feedback text card on dislike with submit loading state.",
+        dependencies: ["framer-motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["ai", "feedback", "bar", "input", "interaction", "animation", "card"],
+        files: [
+            "registry/components/ai-feedback-bar.tsx",
+        ],
+        type: "components:ui",
+        size: "sm",
+        props: [
+            { name: "title", type: "string", default: "'Was this response helpful?'", description: "Question or prompt text shown in the feedback bar." },
+            { name: "textareaPlaceholder", type: "string", default: "'What went wrong with this response or how could it be improved?'", description: "Placeholder text for detailed feedback textarea." },
+            { name: "submitButtonText", type: "string", default: "'Submit'", description: "Label text for the submit button." },
+            { name: "showFeedbackFormOnDislike", type: "boolean", default: "true", description: "Whether clicking dislike morphs the bar into the detailed feedback textarea card." },
+            { name: "onLike", type: "() => void | Promise<void>", default: "-", description: "Callback triggered when helpful/thumbs-up is clicked." },
+            { name: "onDislike", type: "() => void | Promise<void>", default: "-", description: "Callback triggered when not helpful/thumbs-down is clicked." },
+            { name: "onSubmitFeedback", type: "(text: string) => void | Promise<void>", default: "-", description: "Callback triggered when the feedback text form is submitted." },
+            { name: "onClose", type: "() => void", default: "-", description: "Callback triggered when the bar is closed / dismissed." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the outer container." }
+        ]
+    },
 ];
-
-
