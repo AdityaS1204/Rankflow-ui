@@ -40,7 +40,7 @@ export default function DocsSidebar() {
     setOpenSections((prev) => ({ ...prev, [label]: !prev[label] }));
 
   return (
-    <aside className="w-56 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-4 hidden lg:block">
+    <aside className="w-60 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-6 hidden lg:block no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <nav
         className="flex flex-col gap-1"
         onMouseLeave={() => setHoveredHref(null)}
@@ -55,7 +55,7 @@ export default function DocsSidebar() {
                 className="w-full flex items-center justify-between px-3 py-1 mb-1 rounded-md
                            group hover:bg-accent/30 transition-colors duration-200"
               >
-                <span className="text-xs font-semibold uppercase tracking-wider text-foreground
+                <span className="text-sm font-medium tracking-wider text-foreground
                                  group-hover:text-foreground/80 transition-colors duration-200">
                   {section.label}
                 </span>
@@ -99,7 +99,7 @@ export default function DocsSidebar() {
                               <span className="relative z-10 flex items-center gap-2">
                                 {item.title}
                                 {item.isNew && (
-                                  <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-tight bg-amber-500 text-black rounded-xl shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                                  <span className="px-1.5 py-0.5 text-[10px] font-medium tracking-wider bg-zinc-900 border border-neutral-800 text-white rounded-md">
                                     New
                                   </span>
                                 )}
