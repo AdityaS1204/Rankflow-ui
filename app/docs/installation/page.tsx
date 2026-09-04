@@ -4,7 +4,7 @@ import { DocsPager } from "@/components/docs/DocsPager";
 
 export default function InstallationPage() {
   return (
-    <article className="max-w-3xl">
+    <article className="w-full">
       {/* Breadcrumb */}
       <p className="text-sm text-muted-foreground mb-4">
         Docs / Getting Started /{" "}

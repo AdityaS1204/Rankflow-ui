@@ -40,6 +40,20 @@ export default async function ComponentPage({
     sourceCode = "// Source code not available";
   }
 
+  // Read optional usage / demo code
+  let usageCode = "";
+  const possibleUsageFile = path.join(
+    process.cwd(),
+    `registry/components/${component.name}-demo.tsx`
+  );
+  if (fs.existsSync(possibleUsageFile)) {
+    try {
+      usageCode = fs.readFileSync(possibleUsageFile, "utf-8");
+    } catch (e) {
+      console.error("Failed to read usage file:", e);
+    }
+  }
+
   const deps = component.dependencies
     .filter((d: string) => d !== "react")
     .join(" ");
@@ -47,7 +61,7 @@ export default async function ComponentPage({
   const isLarge = (component as any).size === "lg";
 
   return (
-    <article className={cn("pb-20", isLarge ? "max-w-5xl" : "max-w-3xl")}>
+    <article className={cn("pb-20 w-full", isLarge ? "max-w-5xl" : "max-w-4xl")}>
       {/* Breadcrumb */}
       <p className="text-sm text-muted-foreground mb-4">
         Docs / Components /{" "}
@@ -64,7 +78,9 @@ export default async function ComponentPage({
       <ComponentPreview
         slug={slug}
         code={sourceCode}
+        usageCode={usageCode || undefined}
         filename={`components/ui/${component.name}.tsx`}
+        usageFilename={`components/demo/${component.name}-demo.tsx`}
         componentName={component.title}
         dependencies={component.dependencies}
       />

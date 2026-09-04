@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function Footer() {
+export default function AuthorFooter() {
   return (
-    <footer className="mt-auto py-10 border-t border-border/40">
-      <div className="container flex flex-col items-center justify-center gap-4 text-center">
-        <p className="text-sm text-muted-foreground">
-          Build by{" "}
+    <footer className="mt-16 pt-8 pb-12 border-t border-border/40">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <p>
+          Built by{" "}
           <Link
             href="https://www.linkedin.com/in/aditya-singh-v"
             target="_blank"
@@ -14,6 +14,9 @@ export default function Footer() {
           >
             Aditya Singh
           </Link>
+        </p>
+        <p className="text-muted-foreground/60">
+          RankFlow UI &bull; Open-source components for modern web apps
         </p>
       </div>
     </footer>
