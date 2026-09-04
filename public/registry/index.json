@@ -600,7 +600,7 @@
   },
   {
     "name": "dither",
-    "title": "Dither Image",
+    "title": "Dither Effect",
     "description": "A high-performance dithering component for images and videos with multiple algorithms (Bayer, Floyd-Steinberg, Halftone, etc.) and real-time color palette mapping.",
     "dependencies": [
       "react"
