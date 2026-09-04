@@ -77,7 +77,7 @@ function VideoCardItem({
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative w-full max-w-[240px] aspect-[4/5] overflow-hidden rounded-xl border border-neutral-800/80 bg-neutral-900 transition-all duration-300 hover:border-neutral-700 hover:shadow-2xl cursor-pointer"
+      className="group relative w-full max-w-[240px] aspect-4/3 overflow-hidden rounded-xl border border-neutral-800/80 bg-neutral-900 transition-all duration-300 hover:border-neutral-700 hover:shadow-2xl cursor-pointer"
     >
       <video
         ref={videoRef}
