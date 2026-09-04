@@ -764,5 +764,46 @@
       "typography",
       "animation"
     ]
+  },
+  {
+    "name": "cursor-tooltip-portal",
+    "title": "Cursor Tooltip Portal",
+    "description": "A high-performance cursor-anchored tooltip portal with inertial spring tracking, context-aware content switching, and elegant multiline blur-fade reveal transitions.",
+    "dependencies": [
+      "framer-motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "cursor",
+      "tooltip",
+      "portal",
+      "card",
+      "interaction",
+      "animation",
+      "badge"
+    ]
+  },
+  {
+    "name": "ai-feedback-bar",
+    "title": "AI Feedback Bar",
+    "description": "An AI response feedback bar with helpful thumbs up/down icons that smoothly morphs into an expanded feedback text card on dislike with submit loading state.",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcnDependencies": [],
+    "tags": [
+      "ai",
+      "feedback",
+      "bar",
+      "input",
+      "interaction",
+      "animation",
+      "card"
+    ]
   }
 ]

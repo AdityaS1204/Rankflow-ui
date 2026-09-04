@@ -14,7 +14,9 @@ import { CopyPromptButtons } from "./CopyPromptButton";
 interface ComponentPreviewProps {
   slug: string;
   code: string;
+  usageCode?: string;
   filename?: string;
+  usageFilename?: string;
   componentName?: string;
   dependencies?: string[];
 }
@@ -22,11 +24,13 @@ interface ComponentPreviewProps {
 export function ComponentPreview({
   slug,
   code,
+  usageCode,
   filename,
+  usageFilename,
   componentName,
   dependencies = [],
 }: ComponentPreviewProps) {
-  const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
+  const [activeTab, setActiveTab] = useState<"preview" | "code" | "usage">("preview");
   const [previewKey, setPreviewKey] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [previewWidth, setPreviewWidth] = useState<"desktop" | "tablet" | "mobile">("desktop");
@@ -89,6 +93,22 @@ export function ComponentPreview({
             )}
             Code
           </button>
+          {usageCode && (
+            <button
+              onClick={() => setActiveTab("usage")}
+              className={`relative px-4 py-2 text-sm font-medium transition-colors ${activeTab === "usage" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+            >
+              {activeTab === "usage" && (
+                <motion.div
+                  layoutId="active-tab-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-500"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                />
+              )}
+              Usage
+            </button>
+          )}
         </div>
 
 
@@ -139,7 +159,7 @@ export function ComponentPreview({
 
           <CopyPromptButtons
             componentName={componentName ?? slug}
-            sourceCode={code}
+            sourceCode={activeTab === "usage" && usageCode ? usageCode : code}
             dependencies={dependencies}
           />
 
@@ -200,7 +220,7 @@ export function ComponentPreview({
                 <p className="text-muted-foreground">Component "{slug}" not found in registry.</p>
               )}
             </motion.div>
-          ) : (
+          ) : activeTab === "code" ? (
             <motion.div
               key="code"
               initial={{ opacity: 0, scale: 0.98 }}
@@ -210,6 +230,17 @@ export function ComponentPreview({
               className="relative w-full"
             >
               <CodeBlock code={code} filename={filename} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="usage"
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full"
+            >
+              <CodeBlock code={usageCode || ""} filename={usageFilename || "example.tsx"} />
             </motion.div>
           )}
         </AnimatePresence>

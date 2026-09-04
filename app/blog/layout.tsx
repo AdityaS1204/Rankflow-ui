@@ -11,8 +11,8 @@ export default function BlogLayout({
       <Navbar />
       <div className="mx-auto max-w-4xl px-4 pt-24 pb-16 min-h-screen">
         {children}
+        <AuthorFooter />
       </div>
-      <AuthorFooter />
     </>
   );
 }

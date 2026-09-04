@@ -10,13 +10,17 @@ export default function DocsLayout({
   return (
     <>
       <Navbar />
-      <div className="mx-auto max-w-7xl px-6 pt-20">
-        <div className="flex gap-8">
+      <div className="w-full px-6 lg:px-10 xl:px-16 pt-20">
+        <div className="flex gap-10 xl:gap-16">
           <DocsSidebar />
-          <main className="min-w-0 flex-1 py-8">{children}</main>
+          <main className="min-w-0 flex-1 py-8 px-2 sm:px-6 lg:px-12 flex flex-col items-center">
+            <div className="w-full max-w-4xl">
+              {children}
+              <AuthorFooter />
+            </div>
+          </main>
         </div>
       </div>
-      <AuthorFooter />
     </>
   );
 }
