@@ -44,6 +44,8 @@ import { Footer001 } from "./components/footer-001";
 import { SpotlightText } from "./components/spotlight-text";
 import { CursorTooltipPortalDemo } from "./components/cursor-tooltip-portal-demo";
 import { AiFeedbackBarDemo } from "./components/ai-feedback-bar-demo";
+import { DitherLoaderDemo } from "./components/dither-loader-demo";
+import { AgentThinkingDemo } from "./components/agent-thinking-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -92,4 +94,6 @@ export const registryComponents: Record<string, any> = {
   "spotlight-text": SpotlightText,
   "cursor-tooltip-portal": CursorTooltipPortalDemo,
   "ai-feedback-bar": AiFeedbackBarDemo,
+  "dither-loader": DitherLoaderDemo,
+  "agent-thinking": AgentThinkingDemo,
 };

@@ -857,4 +857,26 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the outer container." }
         ]
     },
+    {
+        name: "dither-loader",
+        title: "Dither Effect Loader",
+        isNew: true,
+        description: "An AI agent dither effect loader featuring an animated Bayer 4x4 dither canvas pulse with organic wave dynamics and smooth pill transition for modern agent interfaces.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["ai", "agent", "loader", "dither", "canvas", "retro", "pixel-art", "animation", "badge"],
+        files: [
+            "registry/components/dither-loader.tsx",
+            "registry/components/dither-loader-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "sm",
+        props: [
+            { name: "label", type: "ReactNode", default: "undefined", description: "Optional status label. When provided, renders inside an AI agent pill badge. When omitted, renders as a compact dither icon." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+            { name: "boxClassName", type: "string", default: "''", description: "Additional CSS classes for the canvas icon box." },
+            { name: "size", type: "number", default: "32", description: "Canvas resolution in pixels." },
+            { name: "speed", type: "number", default: "1", description: "Animation speed multiplier." },
+        ]
+    },
 ];
