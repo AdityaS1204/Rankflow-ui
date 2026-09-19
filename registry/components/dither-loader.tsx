@@ -149,7 +149,6 @@ export function DitherLoader({
         "shadow-xs backdrop-blur-xs",
         className
       )}
-      {...props}
     >
       {canvasBox}
 
