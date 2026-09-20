@@ -879,4 +879,35 @@ export const registry = [
             { name: "speed", type: "number", default: "1", description: "Animation speed multiplier." },
         ]
     },
+    {
+        name: "agent-thinking",
+        title: "Agent Thinking",
+        isNew: true,
+        description: "An AI agent thinking component that displays the agent's thought process with a typing effect and smooth expand/collapse animation.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["ai", "agent", "thinking", "ui", "animation", "typography", "feedback"],
+        files: [
+            "registry/components/agent-thinking.tsx",
+            "registry/components/agent-thinking-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "thought", type: "string", default: "'-'", description: "The thinking text content to stream or display." },
+            { name: "isStreaming", type: "boolean", default: "false", description: "Whether the thinking process is actively streaming." },
+            { name: "streamSpeed", type: "number", default: "24", description: "Speed of simulated streaming in milliseconds per character." },
+            { name: "streamingLabel", type: "string", default: "'Thinking'", description: "Custom label displayed while the agent is thinking." },
+            { name: "completedLabel", type: "string | ((durationSec: number) => string)", default: "'Thought for {duration}s'", description: "Custom label displayed after thinking completes." },
+            { name: "showDuration", type: "boolean", default: "true", description: "Whether to show the elapsed duration counter." },
+            { name: "defaultOpen", type: "boolean", default: "true", description: "Initial open state of the thinking dropdown." },
+            { name: "open", type: "boolean", default: "undefined", description: "Controlled open state." },
+            { name: "onOpenChange", type: "(open: boolean) => void", default: "undefined", description: "Callback fired when open state changes." },
+            { name: "autoCollapseOnComplete", type: "boolean", default: "false", description: "Whether to automatically collapse the dropdown when streaming concludes." },
+            { name: "onStreamComplete", type: "() => void", default: "undefined", description: "Callback fired when streaming finishes." },
+            { name: "icon", type: "ReactNode", default: "undefined", description: "Custom icon or indicator." },
+            { name: "maxHeight", type: "number", default: "240", description: "Maximum height of the thoughts scroll area in pixels." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+        ]
+    },
 ];
