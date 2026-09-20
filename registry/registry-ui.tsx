@@ -46,6 +46,7 @@ import { CursorTooltipPortalDemo } from "./components/cursor-tooltip-portal-demo
 import { AiFeedbackBarDemo } from "./components/ai-feedback-bar-demo";
 import { DitherLoaderDemo } from "./components/dither-loader-demo";
 import { AgentThinkingDemo } from "./components/agent-thinking-demo";
+import { AICitationDemo } from "./components/ai-citation-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -96,4 +97,5 @@ export const registryComponents: Record<string, any> = {
   "ai-feedback-bar": AiFeedbackBarDemo,
   "dither-loader": DitherLoaderDemo,
   "agent-thinking": AgentThinkingDemo,
+  "ai-citation": AICitationDemo,
 };

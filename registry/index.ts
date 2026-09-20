@@ -910,4 +910,29 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
         ]
     },
+    {
+        name: "ai-citation",
+        title: "AI Citations & Sources",
+        isNew: true,
+        description: "An AI agent citations component featuring site favicons, trimmed link previews, interactive inline badges with hover popovers, and an animated Sources section.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge", "lucide-react"],
+        registryDependencies: ["utils"],
+        tags: ["ai", "agent", "citation", "sources", "links", "favicon", "hover", "tooltip", "ui"],
+        files: [
+            "registry/components/ai-citations.tsx",
+            "registry/components/ai-citation-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "sources", type: "CitationItem[]", default: "[]", description: "Array of citation source objects (url, title, snippet, siteName, favicon)." },
+            { name: "title", type: "string", default: "'Sources'", description: "Custom section header title for the citations list." },
+            { name: "variant", type: "'grid' | 'list' | 'pills' | 'popover'", default: "'grid'", description: "Display variant for citations: 'grid', 'list', 'pills', or 'popover' (enables hover cards on inline numbers)." },
+            { name: "activeId", type: "string | number | null", default: "undefined", description: "Currently active or highlighted citation ID." },
+            { name: "onSourceHover", type: "(id: string | number | null) => void", default: "undefined", description: "Callback triggered when hovering over a citation." },
+            { name: "onSourceClick", type: "(source: CitationItem) => void", default: "undefined", description: "Callback triggered when clicking a citation item." },
+            { name: "maxUrlLength", type: "number", default: "32", description: "Maximum length before trimming the middle/end of long URLs." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+        ]
+    },
 ];
