@@ -935,4 +935,29 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
         ]
     },
+    {
+        name: "stacked-image-cards",
+        title: "Stacked Image Cards",
+        isNew: true,
+        description: "A stack of image cards that smoothly unstack and flatten horizontally side-by-side on section hover with fluid spring animation dynamics.",
+        dependencies: ["framer-motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["card", "stack", "image", "hover", "animation", "flatten", "spring"],
+        files: [
+            "registry/components/stacked-image-cards.tsx",
+            "registry/components/stacked-image-cards-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "items", type: "StackedImageCardItem[]", default: "DEFAULT_ITEMS", description: "Array of image card objects containing id, src, alt, title, subtitle, and badge." },
+            { name: "cardWidth", type: "number", default: "200", description: "Width of individual cards in pixels." },
+            { name: "cardHeight", type: "number", default: "280", description: "Height of individual cards in pixels." },
+            { name: "rotationSpread", type: "number", default: "14", description: "Rotation spread angle in degrees when stacked." },
+            { name: "flattenGap", type: "number", default: "16", description: "Horizontal gap between cards when flattened on hover." },
+            { name: "hideUntilHover", type: "boolean", default: "false", description: "Whether the card stack is hidden until container section is hovered." },
+            { name: "staggerDelay", type: "number", default: "0.035", description: "Stagger delay between cards during spring animation." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+        ]
+    },
 ];
