@@ -55,7 +55,7 @@ export default function DocsSidebar() {
                 className="w-full flex items-center justify-between px-3 py-1 mb-1 rounded-md
                            group hover:bg-accent/30 transition-colors duration-200"
               >
-                <span className="text-sm font-medium tracking-wider text-foreground
+                <span className="text-sm font-normal tracking-wider text-foreground
                                  group-hover:text-foreground/80 transition-colors duration-200">
                   {section.label}
                 </span>

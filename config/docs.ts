@@ -14,8 +14,19 @@ export interface DocsSidebarSection {
 export function getDocsNavigation(): DocsSidebarSection[] {
   const components = registry.filter((item) => item.type === "components:ui");
 
+  const isAI = (c: (typeof components)[number]) =>
+    c.tags.includes("ai") || c.tags.includes("agent");
+
+  const aiComponents = components
+    .filter((c) => isAI(c))
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
+    }));
+
   const buttons = components
-    .filter((c) => c.tags.includes("button"))
+    .filter((c) => !isAI(c) && c.tags.includes("button"))
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -23,7 +34,7 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     }));
 
   const cards = components
-    .filter((c) => c.tags.includes("card"))
+    .filter((c) => !isAI(c) && c.tags.includes("card"))
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -31,7 +42,7 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     }));
 
   const textAnimations = components
-    .filter((c) => c.tags.includes("text"))
+    .filter((c) => !isAI(c) && c.tags.includes("text"))
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -39,31 +50,31 @@ export function getDocsNavigation(): DocsSidebarSection[] {
     }));
 
   const blocks = components
-    .filter((c) => 
-      !c.tags.includes("button") && 
-      !c.tags.includes("card") &&
-      !c.tags.includes("backgrounds") &&
-      !c.tags.includes("text") &&
-      !c.tags.includes("page-sections")
+    .filter(
+      (c) =>
+        !isAI(c) &&
+        !c.tags.includes("button") &&
+        !c.tags.includes("card") &&
+        !c.tags.includes("backgrounds") &&
+        !c.tags.includes("text") &&
+        !c.tags.includes("page-sections")
     )
-
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
       isNew: (item as any).isNew,
     }));
 
+  const PageSections = components
+    .filter((c) => !isAI(c) && c.tags.includes("page-sections"))
+    .map((item) => ({
+      title: item.title,
+      href: `/docs/components/${item.name}`,
+      isNew: (item as any).isNew,
+    }));
 
-const PageSections = components
-.filter((c)=>c.tags.includes("page-sections"))
-.map((item)=> ({
-  title: item.title,
-  href: `/docs/components/${item.name}`,
-  isNew:(item as any).isNew
-}))
-
-const backgrounds = components
-    .filter((c) => c.tags.includes("backgrounds"))
+  const backgrounds = components
+    .filter((c) => !isAI(c) && c.tags.includes("backgrounds"))
     .map((item) => ({
       title: item.title,
       href: `/docs/components/${item.name}`,
@@ -77,6 +88,10 @@ const backgrounds = components
         { title: "Introduction", href: "/docs/introduction" },
         { title: "Installation", href: "/docs/installation" },
       ],
+    },
+    {
+      label: "AI Components",
+      items: aiComponents,
     },
     {
       label: "Text Animations",
@@ -96,11 +111,11 @@ const backgrounds = components
     },
     {
       label: "Page sections",
-      items:PageSections,
+      items: PageSections,
     },
     {
       label: "Backgrounds",
-      items:backgrounds,
+      items: backgrounds,
     },
   ];
 }
