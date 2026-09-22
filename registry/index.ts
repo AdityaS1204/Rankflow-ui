@@ -980,4 +980,28 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
         ]
     },
+    {
+        name: "slide-to-confirm",
+        title: "Slide To Confirm",
+        isNew: true,
+        description: "A smooth, responsive slide-to-confirm button component with fluid spring drag physics for desktop and mobile touch devices.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["button", "slide", "confirm", "swipe", "interaction", "gesture", "mobile", "spring"],
+        files: [
+            "registry/components/slide-to-confirm.tsx",
+            "registry/components/slide-to-confirm-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "md",
+        props: [
+            { name: "text", type: "string", default: "'Slide to confirm'", description: "Text shown on track before sliding." },
+            { name: "confirmedText", type: "string", default: "'Confirmed'", description: "Text shown on track after confirmation." },
+            { name: "onConfirm", type: "() => void | Promise<void>", default: "undefined", description: "Callback triggered on successful slide completion." },
+            { name: "onReset", type: "() => void", default: "undefined", description: "Callback triggered when reset." },
+            { name: "isConfirmed", type: "boolean", default: "undefined", description: "Controlled confirmed state." },
+            { name: "disabled", type: "boolean", default: "false", description: "Disabled state." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+        ]
+    },
 ];
