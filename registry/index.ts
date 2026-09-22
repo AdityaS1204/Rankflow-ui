@@ -424,7 +424,7 @@ export const registry = [
         type: "components:ui",
         size: "lg",
         props: [
-        { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
+            { name: "cards", type: "Card[]", default: "DEFAULT_CARDS", description: "Array of card objects with id, title, image, and description." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the container." }
         ]
     },
@@ -467,7 +467,7 @@ export const registry = [
         description: "Accordion component with smooth animations",
         dependencies: ["react"],
         registryDependencies: [],
-        tags: ["block", "accordion","interaction", "animation"],
+        tags: ["block", "accordion", "interaction", "animation"],
         files: [
             "registry/components/accordion.tsx",
         ],
@@ -528,17 +528,17 @@ export const registry = [
         ]
     },
     {
-        name:"brutalist-key",
-        title:"Brutalist Key",
-        description:"A brutalist key component with a unique design.",
-        dependencies:["react"],
-        registryDependencies:[],
-        tags:["button","key","brutalist"],
-        files:[
+        name: "brutalist-key",
+        title: "Brutalist Key",
+        description: "A brutalist key component with a unique design.",
+        dependencies: ["react"],
+        registryDependencies: [],
+        tags: ["button", "key", "brutalist"],
+        files: [
             "registry/components/brutalist-key.tsx",
         ],
-        type:"components:ui",
-        props:[
+        type: "components:ui",
+        props: [
             { name: "children", type: "ReactNode", default: "-", description: "The content of the key." },
             { name: "className", type: "string", default: "''", description: "Additional CSS classes for the key." },
         ]
@@ -554,7 +554,7 @@ export const registry = [
             "registry/components/ecosystem-hero.tsx",
         ],
         type: "components:ui",
-        size:"lg",
+        size: "lg",
         fullScreenPreview: true,
         props: []
     },
@@ -569,10 +569,10 @@ export const registry = [
             "registry/components/bento-grid-001.tsx",
         ],
         type: "components:ui",
-        size:"lg",
+        size: "lg",
         props: []
     },
-     {
+    {
         name: "product-showcase-card",
         title: "Product Showcase Card",
         description: "A premium product card with an integrated image carousel, fluid pill indicators, and a bookmark action.",
@@ -611,19 +611,19 @@ export const registry = [
             { name: "duration", type: "number", default: "133", description: "Total duration of the track in seconds." },
             { name: "className", type: "string", default: "''", description: "Additional Tailwind CSS classes." }
         ]
-    },    
+    },
     {
         name: "dither",
         title: "Dither Effect",
         description: "A high-performance dithering component for images and videos with multiple algorithms (Bayer, Floyd-Steinberg, Halftone, etc.) and real-time color palette mapping.",
         dependencies: ["react"],
         registryDependencies: ["utils"],
-        tags: ["backgrounds","canvas", "dither", "image", "pixel-art", "animation"],
+        tags: ["backgrounds", "canvas", "dither", "image", "pixel-art", "animation"],
         files: [
             "registry/components/dither.tsx",
         ],
         type: "components:ui",
-        size:"lg",
+        size: "lg",
         props: [
             { name: "src", type: "string", default: "'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1470&auto=format&fit=crop'", description: "Source image URL." },
             { name: "alt", type: "string", default: "''", description: "Accessibility text." },
@@ -957,6 +957,26 @@ export const registry = [
             { name: "flattenGap", type: "number", default: "16", description: "Horizontal gap between cards when flattened on hover." },
             { name: "hideUntilHover", type: "boolean", default: "false", description: "Whether the card stack is hidden until container section is hovered." },
             { name: "staggerDelay", type: "number", default: "0.035", description: "Stagger delay between cards during spring animation." },
+            { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
+        ]
+    },
+    {
+        name: "spring-accordion",
+        title: "Spring Accordion",
+        isNew: true,
+        description: "A modern accordion component with fluid spring height animations and no leading icons.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["accordion", "spring", "animation", "clean", "minimal"],
+        files: [
+            "registry/components/spring-accordion.tsx",
+            "registry/components/spring-accordion-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        props: [
+            { name: "items", type: "AccordionItem[]", default: "[]", description: "Array of items with id, title, and content." },
+            { name: "multiple", type: "boolean", default: "false", description: "Whether to allow multiple items to be expanded." },
             { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
         ]
     },
