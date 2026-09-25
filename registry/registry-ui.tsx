@@ -51,6 +51,7 @@ import { StackedImageCardsDemo } from "./components/stacked-image-cards-demo";
 import SpringAccordionDemo from "./components/spring-accordion-demo";
 import SlideToConfirmDemo from "./components/slide-to-confirm-demo";
 import AvatarDropdownDemo from "./components/avatar-dropdown-demo";
+import DotTrailBackgroundDemo from "./components/dot-trail-background-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -106,4 +107,5 @@ export const registryComponents: Record<string, any> = {
   "spring-accordion": SpringAccordionDemo,
   "slide-to-confirm": SlideToConfirmDemo,
   "avatar-dropdown": AvatarDropdownDemo,
+  "dot-trail-background": DotTrailBackgroundDemo,
 };

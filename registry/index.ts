@@ -1027,4 +1027,32 @@ export const registry = [
             { name: "dropdownClassName", type: "string", default: "''", description: "Additional dropdown menu card CSS classes." },
         ]
     },
+    {
+        name: "dot-trail-background",
+        title: "Dot Trail Background",
+        isNew: true,
+        description: "A dark background component where moving the cursor reveals a dynamic, smooth-decaying grid of glowing dots along the mouse path.",
+        dependencies: ["react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["backgrounds", "canvas", "grid", "dots", "cursor", "trail", "animation"],
+        files: [
+            "registry/components/dot-trail-background.tsx",
+            "registry/components/dot-trail-background-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "bgColor", type: "string", default: "'#000000'", description: "Base background color of the container." },
+            { name: "dotColor", type: "string", default: "'#ffffff'", description: "Color of the revealed dots." },
+            { name: "gap", type: "number", default: "22", description: "Spacing between grid dots in pixels." },
+            { name: "baseDotSize", type: "number", default: "0", description: "Base radius of dots when idle (0 = invisible background)." },
+            { name: "maxDotSize", type: "number", default: "6", description: "Maximum radius of dots when revealed by cursor." },
+            { name: "strokeWidth", type: "number", default: "55", description: "Radius of the cursor brush stroke." },
+            { name: "fadeDuration", type: "number", default: "400", description: "Duration in ms before revealed dots fade out." },
+            { name: "glow", type: "boolean", default: "true", description: "Whether to enable soft radial glow around revealed dots." },
+            { name: "glowColor", type: "string", default: "'rgba(255, 255, 255, 0.45)'", description: "Color of the dot glow effect." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
