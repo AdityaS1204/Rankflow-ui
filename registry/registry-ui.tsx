@@ -50,6 +50,7 @@ import { AICitationDemo } from "./components/ai-citation-demo";
 import { StackedImageCardsDemo } from "./components/stacked-image-cards-demo";
 import SpringAccordionDemo from "./components/spring-accordion-demo";
 import SlideToConfirmDemo from "./components/slide-to-confirm-demo";
+import AvatarDropdownDemo from "./components/avatar-dropdown-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -104,4 +105,5 @@ export const registryComponents: Record<string, any> = {
   "stacked-image-cards": StackedImageCardsDemo,
   "spring-accordion": SpringAccordionDemo,
   "slide-to-confirm": SlideToConfirmDemo,
+  "avatar-dropdown": AvatarDropdownDemo,
 };

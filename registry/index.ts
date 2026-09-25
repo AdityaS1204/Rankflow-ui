@@ -1004,4 +1004,27 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional container CSS classes." },
         ]
     },
+    {
+        name: "avatar-dropdown",
+        title: "Avatar Dropdown",
+        isNew: true,
+        description: "A sleek, dark-themed avatar dropdown component with smooth spring animations, hover indicators, submenus, and custom user status.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["avatar", "dropdown", "menu", "profile", "user", "animation", "spring", "dark"],
+        files: [
+            "registry/components/avatar-dropdown.tsx",
+            "registry/components/avatar-dropdown-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "sm",
+        props: [
+            { name: "user", type: "{ name?: string; email?: string; avatarUrl?: string; initials?: string; status?: 'online' | 'offline' | 'away' }", default: "Default User Object", description: "User details including avatar image URL and online status." },
+            { name: "items", type: "MenuItem[]", default: "DEFAULT_ITEMS", description: "Array of menu item objects with icons, labels, shortcuts, badges, or danger flags." },
+            { name: "align", type: "'left' | 'right'", default: "'right'", description: "Alignment origin for dropdown menu." },
+            { name: "onSelect", type: "(itemId: string) => void", default: "undefined", description: "Callback triggered when a menu item is clicked." },
+            { name: "className", type: "string", default: "''", description: "Additional wrapper CSS classes." },
+            { name: "dropdownClassName", type: "string", default: "''", description: "Additional dropdown menu card CSS classes." },
+        ]
+    },
 ];
