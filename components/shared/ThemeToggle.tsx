@@ -3,7 +3,6 @@
 import * as React from "react"
 import { FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
 
 export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -14,15 +13,13 @@ export function ModeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="h-9 w-9 bg-transparent opacity-0" />
+      <button className="h-9 w-9 bg-transparent opacity-0" />
     )
   }
 
   return (
-    <Button 
-      variant="ghost" 
-      size="icon" 
-      className="h-9 w-9 bg-transparent hover:bg-accent transition-colors overflow-hidden group"
+    <button
+      className="h-9 w-9 bg-transparent hover:bg-accent transition-colors overflow-hidden rounded-md flex items-center justify-center"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       <div className="relative w-4 h-4">
@@ -33,6 +30,6 @@ export function ModeToggle() {
         )}
       </div>
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   )
 }
