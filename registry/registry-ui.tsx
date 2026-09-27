@@ -52,6 +52,7 @@ import SpringAccordionDemo from "./components/spring-accordion-demo";
 import SlideToConfirmDemo from "./components/slide-to-confirm-demo";
 import AvatarDropdownDemo from "./components/avatar-dropdown-demo";
 import DotTrailBackgroundDemo from "./components/dot-trail-background-demo";
+import ImageGenerationCardDemo from "./components/image-generation-card-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -108,4 +109,5 @@ export const registryComponents: Record<string, any> = {
   "slide-to-confirm": SlideToConfirmDemo,
   "avatar-dropdown": AvatarDropdownDemo,
   "dot-trail-background": DotTrailBackgroundDemo,
+  "image-generation": ImageGenerationCardDemo,
 };

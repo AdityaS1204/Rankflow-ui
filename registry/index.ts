@@ -1055,4 +1055,28 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "image-generation",
+        title: "Image Generation",
+        isNew: true,
+        description: "An AI image generation card that transitions from an animated multi-color gradient blob loading state into a smooth top-to-bottom blur-fade image reveal.",
+        dependencies: ["motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["ai", "card", "image", "loading", "animation", "blur", "generation", "reveal"],
+        files: [
+            "registry/components/image-generation-card.tsx",
+            "registry/components/image-generation-card-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "md",
+        props: [
+            { name: "src", type: "string", default: "undefined", description: "Image source URL to reveal once generation is complete." },
+            { name: "alt", type: "string", default: "'Generated image'", description: "Accessible alt text for the generated image." },
+            { name: "isLoading", type: "boolean", default: "false", description: "Whether the image is currently being generated. Shows animated blob loader when true." },
+            { name: "width", type: "number | string", default: "'100%'", description: "Width of the card." },
+            { name: "height", type: "number | string", default: "400", description: "Height of the card in pixels." },
+            { name: "prompt", type: "string", default: "undefined", description: "Optional prompt text shown subtly inside the loading state." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
