@@ -1106,4 +1106,33 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional wrapper CSS classes." },
         ]
     },
+    {
+        name: "tactile-slider",
+        title: "Tactile Slider",
+        isNew: true,
+        description: "A neomorphic tactile slider component with notched tick markers and a floating inertial rolling odometer percentage badge.",
+        dependencies: ["motion", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["slider", "input", "neomorphism", "spring", "rolling-number", "counter", "drag", "tactile"],
+        files: [
+            "registry/components/tactile-slider.tsx",
+            "registry/components/tactile-slider-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "md",
+        props: [
+            { name: "value", type: "number", default: "undefined", description: "Controlled numeric value." },
+            { name: "defaultValue", type: "number", default: "38", description: "Default initial value." },
+            { name: "min", type: "number", default: "0", description: "Minimum slider value." },
+            { name: "max", type: "number", default: "100", description: "Maximum slider value." },
+            { name: "step", type: "number", default: "1", description: "Step granularity for value changes." },
+            { name: "ticks", type: "number", default: "9", description: "Number of vertical tick marks spaced across the track." },
+            { name: "unit", type: "string", default: "'%'", description: "Unit string rendered next to the rolling number badge." },
+            { name: "showValueBadge", type: "boolean", default: "true", description: "Whether to display the floating rolling percentage badge." },
+            { name: "onChange", type: "(value: number) => void", default: "undefined", description: "Callback fired when slider value updates." },
+            { name: "onChangeEnd", type: "(value: number) => void", default: "undefined", description: "Callback fired on drag release." },
+            { name: "disabled", type: "boolean", default: "false", description: "Disable slider interactions." },
+            { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
+        ]
+    },
 ];
