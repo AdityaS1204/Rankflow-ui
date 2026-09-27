@@ -1079,4 +1079,31 @@ export const registry = [
             { name: "className", type: "string", default: "''", description: "Additional CSS classes." },
         ]
     },
+    {
+        name: "image-wheel",
+        title: "Image Wheel",
+        isNew: true,
+        description: "A 3D horizontal image wheel carousel with depth-of-field blur, smooth spring drag physics, and interactive focus alignment.",
+        dependencies: ["motion", "lucide-react", "clsx", "tailwind-merge"],
+        registryDependencies: ["utils"],
+        tags: ["carousel", "3d", "image", "wheel", "gesture", "drag", "blur", "spring", "animation"],
+        files: [
+            "registry/components/image-wheel.tsx",
+            "registry/components/image-wheel-demo.tsx",
+        ],
+        type: "components:ui",
+        size: "lg",
+        fullScreenPreview: true,
+        props: [
+            { name: "images", type: "(string | ImageWheelItem)[]", default: "DEFAULT_IMAGES", description: "Array of image URLs or ImageWheelItem objects." },
+            { name: "cardWidth", type: "number", default: "220", description: "Width of each card in pixels." },
+            { name: "cardHeight", type: "number", default: "220", description: "Height of each card in pixels." },
+            { name: "radius", type: "number", default: "520", description: "Radius of the 3D cylindrical curve." },
+            { name: "angleStep", type: "number", default: "24", description: "Angle in degrees between adjacent cards." },
+            { name: "defaultIndex", type: "number", default: "4", description: "Initial active card index." },
+            { name: "loop", type: "boolean", default: "false", description: "Whether the wheel rotates continuously in a loop." },
+            { name: "onIndexChange", type: "(index: number) => void", default: "undefined", description: "Callback triggered when the centered active card index changes." },
+            { name: "className", type: "string", default: "''", description: "Additional wrapper CSS classes." },
+        ]
+    },
 ];

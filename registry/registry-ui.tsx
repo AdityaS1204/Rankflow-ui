@@ -53,6 +53,7 @@ import SlideToConfirmDemo from "./components/slide-to-confirm-demo";
 import AvatarDropdownDemo from "./components/avatar-dropdown-demo";
 import DotTrailBackgroundDemo from "./components/dot-trail-background-demo";
 import ImageGenerationCardDemo from "./components/image-generation-card-demo";
+import ImageWheelDemo from "./components/image-wheel-demo";
 
 export const registryComponents: Record<string, any> = {
   "glow-button": GlowButton,
@@ -110,4 +111,5 @@ export const registryComponents: Record<string, any> = {
   "avatar-dropdown": AvatarDropdownDemo,
   "dot-trail-background": DotTrailBackgroundDemo,
   "image-generation": ImageGenerationCardDemo,
+  "image-wheel": ImageWheelDemo,
 };
