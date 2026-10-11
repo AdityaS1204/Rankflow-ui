@@ -17,13 +17,11 @@ export function DotTrailBackgroundDemo() {
         glow={true}
       />
 
-      <div className="relative z-10 max-w-sm p-6 rounded-2xl bg-zinc-950/70 backdrop-blur-md border border-white/10 shadow-2xl text-center space-y-2 pointer-events-none select-none">
-        <h3 className="text-xl font-bold tracking-tight text-white">
-          Dot Trail Background
+      <div className="relative z-10 max-w-sm p-3 rounded-xl bg-zinc-950/70 backdrop-blur-md border border-white/10 shadow-2xl text-center space-y-2 pointer-events-none select-none">
+        <h3 className="text-lg font-medium text-white">
+          Move your cursor
         </h3>
-        <p className="text-xs text-zinc-400">
-          Move your cursor anywhere across the frame to reveal the dynamic glowing dot trail.
-        </p>
+       
       </div>
     </div>
   );
