@@ -7,7 +7,7 @@ import { CheckIcon } from "@radix-ui/react-icons";
 
 // ── Tool Definitions ────────────────────────────────────────────────────────
 
-type ToolId = "cursor" | "lovable" | "bolt";
+type ToolId = "cursor" | "claude" | "lovable" | "bolt";
 
 interface AiTool {
   id: ToolId;
@@ -27,6 +27,22 @@ const AI_TOOLS: AiTool[] = [
     id: "cursor",
     name: "Cursor",
     logo: "/cursor-logo-icon.png",
+    promptTemplate: (name, code, deps) =>
+      `I want to add a "${name}" component to my existing Next.js / React project. Please replicate this component exactly as-is, preserving all logic, animations, and styles.
+
+${deps ? `First install the required dependencies:\n\`\`\`bash\nnpm install ${deps}\n\`\`\`\n` : ""}
+Create a new file at \`components/ui/${name.toLowerCase().replace(/\s+/g, "-")}.tsx\` with the following source code:
+
+\`\`\`tsx
+${code}
+\`\`\`
+
+After creating the file, show me how to import and use it in my page.`,
+  },
+  {
+    id: "claude",
+    name: "Claude Code",
+    logo: "/claude-logo-icon.svg",
     promptTemplate: (name, code, deps) =>
       `I want to add a "${name}" component to my existing Next.js / React project. Please replicate this component exactly as-is, preserving all logic, animations, and styles.
 
