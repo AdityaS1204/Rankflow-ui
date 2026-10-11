@@ -296,7 +296,7 @@ export function TactileSlider({
               className={cn(
                 "relative px-2.5 py-1 rounded-lg flex items-center justify-center",
                 "text-zinc-800 dark:text-white",
-                "bg-gradient-to-b from-[#ffffff] to-[#e4e9f2] dark:from-[#24242a] dark:to-[#1a1a1f]",
+                "bg-linear-to-b from-[#ffffff] to-[#e4e9f2] dark:from-[#24242a] dark:to-[#1a1a1f]",
                 "shadow-[4px_4px_10px_rgba(163,177,198,0.7),-2px_-2px_6px_rgba(255,255,255,0.9)] dark:shadow-[4px_4px_10px_rgba(0,0,0,0.7),-2px_-2px_6px_rgba(255,255,255,0.09)]",
                 "border border-black/5 dark:border-white/10 backdrop-blur-md",
                 isDragging ? "scale-105 ring-1 ring-black/10 dark:ring-white/20" : "",
@@ -315,7 +315,7 @@ export function TactileSlider({
         <motion.div
           className={cn(
             "absolute top-[6px] bottom-[6px] rounded-l-xl overflow-hidden pointer-events-none",
-            "bg-gradient-to-r from-[#b8c2d1] to-[#98a5b8] dark:from-[#323238] dark:to-[#484852]",
+            "bg-linear-to-r from-[#b8c2d1] to-[#98a5b8] dark:from-[#323238] dark:to-[#484852]",
             "shadow-[inset_0_2px_4px_rgba(255,255,255,0.5),inset_0_-2px_4px_rgba(0,0,0,0.15)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.4)]",
             "border-r border-black/5 dark:border-white/10"
           )}
@@ -344,7 +344,7 @@ export function TactileSlider({
           }}
           className={cn(
             "absolute top-[6px] bottom-[6px] z-20 rounded-xl",
-            "bg-gradient-to-b from-[#ffffff] to-[#d6ddea] dark:from-[#ededf0] dark:to-[#c2c2c6]",
+            "bg-linear-to-b from-[#ffffff] to-[#d6ddea] dark:from-[#ededf0] dark:to-[#c2c2c6]",
             "shadow-[3px_3px_7px_rgba(163,177,198,0.75),-2px_-2px_6px_rgba(255,255,255,0.95)] dark:shadow-[3px_3px_8px_rgba(0,0,0,0.75),-2px_-2px_5px_rgba(255,255,255,0.3)]",
             "border border-white/90 dark:border-white/50",
             "flex items-center justify-center pointer-events-none transition-transform duration-100 will-change-transform",
