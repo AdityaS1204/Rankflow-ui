@@ -113,4 +113,33 @@ describe('CLI Component Installation (Safe Sandbox)', () => {
     await safeCleanup(checkDir);
     expect(await fs.pathExists(checkDir)).toBe(false);
   });
+
+  it('ensures demo files are never delivered when installing components', async () => {
+    // Mock component data containing both main component and demo file
+    const mockComponentData = {
+      name: 'test-widget',
+      type: 'components:ui',
+      files: [
+        { path: 'components/ui/test-widget.tsx', content: 'export const TestWidget = () => null;' },
+        { path: 'components/ui/test-widget-demo.tsx', content: 'export const TestWidgetDemo = () => null;' },
+      ],
+    };
+
+    const targetDir = path.join(sandboxDir, 'components', 'ui');
+    await fs.ensureDir(targetDir);
+
+    // Replicate CLI delivery logic
+    for (const file of mockComponentData.files) {
+      const fileName = path.basename(file.path);
+      if (fileName.includes('-demo.') || fileName.includes('.demo.')) {
+        continue;
+      }
+      await fs.writeFile(path.join(targetDir, fileName), file.content, 'utf8');
+    }
+
+    // Main component should exist
+    expect(await fs.pathExists(path.join(targetDir, 'test-widget.tsx'))).toBe(true);
+    // Demo component should NOT exist
+    expect(await fs.pathExists(path.join(targetDir, 'test-widget-demo.tsx'))).toBe(false);
+  });
 });

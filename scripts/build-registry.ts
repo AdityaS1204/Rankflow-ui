@@ -24,7 +24,12 @@ async function buildRegistry() {
             files: [],
         };
 
-        for (const filePath of item.files) {
+        // Ensure only main component files are included in the registry distribution
+        const filesToInclude = item.files.filter(
+            (filePath) => !filePath.includes('-demo.') && !filePath.includes('.demo.')
+        );
+
+        for (const filePath of filesToInclude) {
             const fullPath = path.join(__dirname, '..', filePath);
 
             if (fs.existsSync(fullPath)) {

@@ -174,6 +174,11 @@ program
             for (const file of data.files) {
                 let fileName = path.basename(file.path);
                 
+                // Only deliver the main component, never deliver demo or example files
+                if (fileName.includes('-demo.') || fileName.includes('.demo.')) {
+                    continue;
+                }
+                
                 // If it's a JS project, but the registry has .tsx/.ts, rename to .jsx/.js
                 if (!isTS) {
                     if (fileName.endsWith('.tsx')) fileName = fileName.replace('.tsx', '.jsx');

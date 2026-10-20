@@ -59,4 +59,16 @@ describe('Registry Integrity & Schema Tests', () => {
       }
     }
   });
+
+  it('should ensure no component files include demo files (only main components delivered)', () => {
+    for (const item of registry) {
+      for (const filePath of item.files) {
+        const isDemo = filePath.toLowerCase().includes('-demo.') || filePath.toLowerCase().includes('.demo.');
+        expect(
+          isDemo,
+          `Component "${item.name}" contains demo file in files list: "${filePath}". Only main components should be delivered.`
+        ).toBe(false);
+      }
+    }
+  });
 });

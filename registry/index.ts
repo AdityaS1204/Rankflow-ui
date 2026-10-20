@@ -1,5 +1,3 @@
-import { BrutalistKey } from "./components/brutalist-key";
-
 export const registry = [
     {
         name: "utils",
@@ -867,7 +865,6 @@ export const registry = [
         tags: ["ai", "agent", "loader", "dither", "canvas", "retro", "pixel-art", "animation", "badge"],
         files: [
             "registry/components/dither-loader.tsx",
-            "registry/components/dither-loader-demo.tsx",
         ],
         type: "components:ui",
         size: "sm",
@@ -889,7 +886,6 @@ export const registry = [
         tags: ["ai", "agent", "thinking", "ui", "animation", "typography", "feedback"],
         files: [
             "registry/components/agent-thinking.tsx",
-            "registry/components/agent-thinking-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -920,7 +916,6 @@ export const registry = [
         tags: ["ai", "agent", "citation", "sources", "links", "favicon", "hover", "tooltip", "ui"],
         files: [
             "registry/components/ai-citations.tsx",
-            "registry/components/ai-citation-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -945,7 +940,6 @@ export const registry = [
         tags: ["card", "stack", "image", "hover", "animation", "flatten", "spring"],
         files: [
             "registry/components/stacked-image-cards.tsx",
-            "registry/components/stacked-image-cards-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -970,7 +964,6 @@ export const registry = [
         tags: ["accordion", "spring", "animation", "clean", "minimal"],
         files: [
             "registry/components/spring-accordion.tsx",
-            "registry/components/spring-accordion-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -990,7 +983,6 @@ export const registry = [
         tags: ["button", "slide", "confirm", "swipe", "interaction", "gesture", "mobile", "spring"],
         files: [
             "registry/components/slide-to-confirm.tsx",
-            "registry/components/slide-to-confirm-demo.tsx",
         ],
         type: "components:ui",
         size: "md",
@@ -1014,7 +1006,6 @@ export const registry = [
         tags: ["avatar", "dropdown", "menu", "profile", "user", "animation", "spring", "dark"],
         files: [
             "registry/components/avatar-dropdown.tsx",
-            "registry/components/avatar-dropdown-demo.tsx",
         ],
         type: "components:ui",
         size: "sm",
@@ -1037,7 +1028,6 @@ export const registry = [
         tags: ["backgrounds", "canvas", "grid", "dots", "cursor", "trail", "animation"],
         files: [
             "registry/components/dot-trail-background.tsx",
-            "registry/components/dot-trail-background-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -1065,7 +1055,6 @@ export const registry = [
         tags: ["ai", "card", "image", "loading", "animation", "blur", "generation", "reveal"],
         files: [
             "registry/components/image-generation-card.tsx",
-            "registry/components/image-generation-card-demo.tsx",
         ],
         type: "components:ui",
         size: "md",
@@ -1089,7 +1078,6 @@ export const registry = [
         tags: ["carousel", "3d", "image", "wheel", "gesture", "drag", "blur", "spring", "animation"],
         files: [
             "registry/components/image-wheel.tsx",
-            "registry/components/image-wheel-demo.tsx",
         ],
         type: "components:ui",
         size: "lg",
@@ -1116,7 +1104,6 @@ export const registry = [
         tags: ["slider", "input", "neomorphism", "spring", "rolling-number", "counter", "drag", "tactile"],
         files: [
             "registry/components/tactile-slider.tsx",
-            "registry/components/tactile-slider-demo.tsx",
         ],
         type: "components:ui",
         size: "md",
