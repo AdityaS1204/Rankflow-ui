@@ -10,6 +10,7 @@ import { registry } from "@/registry/index";
 import { FiCode, FiZap, FiBox } from "react-icons/fi";
 
 const navLinks = [
+  { label: "Skills", href: "https://skills.rankflow.in" },
   { label: "Components", href: "/docs/components/scroll-velocity" },
   { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
@@ -27,7 +28,7 @@ function RankFlowIcon({ className }: { className?: string }) {
       className={className}
     >
       <rect x="3" y="3" width="48" height="48" rx="12" fill="#0c0a04" />
- 
+
       {/* Bottom chevron — deep burnt amber, barely visible */}
       <polyline
         points="15,41 27,32 39,41"
@@ -37,7 +38,7 @@ function RankFlowIcon({ className }: { className?: string }) {
         strokeLinejoin="round"
         fill="none"
       />
- 
+
       {/* Mid chevron — warm amber */}
       <polyline
         points="15,31 27,22 39,31"
@@ -47,7 +48,7 @@ function RankFlowIcon({ className }: { className?: string }) {
         strokeLinejoin="round"
         fill="none"
       />
- 
+
       {/* Top chevron — bright gold, thickest */}
       <polyline
         points="15,21 27,12 39,21"
@@ -90,6 +91,15 @@ export default function Navbar() {
       group: "Getting Started",
       perform: () => router.push("/templates")
     },
+    {
+      id: "skills",
+      title: "Skills",
+      icon: <FiZap />,
+      group: "Getting Started",
+      perform: () => {
+        window.location.href = "https://skills.rankflow.in";
+      }
+    },
     ...registry
       .filter(item => item.type === "components:ui")
       .map(item => ({
@@ -113,11 +123,10 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "border-b border-border bg-background/95 backdrop-blur-md"
           : "border-b border-border/50 bg-background/90"
-      }`}
+        }`}
     >
       <div className="flex w-full items-center justify-between px-6 lg:px-8 xl:px-12 py-3">
         {/* Left aligned items: Logo + Links */}
@@ -131,7 +140,7 @@ export default function Navbar() {
           </Link>
 
           {/* Nav links */}
-          <nav 
+          <nav
             className="hidden md:flex items-center gap-1"
             onMouseLeave={() => setHoveredPath(null)}
           >
@@ -146,12 +155,11 @@ export default function Navbar() {
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   onMouseEnter={() => setHoveredPath(link.href)}
-                  className={`group relative px-3 py-1.5 text-sm font-semibold transition-colors duration-200 ${
-                    isActive || isHovered ? "text-foreground" : "text-muted-foreground"
-                  }`}
+                  className={`group relative px-3 py-1.5 text-sm font-semibold transition-colors duration-200 ${isActive || isHovered ? "text-foreground" : "text-muted-foreground"
+                    }`}
                 >
                   <span className="relative z-10">{link.label}</span>
-                  
+
                   {(isHovered || (isActive && !hoveredPath)) && (
                     <motion.div
                       layoutId="navbar-hover"
