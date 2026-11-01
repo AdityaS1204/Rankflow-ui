@@ -46,7 +46,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
   };
 
   return (
-    <div className="group relative rounded-2xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-3 md:p-4 font-mono transition-all hover:border-neutral-300 dark:hover:border-white/10">
+    <div className="group relative rounded-2xl bg-neutral-400/15 dark:bg-[#111111] border border-neutral-300/80 dark:border-white/5 p-3 md:p-4 font-mono transition-all hover:border-neutral-400/80 dark:hover:border-white/10">
       {/* Tab bar / Header */}
       <div className="flex items-center justify-between mb-3 px-1">
         <div className="flex gap-1">
@@ -104,7 +104,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
       </div>
 
       {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-neutral-50 dark:bg-[#080808] border border-neutral-200 dark:border-white/5 overflow-hidden">
+      <div className="relative rounded-xl bg-neutral-400/20 dark:bg-[#080808] border border-neutral-300/70 dark:border-white/5 overflow-hidden">
         <CodeBlock
           code={getCommand(active, command, isExecute)}
           language="bash"

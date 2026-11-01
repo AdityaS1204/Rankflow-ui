@@ -106,10 +106,10 @@ export function PropsTable({ props, componentName }: PropsTableProps) {
       ) : (
         <div className="w-full overflow-x-auto no-scrollbar sm:[scrollbar-width:auto] pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">
           <div className="inline-block min-w-full align-middle">
-            <div className="rounded-xl border border-border/60 bg-card/60 overflow-hidden shadow-xs">
+            <div className="rounded-xl border border-neutral-300/80 dark:border-border/60 bg-neutral-400/15 dark:bg-card/60 overflow-hidden shadow-xs">
               <table className="min-w-[540px] w-full border-collapse text-left text-sm">
                 <thead>
-                  <tr className="border-b border-border/70 bg-muted/40">
+                  <tr className="border-b border-neutral-300/70 dark:border-border/70 bg-neutral-400/20 dark:bg-muted/40">
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Prop</th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Type</th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Default</th>

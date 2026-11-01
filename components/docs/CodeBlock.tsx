@@ -48,7 +48,7 @@ export function CodeBlock({
       "group relative font-mono transition-all",
       hideLabel
         ? "p-0 border-0 bg-transparent shadow-none"
-        : "rounded-xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-0 md:p-3 hover:border-neutral-300 dark:hover:border-white/10"
+        : "rounded-xl bg-neutral-400/15 dark:bg-[#111111] border border-neutral-300/80 dark:border-white/5 p-0 md:p-3 hover:border-neutral-400/80 dark:hover:border-white/10"
     )}>
       {/* Header Label (Filename or Language) */}
       {!hideLabel && (filename || language) && (
@@ -60,7 +60,7 @@ export function CodeBlock({
       )}
 
       {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-neutral-50 dark:bg-[#080808] border border-neutral-200 dark:border-white/5 overflow-hidden">
+      <div className="relative rounded-xl bg-neutral-400/30 dark:bg-[#080808] border border-neutral-300/70 dark:border-white/5 overflow-hidden">
         <Highlight
           theme={prismTheme}
           code={code.trim()}
