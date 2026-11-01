@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -12,7 +12,6 @@ import { FiCode, FiZap, FiBox } from "react-icons/fi";
 const navLinks = [
   { label: "Skills", href: "https://skills.rankflow.in" },
   { label: "Components", href: "/docs/components/scroll-velocity" },
-  { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/AdityaS1204/Rankflow-ui", external: true },
 ];
@@ -64,6 +63,8 @@ function RankFlowIcon({ className }: { className?: string }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
   const router = useRouter();
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
@@ -111,28 +112,48 @@ export default function Navbar() {
       }))
   ];
 
-
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 15) {
+        setIsVisible(true);
+        setScrolled(false);
+      } else {
+        setScrolled(true);
+        // Scrolling down past threshold -> hide navbar
+        if (currentScrollY > lastScrollY.current && currentScrollY > 60) {
+          setIsVisible(false);
+        }
+        // Scrolling up -> show navbar
+        else if (currentScrollY < lastScrollY.current) {
+          setIsVisible(true);
+        }
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const showNavbar = isVisible || isOpen;
 
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "border-b border-border bg-background/95 backdrop-blur-md"
-          : "border-b border-border/50 bg-background/90"
+      animate={{ y: showNavbar ? 0 : -80, opacity: showNavbar ? 1 : 0 }}
+      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled
+          ? "border-b border-border/40 bg-background/80 backdrop-blur-md"
+          : "border-b border-transparent bg-background/50 backdrop-blur-xs"
         }`}
     >
-      <div className="flex w-full items-center justify-between px-6 lg:px-8 xl:px-12 py-3">
+      <div className="flex w-full items-center justify-between px-6 lg:px-8 xl:px-12 py-1.5">
         {/* Left aligned items: Logo + Links */}
         <div className="flex items-center gap-8">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2.5">
+          <Link href="/" className="group flex items-center gap-2">
             <RankFlowIcon className="shrink-0 transition-transform duration-300 group-hover:scale-105" />
             <span className="text-xl font-bold tracking-tight text-foreground">
               RankFlow{" "}UI
@@ -155,7 +176,7 @@ export default function Navbar() {
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   onMouseEnter={() => setHoveredPath(link.href)}
-                  className={`group relative px-3 py-1.5 text-sm font-semibold transition-colors duration-200 ${isActive || isHovered ? "text-foreground" : "text-muted-foreground"
+                  className={`group relative px-2.5 py-1 text-sm font-semibold transition-colors duration-200 ${isActive || isHovered ? "text-foreground" : "text-muted-foreground"
                     }`}
                 >
                   <span className="relative z-10">{link.label}</span>
