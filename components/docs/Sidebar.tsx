@@ -19,7 +19,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={{ rotate: open ? 0 : -90 }}
-      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
       className="shrink-0 text-muted-foreground"
     >
       <polyline points="6 9 12 15 18 9" />
@@ -40,95 +40,103 @@ export default function DocsSidebar() {
     setOpenSections((prev) => ({ ...prev, [label]: !prev[label] }));
 
   return (
-    <aside className="w-60 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-6 hidden lg:block no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-      <nav
-        className="flex flex-col gap-1"
-        onMouseLeave={() => setHoveredHref(null)}
-      >
-        {sections.map((section) => {
-          const isOpen = !!openSections[section.label];
+    <aside className="w-60 shrink-0 h-[calc(100vh-7.5rem)] flex flex-col bg-transparent">
+      <div className="w-full h-full overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pr-2 pb-8">
+        <nav
+          className="flex flex-col gap-1"
+          onMouseLeave={() => setHoveredHref(null)}
+        >
+          {sections.map((section) => {
+            const isOpen = !!openSections[section.label];
 
-          return (
-            <div key={section.label} className="mb-4">
-              <button
-                onClick={() => toggleSection(section.label)}
-                className="w-full flex items-center justify-between px-3 py-1 mb-1 rounded-md
-                           group hover:bg-accent/30 transition-colors duration-200"
-              >
-                <span className="text-sm font-normal tracking-wider text-foreground
-                                 group-hover:text-foreground/80 transition-colors duration-200">
-                  {section.label}
-                </span>
-                <ChevronIcon open={isOpen} />
-              </button>
+            return (
+              <div key={section.label} className="mb-3">
+                <button
+                  onClick={() => toggleSection(section.label)}
+                  className="w-full flex items-center justify-between px-2 py-1 mb-1 rounded-md text-xs font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors duration-150"
+                >
+                  <span>{section.label}</span>
+                  <ChevronIcon open={isOpen} />
+                </button>
 
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    key="section-body"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{
-                      height: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
-                      opacity: { duration: 0.25, ease: "easeOut" },
-                    }}
-                    className="overflow-hidden"
-                  >
-                    <motion.ul
-                      initial={{ filter: "blur(4px)", y: -4 }}
-                      animate={{ filter: "blur(0px)", y: 0 }}
-                      exit={{ filter: "blur(4px)", y: -4 }}
-                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                      className="flex flex-col gap-0.5"
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="section-body"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        height: { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
+                        opacity: { duration: 0.2, ease: "easeOut" },
+                      }}
+                      className="overflow-hidden"
                     >
-                      {section.items.map((item) => {
-                        const isActive = pathname === item.href;
-                        const isHovered = hoveredHref === item.href;
+                      <ul className="flex flex-col gap-0.5 mt-0.5">
+                        {section.items.map((item) => {
+                          const isActive = pathname === item.href;
+                          const isHovered = hoveredHref === item.href;
 
-                        return (
-                          <li key={item.href}>
-                            <Link
-                              href={item.href}
-                              onMouseEnter={() => setHoveredHref(item.href)}
-                              className={`relative flex items-center justify-between px-3 py-1.5 text-sm rounded-md transition-colors duration-200 ${isActive
-                                ? "text-foreground font-medium"
-                                : "text-muted-foreground hover:text-foreground"
-                                }`}
-                            >
-                              <span className="relative z-10 flex items-center gap-2">
-                                {item.title}
-                                {item.isNew && (
-                                  <span className="px-1.5 py-0.5 text-[10px] font-medium tracking-wider bg-zinc-900 border border-neutral-800 text-white rounded-md">
-                                    New
-                                  </span>
+                          return (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href}
+                                onMouseEnter={() => setHoveredHref(item.href)}
+                                className={`group relative flex items-center justify-between px-2.5 py-1 text-sm rounded-md transition-colors duration-150 ${isActive
+                                  ? "text-neutral-950 dark:text-white font-medium"
+                                  : "text-neutral-600 dark:text-zinc-400 hover:text-neutral-950 dark:hover:text-white"
+                                  }`}
+                              >
+                                <span className="relative z-10 flex items-center gap-2">
+                                  {item.title}
+                                  {item.isNew && (
+                                    <span className="px-1.5 py-0.5 text-[9px] font-medium tracking-tight bg-muted text-muted-foreground border border-border/60 rounded">
+                                      New
+                                    </span>
+                                  )}
+                                </span>
+
+                                {(isHovered || (isActive && !hoveredHref)) && (
+                                  <motion.div
+                                    layoutId="docs-sidebar-hover"
+                                    className="absolute inset-0 z-0 rounded-md bg-neutral-200/80 dark:bg-zinc-800/80 shadow-xs"
+                                    initial={false}
+                                    transition={{
+                                      type: "spring",
+                                      bounce: 0.15,
+                                      duration: 0.35,
+                                    }}
+                                  />
                                 )}
-                              </span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </nav>
 
-                              {(isHovered || (isActive && !hoveredHref)) && (
-                                <motion.div
-                                  layoutId="docs-sidebar-hover"
-                                  className="absolute inset-0 z-0 rounded-md bg-accent/50"
-                                  initial={false}
-                                  transition={{
-                                    type: "spring",
-                                    bounce: 0.2,
-                                    duration: 0.4,
-                                  }}
-                                />
-                              )}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </motion.ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
-      </nav>
+        {/* Minimal Footer metadata matching reference image */}
+        <div className="mt-6 pt-5 border-t border-border/40 flex flex-col gap-1.5 px-2 text-xs text-muted-foreground/75">
+          <div>v0.1.0 · MIT licensed</div>
+          <div>
+            Made by{" "}
+            <a
+              href="https://github.com/AdityaS1204/Rankflow-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/80 hover:text-foreground underline underline-offset-3 transition-colors"
+            >
+              Aditya
+            </a>
+          </div>
+        </div>
+      </div>
     </aside>
   );
 }
