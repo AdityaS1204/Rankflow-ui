@@ -45,22 +45,52 @@ export function CodeBlock({
 
   return (
     <div className={cn(
-      "group relative font-mono transition-all",
-      hideLabel
-        ? "p-0 border-0 bg-transparent shadow-none"
-        : "rounded-xl bg-neutral-400/15 dark:bg-[#111111] border border-neutral-300/80 dark:border-white/5 p-0 md:p-3 hover:border-neutral-400/80 dark:hover:border-white/10"
+      "group relative font-mono overflow-hidden rounded-lg border border-neutral-300/80 dark:border-white/10 bg-neutral-200/80 dark:bg-zinc-800/80 transition-colors",
+      hideLabel ? "p-0" : ""
     )}>
-      {/* Header Label (Filename or Language) */}
-      {!hideLabel && (filename || language) && (
-        <div className="mb-3 flex items-center px-1">
-          <span className="text-[13px] font-medium text-neutral-600 dark:text-neutral-400/90 tracking-tight">
+      {/* Header bar: filename left, copy right */}
+      {!hideLabel && (
+        <div className="flex items-center justify-between px-4 py-2 border-b border-neutral-300/70 dark:border-white/[0.08] bg-neutral-300/35 dark:bg-zinc-900/35">
+          <span className="text-[12.5px] font-medium text-neutral-700 dark:text-neutral-300 tracking-tight select-none">
             {filename || language}
           </span>
+
+          {shouldShowCopy && (
+            <button
+              onClick={handleCopy}
+              className="p-1.5 rounded-md text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-neutral-300/60 dark:hover:bg-white/[0.08] transition-colors duration-150 cursor-pointer"
+              aria-label="Copy code"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {copied ? (
+                  <motion.div
+                    key="check"
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.12 }}
+                  >
+                    <CheckIcon className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="copy"
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.12 }}
+                  >
+                    <CopyIcon className="h-3.5 w-3.5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+          )}
         </div>
       )}
 
-      {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-neutral-400/30 dark:bg-[#080808] border border-neutral-300/70 dark:border-white/5 overflow-hidden">
+      {/* Code area */}
+      <div className="relative">
         <Highlight
           theme={prismTheme}
           code={code.trim()}
@@ -68,8 +98,8 @@ export function CodeBlock({
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={`${className} max-h-[500px] overflow-auto p-4 md:p-4 text-[14px] leading-relaxed 
-                scrollbar-thin scrollbar-thumb-neutral-800/80 scrollbar-track-transparent font-mono`}
+              className={`${className} max-h-[500px] overflow-auto px-4 py-3.5 text-[13.5px] leading-[1.7]
+                scrollbar-thin scrollbar-thumb-neutral-400/60 dark:scrollbar-thumb-neutral-600/60 scrollbar-track-transparent font-mono`}
               style={{ ...style, backgroundColor: 'transparent' }}
             >
               <div className="min-w-full inline-block font-mono">
@@ -77,10 +107,10 @@ export function CodeBlock({
                   const { key: lineKey, ...lineProps } = getLineProps({ line, key: i }) as any;
                   return (
                     <div key={lineKey} {...lineProps} className="table-row group/line font-mono">
-                      <span className="table-cell select-none pr-6 text-right text-neutral-400 dark:text-neutral-700 w-12 border-r border-neutral-200 dark:border-neutral-800/30 mr-4 transition-colors group-hover/line:text-neutral-600 dark:group-hover/line:text-neutral-500 font-mono italic">
+                      <span className="table-cell select-none pr-5 text-right text-neutral-400 dark:text-neutral-500 w-8 transition-colors group-hover/line:text-neutral-700 dark:group-hover/line:text-neutral-300 font-mono text-[12px]">
                         {i + 1}
                       </span>
-                      <span className="table-cell pl-6 font-mono">
+                      <span className="table-cell pl-5 font-mono">
                         {line.map((token, key) => {
                           const { key: tokenKey, ...tokenProps } = getTokenProps({ token, key }) as any;
                           return <span key={tokenKey} {...tokenProps} className="font-mono" />;
@@ -94,33 +124,33 @@ export function CodeBlock({
           )}
         </Highlight>
 
-        {/* Minimalist Copy Button (Matching image) */}
-        {shouldShowCopy && (
+        {/* Floating copy for hideLabel mode */}
+        {hideLabel && shouldShowCopy && (
           <button
             onClick={handleCopy}
-            className="absolute top-4 right-4 p-2 rounded-lg border border-neutral-200 dark:border-white/5 bg-white dark:bg-white/2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-white/8 hover:border-neutral-300 dark:hover:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white backdrop-blur-md z-10"
+            className="absolute top-2.5 right-2.5 p-1.5 rounded-md text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-neutral-300/70 dark:hover:bg-white/[0.08] opacity-0 group-hover:opacity-100 transition-all duration-200 z-10 cursor-pointer"
             aria-label="Copy code"
           >
             <AnimatePresence mode="wait" initial={false}>
               {copied ? (
                 <motion.div
                   key="check"
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.15 }}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.12 }}
                 >
-                  <CheckIcon className="h-4 w-4 text-emerald-500" />
+                  <CheckIcon className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
                 </motion.div>
               ) : (
                 <motion.div
                   key="copy"
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.7 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.15 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.12 }}
                 >
-                  <CopyIcon className="h-4 w-4" />
+                  <CopyIcon className="h-3.5 w-3.5" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -130,5 +160,3 @@ export function CodeBlock({
     </div>
   );
 }
-
-

@@ -106,19 +106,19 @@ export function PropsTable({ props, componentName }: PropsTableProps) {
       ) : (
         <div className="w-full overflow-x-auto no-scrollbar sm:[scrollbar-width:auto] pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">
           <div className="inline-block min-w-full align-middle">
-            <div className="rounded-xl border border-neutral-300/80 dark:border-border/60 bg-neutral-400/15 dark:bg-card/60 overflow-hidden shadow-xs">
+            <div className="rounded-lg border border-neutral-300/80 dark:border-white/10 bg-neutral-200/80 dark:bg-zinc-800/80 overflow-hidden shadow-xs">
               <table className="min-w-[540px] w-full border-collapse text-left text-sm">
                 <thead>
-                  <tr className="border-b border-neutral-300/70 dark:border-border/70 bg-neutral-400/20 dark:bg-muted/40">
+                  <tr className="border-b border-neutral-300/70 dark:border-white/[0.08] bg-neutral-300/35 dark:bg-zinc-900/35">
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Prop</th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Type</th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Default</th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-wider text-muted-foreground">Description</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/40">
+                <tbody className="divide-y divide-neutral-300/60 dark:divide-white/[0.06]">
                   {props.map((prop) => (
-                    <tr key={prop.name} className="hover:bg-muted/20 transition-colors">
+                    <tr key={prop.name} className="hover:bg-neutral-300/30 dark:hover:bg-zinc-700/30 transition-colors">
                       <td className="px-4 py-3.5 font-mono text-xs font-semibold text-amber-500 whitespace-nowrap">
                         {prop.name}
                       </td>
