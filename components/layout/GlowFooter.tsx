@@ -14,7 +14,6 @@ const FOOTER_LINKS = {
     { title: "Social Share Button", slug: "social-share-button" },
     { title: "Delete Button", slug: "delete-button" },
     { title: "Brutalist Button", slug: "brutalist-button" },
-    { title: "Brutalist Key", slug: "brutalist-key" },
   ],
   Cards: [
     { title: "Spotlight Card", slug: "spotlight-card" },

@@ -477,22 +477,6 @@ export const registry = [
         ]
     },
     {
-        name: "brutalist-key",
-        title: "Brutalist Key",
-        description: "A brutalist key component with a unique design.",
-        dependencies: ["react"],
-        registryDependencies: [],
-        tags: ["button", "key", "brutalist"],
-        files: [
-            "registry/components/brutalist-key.tsx",
-        ],
-        type: "components:ui",
-        props: [
-            { name: "children", type: "ReactNode", default: "-", description: "The content of the key." },
-            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the key." },
-        ]
-    },
-    {
         name: "ecosystem-hero",
         title: "Ecosystem Hero",
         description: "A premium hero section with fractal wall background, 3D buttons, and floating app icons.",
