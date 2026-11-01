@@ -50,7 +50,7 @@ export function CodeBlock({
     )}>
       {/* Header bar: filename left, copy right */}
       {!hideLabel && (
-        <div className="flex items-center justify-between px-4 py-2 border-b border-neutral-300/70 dark:border-white/[0.08] bg-neutral-300/35 dark:bg-zinc-900/35">
+        <div className="flex items-center justify-between px-4 py-2 border-b border-neutral-300/70 dark:border-white/8 bg-neutral-300/35 dark:bg-zinc-900/35">
           <span className="text-[12.5px] font-medium text-neutral-700 dark:text-neutral-300 tracking-tight select-none">
             {filename || language}
           </span>

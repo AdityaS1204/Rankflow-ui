@@ -59,7 +59,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
   return (
     <div className="group relative rounded-lg border border-neutral-300/80 dark:border-white/10 bg-neutral-200/80 dark:bg-zinc-800/80 overflow-hidden font-mono transition-colors">
       {/* Header bar: tabs left, copy right */}
-      <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-300/70 dark:border-white/[0.08] bg-neutral-300/35 dark:bg-zinc-900/35">
+      <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-300/70 dark:border-white/8 bg-neutral-300/35 dark:bg-zinc-900/35">
         <div className="flex items-center gap-0.5">
           {PM_LABELS.map((pm) => (
             <button
