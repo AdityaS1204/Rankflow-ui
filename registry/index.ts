@@ -477,22 +477,6 @@ export const registry = [
         ]
     },
     {
-        name: "accordion-pill-luxe",
-        title: "Pill Luxe Accordion",
-        description: "A frosted glass accordion with full-radius pill triggers, plus-to-close icon morph, and spring height expansion inside one luxe shell.",
-        dependencies: ["react", "motion"],
-        registryDependencies: [],
-        tags: ["block", "accordion", "interaction", "animation"],
-        files: [
-            "registry/components/accordion-pill-luxe.tsx",
-        ],
-        type: "components:ui",
-        props: [
-            { name: "items", type: "AccordionPillItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
-            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
-        ]
-    },
-    {
         name: "accordion-neon-rail",
         title: "Neon Rail Accordion",
         description: "A sharp, square accordion with a sliding neon rail indicator and horizontal clip-path content reveal — technical control-panel aesthetic.",
