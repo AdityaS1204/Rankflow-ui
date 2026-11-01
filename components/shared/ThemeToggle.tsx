@@ -19,7 +19,7 @@ export function ModeToggle() {
 
   return (
     <button
-      className="h-9 w-9 bg-transparent hover:bg-accent transition-colors overflow-hidden rounded-md flex items-center justify-center"
+      className="h-9 w-9 bg-transparent hover:bg-accent transition-colors overflow-hidden rounded-md flex items-center justify-center cursor-pointer"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       <div className="relative w-4 h-4">

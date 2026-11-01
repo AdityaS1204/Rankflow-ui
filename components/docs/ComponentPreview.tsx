@@ -59,7 +59,7 @@ export function ComponentPreview({
 
   return (
     <div className={cn(
-      "group relative my-10 flex flex-col space-y-4",
+      "group relative mb-8 flex flex-col space-y-4",
       isLarge ? "max-w-6xl" : "max-w-3xl"
     )}>
       <div className="flex items-center justify-between border-b border-border pb-px">

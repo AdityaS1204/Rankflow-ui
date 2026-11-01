@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "motion/react";
 import { Highlight, themes, type Language } from "prism-react-renderer";
+import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
   code: string;
@@ -14,10 +15,10 @@ interface CodeBlockProps {
   showCopy?: boolean;
 }
 
-export function CodeBlock({ 
-  code, 
-  language = "tsx", 
-  filename, 
+export function CodeBlock({
+  code,
+  language = "tsx",
+  filename,
   hideLabel = false,
   showCopy
 }: CodeBlockProps) {
@@ -43,7 +44,12 @@ export function CodeBlock({
   const lang = (language?.toLowerCase() === "typescript" ? "tsx" : language?.toLowerCase() || "tsx") as Language;
 
   return (
-    <div className="group relative rounded-xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-0 md:p-3 font-mono shadow-xl dark:shadow-2xl transition-all hover:border-neutral-300 dark:hover:border-white/10">
+    <div className={cn(
+      "group relative font-mono transition-all",
+      hideLabel
+        ? "p-0 border-0 bg-transparent shadow-none"
+        : "rounded-xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-0 md:p-3 hover:border-neutral-300 dark:hover:border-white/10"
+    )}>
       {/* Header Label (Filename or Language) */}
       {!hideLabel && (filename || language) && (
         <div className="mb-3 flex items-center px-1">
@@ -61,9 +67,9 @@ export function CodeBlock({
           language={lang}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre 
+            <pre
               className={`${className} max-h-[500px] overflow-auto p-4 md:p-4 text-[14px] leading-relaxed 
-                scrollbar-thin scrollbar-thumb-neutral-800/80 scrollbar-track-transparent font-mono`} 
+                scrollbar-thin scrollbar-thumb-neutral-800/80 scrollbar-track-transparent font-mono`}
               style={{ ...style, backgroundColor: 'transparent' }}
             >
               <div className="min-w-full inline-block font-mono">

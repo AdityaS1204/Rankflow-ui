@@ -46,7 +46,7 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
   };
 
   return (
-    <div className="group relative rounded-2xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-3 md:p-4 font-mono shadow-xl dark:shadow-2xl transition-all hover:border-neutral-300 dark:hover:border-white/10">
+    <div className="group relative rounded-2xl bg-white dark:bg-[#111111] border border-neutral-200 dark:border-white/5 p-3 md:p-4 font-mono transition-all hover:border-neutral-300 dark:hover:border-white/10">
       {/* Tab bar / Header */}
       <div className="flex items-center justify-between mb-3 px-1">
         <div className="flex gap-1">
@@ -55,8 +55,8 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
               key={pm}
               onClick={() => setActive(pm)}
               className={`relative px-3 py-1.5 text-[13px] font-mono transition-colors duration-200 ${active === pm
-                  ? "text-black dark:text-white"
-                  : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300"
+                ? "text-black dark:text-white"
+                : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300"
                 }`}
             >
               {pm}
