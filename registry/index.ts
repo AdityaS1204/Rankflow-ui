@@ -477,23 +477,6 @@ export const registry = [
         ]
     },
     {
-        name: "accordion-neon-rail",
-        title: "Neon Rail Accordion",
-        description: "A sharp, square accordion with a sliding neon rail indicator and horizontal clip-path content reveal — technical control-panel aesthetic.",
-        dependencies: ["react", "motion"],
-        registryDependencies: [],
-        tags: ["block", "accordion", "interaction", "animation"],
-        files: [
-            "registry/components/accordion-neon-rail.tsx",
-        ],
-        type: "components:ui",
-        props: [
-            { name: "items", type: "AccordionRailItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
-            { name: "accentColor", type: "string", default: "#22d3ee", description: "Accent color for the sliding rail and open-state highlights." },
-            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
-        ]
-    },
-    {
         name: "accordion-stack-deck",
         title: "Stack Deck Accordion",
         description: "An overlapping card-deck accordion where collapsed rows shrink to strips and the active panel lifts forward with depth and spring motion.",
