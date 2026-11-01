@@ -477,22 +477,6 @@ export const registry = [
         ]
     },
     {
-        name: "accordion-stack-deck",
-        title: "Stack Deck Accordion",
-        description: "An overlapping card-deck accordion where collapsed rows shrink to strips and the active panel lifts forward with depth and spring motion.",
-        dependencies: ["react", "motion"],
-        registryDependencies: [],
-        tags: ["block", "accordion", "interaction", "animation"],
-        files: [
-            "registry/components/accordion-stack-deck.tsx",
-        ],
-        type: "components:ui",
-        props: [
-            { name: "items", type: "AccordionStackItem[]", default: "DEFAULT_ITEMS", description: "Array of items with id, question, and answer." },
-            { name: "className", type: "string", default: "''", description: "Additional CSS classes for the wrapper." },
-        ]
-    },
-    {
         name: "brutalist-key",
         title: "Brutalist Key",
         description: "A brutalist key component with a unique design.",

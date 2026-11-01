@@ -26,7 +26,6 @@ import { DrawingCursor } from "./components/drawing-cursor";
 import { FileUpload } from "./components/file-upload";
 import { BrutalistKey } from "./components/brutalist-key";
 import { Accordion } from "./components/accordion";
-import { AccordionStackDeck } from "./components/accordion-stack-deck";
 import { BentoGrid001 } from "./components/bento-grid-001";
 import { ProductShowcaseCard } from "./components/product-showcase-card";
 import { MusicPlayerCard } from "./components/music-player-card";
@@ -83,7 +82,6 @@ export const registryComponents: Record<string, any> = {
   "file-upload": FileUpload,
   "brutalist-key": BrutalistKey,
   "accordion": Accordion,
-  "accordion-stack-deck": AccordionStackDeck,
   "bento-grid-001": BentoGrid001,
   "product-showcase-card": ProductShowcaseCard,
   "music-player-card": MusicPlayerCard,
