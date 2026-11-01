@@ -74,6 +74,26 @@
     mask-image: linear-gradient(to bottom, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
   }
+  .fixed-top-mask {
+    background: linear-gradient(
+      to bottom,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 95%, transparent) 30%,
+      color-mix(in srgb, var(--background) 70%, transparent) 60%,
+      color-mix(in srgb, var(--background) 25%, transparent) 85%,
+      transparent 100%
+    );
+  }
+  .fixed-bottom-mask {
+    background: linear-gradient(
+      to top,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 95%, transparent) 30%,
+      color-mix(in srgb, var(--background) 70%, transparent) 60%,
+      color-mix(in srgb, var(--background) 25%, transparent) 85%,
+      transparent 100%
+    );
+  }
 }
 
 html {
