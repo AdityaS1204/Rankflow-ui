@@ -477,21 +477,6 @@ export const registry = [
         ]
     },
     {
-        name: "ecosystem-hero",
-        title: "Ecosystem Hero",
-        description: "A premium hero section with fractal wall background, 3D buttons, and floating app icons.",
-        dependencies: ["react", "motion", "lucide-react", "react-icons"],
-        registryDependencies: [],
-        tags: ["hero", "block", "landing", "3d", "fractal"],
-        files: [
-            "registry/components/ecosystem-hero.tsx",
-        ],
-        type: "components:ui",
-        size: "lg",
-        fullScreenPreview: true,
-        props: []
-    },
-    {
         name: "bento-grid-001",
         title: " Bento Grid 001",
         description: "An interactive bento grid Layout of color palettes with fluid resizing layout animations. You can use it for your next bento grid layout.",

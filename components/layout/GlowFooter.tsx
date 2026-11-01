@@ -48,7 +48,6 @@ const FOOTER_LINKS = {
   ],
   Blocks: [
     { title: "Hero Section", slug: "hero-section" },
-    { title: "Ecosystem Hero", slug: "ecosystem-hero" },
     { title: "Pricing Plan", slug: "pricing-plan" },
     { title: "Bento Grid 001", slug: "bento-grid-001" },
   ],
