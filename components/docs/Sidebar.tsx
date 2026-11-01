@@ -40,8 +40,8 @@ export default function DocsSidebar() {
     setOpenSections((prev) => ({ ...prev, [label]: !prev[label] }));
 
   return (
-    <aside className="w-60 shrink-0 h-[calc(100vh-7.5rem)] flex flex-col bg-transparent">
-      <div className="w-full h-full overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pr-2 pb-8">
+    <aside className="w-60 shrink-0 h-[calc(100vh-3.5rem)] flex flex-col bg-transparent border-r border-border/40 pr-3">
+      <div className="w-full h-full overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pl-1 pr-1 pb-8">
         <nav
           className="flex flex-col gap-1"
           onMouseLeave={() => setHoveredHref(null)}
