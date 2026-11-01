@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { CodeBlock } from "./CodeBlock";
 import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "motion/react";
+import { useTheme } from "next-themes";
+import { Highlight, themes, type Language } from "prism-react-renderer";
 
 type PackageManager = "npm" | "yarn" | "pnpm" | "bun";
 
@@ -37,6 +38,14 @@ function getCommand(pm: PackageManager, command: string, isExecute: boolean): st
 export function PackageManagerTabs({ command, isExecute = false }: PackageManagerTabsProps) {
   const [active, setActive] = useState<PackageManager>("npm");
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  // Hydration guard
+  useState(() => { setMounted(true); });
+
+  const isDark = !mounted || resolvedTheme !== "light";
+  const prismTheme = isDark ? themes.vsDark : themes.github;
 
   const handleCopy = async () => {
     const fullCommand = getCommand(active, command, isExecute);
@@ -45,74 +54,111 @@ export function PackageManagerTabs({ command, isExecute = false }: PackageManage
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const currentCommand = getCommand(active, command, isExecute);
+
   return (
-    <div className="group relative rounded-2xl bg-neutral-400/15 dark:bg-[#111111] border border-neutral-300/80 dark:border-white/5 p-3 md:p-4 font-mono transition-all hover:border-neutral-400/80 dark:hover:border-white/10">
-      {/* Tab bar / Header */}
-      <div className="flex items-center justify-between mb-3 px-1">
-        <div className="flex gap-1">
+    <div className="group relative rounded-lg border border-neutral-300/80 dark:border-white/10 bg-neutral-200/80 dark:bg-zinc-800/80 overflow-hidden font-mono transition-colors">
+      {/* Header bar: tabs left, copy right */}
+      <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-300/70 dark:border-white/[0.08] bg-neutral-300/35 dark:bg-zinc-900/35">
+        <div className="flex items-center gap-0.5">
           {PM_LABELS.map((pm) => (
             <button
               key={pm}
               onClick={() => setActive(pm)}
-              className={`relative px-3 py-1.5 text-[13px] font-mono transition-colors duration-200 ${active === pm
-                ? "text-black dark:text-white"
-                : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300"
-                }`}
+              className="relative px-2.5 py-1 text-[12.5px] font-mono transition-colors duration-150 rounded-md cursor-pointer select-none"
             >
-              {pm}
+              <span className={`relative z-10 transition-colors duration-150 ${
+                active === pm
+                  ? "text-neutral-950 dark:text-white font-medium"
+                  : "text-neutral-600 dark:text-zinc-400 hover:text-neutral-950 dark:hover:text-white"
+              }`}>
+                {pm}
+              </span>
+
               {active === pm && (
                 <motion.div
-                  layoutId="pm-active-tab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-500/80 rounded-full"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  layoutId="pm-pill"
+                  className="absolute inset-0 z-0 rounded-md bg-white dark:bg-zinc-700/80 shadow-[0_1px_2px_rgba(0,0,0,0.06)] border border-neutral-300/70 dark:border-white/10"
+                  transition={{
+                    type: "spring",
+                    bounce: 0.15,
+                    duration: 0.35,
+                  }}
                 />
               )}
             </button>
           ))}
         </div>
 
-        {/* Copy Button (matching CodeBlock style) */}
+        {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="p-2 rounded-lg border border-neutral-200 dark:border-white/5 bg-white dark:bg-white/2 hover:bg-neutral-100 dark:hover:bg-white/8 hover:border-neutral-300 dark:hover:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white transition-all backdrop-blur-md"
+          className="p-1.5 rounded-md text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-neutral-300/60 dark:hover:bg-white/[0.08] transition-colors duration-150 cursor-pointer"
           aria-label="Copy command"
         >
           <AnimatePresence mode="wait" initial={false}>
             {copied ? (
               <motion.div
                 key="check"
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.12 }}
               >
-                <CheckIcon className="h-4 w-4 text-emerald-500" />
+                <CheckIcon className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
               </motion.div>
             ) : (
               <motion.div
                 key="copy"
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.12 }}
               >
-                <CopyIcon className="h-4 w-4" />
+                <CopyIcon className="h-3.5 w-3.5" />
               </motion.div>
             )}
           </AnimatePresence>
         </button>
       </div>
 
-      {/* Inner Code Container */}
-      <div className="relative rounded-xl bg-neutral-400/20 dark:bg-[#080808] border border-neutral-300/70 dark:border-white/5 overflow-hidden">
-        <CodeBlock
-          code={getCommand(active, command, isExecute)}
-          language="bash"
-          hideLabel
-        />
+      {/* Command display with smooth blur-crossfade */}
+      <div className="relative px-4 py-3 overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 4, filter: "blur(3px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -4, filter: "blur(3px)" }}
+            transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <Highlight
+              theme={prismTheme}
+              code={currentCommand}
+              language={"bash" as Language}
+            >
+              {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <pre
+                  className={`${className} text-[13.5px] leading-relaxed font-mono whitespace-pre`}
+                  style={{ ...style, backgroundColor: "transparent" }}
+                >
+                  {tokens.map((line, i) => {
+                    const { key: lineKey, ...lineProps } = getLineProps({ line, key: i }) as any;
+                    return (
+                      <div key={lineKey} {...lineProps} className="font-mono">
+                        {line.map((token, key) => {
+                          const { key: tokenKey, ...tokenProps } = getTokenProps({ token, key }) as any;
+                          return <span key={tokenKey} {...tokenProps} className="font-mono" />;
+                        })}
+                      </div>
+                    );
+                  })}
+                </pre>
+              )}
+            </Highlight>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
 }
-
-
