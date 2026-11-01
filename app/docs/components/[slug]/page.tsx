@@ -62,18 +62,14 @@ export default async function ComponentPage({
 
   return (
     <article className={cn("pb-20 w-full", isLarge ? "max-w-5xl" : "max-w-4xl")}>
-      {/* Breadcrumb */}
-      <p className="text-sm text-muted-foreground mb-4">
-        Docs / Components /{" "}
-        <span className="text-foreground font-medium">{component.title}</span>
-      </p>
-
-      <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
-        {component.title}
-      </h1>
-      <p className="text-lg text-muted-foreground mb-8">
-        {component.description}
-      </p>
+      <div className="mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-2.5">
+          {component.title}
+        </h1>
+        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
+          {component.description}
+        </p>
+      </div>
 
       <ComponentPreview
         slug={slug}
@@ -88,8 +84,8 @@ export default async function ComponentPage({
       <div className="space-y-12">
         {/* Dependencies */}
         {deps && (
-          <section className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground text-balance">
+          <section className="space-y-3">
+            <h2 className="text-base sm:text-lg font-semibold tracking-tight text-foreground text-balance">
               Dependencies
             </h2>
             <p className="text-muted-foreground text-sm">
@@ -100,8 +96,8 @@ export default async function ComponentPage({
         )}
 
         {/* Install via CLI */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground text-balance">
+        <section className="space-y-3">
+          <h2 className="text-base sm:text-lg font-semibold tracking-tight text-foreground text-balance">
             Installation
           </h2>
           <p className="text-muted-foreground text-sm">
@@ -113,7 +109,7 @@ export default async function ComponentPage({
 
       {/* Props Reference */}
       {component.props && component.props.length > 0 && (
-        <PropsTable props={component.props} />
+        <PropsTable props={component.props} componentName={component.title || component.name} />
       )}
       <div className="mt-5 pt-5">
         <DocsPager />
